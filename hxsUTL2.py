@@ -780,7 +780,7 @@ class Sutl:
 				r = Util.flatten(self._evaluateList(s,tlist[1:None],l,src,tt,b,self.dec(h)))
 			else:
 				r = self._evaluateList(s,t,l,src,tt,b,self.dec(h))
-		elif Util3.isStringBuiltinEval(t,b):
+		elif Util.isStringBuiltinEval(t,b):
 			r = self._evaluateStringBuiltin(s,t,l,src,tt,b,self.dec(h))
 		else:
 			r = t
@@ -1208,7 +1208,24 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isArrayBuiltinEval", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
+	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
+
+	@staticmethod
+	def isStringBuiltinEval(obj,b):
+		retval = Util2.isString(obj)
+		if retval:
+			_hx_str = None
+			def _hx_local_0():
+				_hx_local_0 = obj
+				if Std._hx_is(_hx_local_0,str):
+					_hx_local_0
+				else:
+					raise _HxException("Class cast error")
+				return _hx_local_0
+			_hx_str = _hx_local_0()
+			larr = _hx_str.split(".")
+			retval = Util.isArrayBuiltinEval(larr,b)
+		return retval
 
 	@staticmethod
 	def isArrayBuiltinEval(obj,b):
@@ -1538,28 +1555,11 @@ class SlowUtil2:
 
 class Util3:
 	_hx_class_name = "Util3"
-	_hx_statics = ["isBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
+	_hx_statics = ["isBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
 
 	@staticmethod
 	def isBuiltinEval(obj):
 		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "&") if ("&" in python_Boot.keywords) else (("_hx_" + "&") if (((((len("&") > 2) and ((ord("&"[0]) == 95))) and ((ord("&"[1]) == 95))) and ((ord("&"[(len("&") - 1)]) != 95)))) else "&"))))
-
-	@staticmethod
-	def isStringBuiltinEval(obj,b):
-		retval = Util2.isString(obj)
-		if retval:
-			_hx_str = None
-			def _hx_local_0():
-				_hx_local_0 = obj
-				if Std._hx_is(_hx_local_0,str):
-					_hx_local_0
-				else:
-					raise _HxException("Class cast error")
-				return _hx_local_0
-			_hx_str = _hx_local_0()
-			larr = _hx_str.split(".")
-			retval = Util.isArrayBuiltinEval(larr,b)
-		return retval
 
 	@staticmethod
 	def isEval(obj):
