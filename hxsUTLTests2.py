@@ -2775,14 +2775,7 @@ class Util:
 	def SequenceToArray(aObj):
 		retval = None
 		if Util.isArray(aObj):
-			def _hx_local_0():
-				_hx_local_0 = aObj
-				if Std._hx_is(_hx_local_0,list):
-					_hx_local_0
-				else:
-					raise _HxException("Class cast error")
-				return _hx_local_0
-			retval = _hx_local_0()
+			retval = aObj
 		elif Util.isString(aObj):
 			retval = Util.StringToArray(aObj)
 		return retval
