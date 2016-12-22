@@ -2425,7 +2425,7 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
+	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist", "shallowCopy"]
 
 	@staticmethod
 	def isStringBuiltinEval(obj,b):
@@ -2620,33 +2620,6 @@ class Util:
 		return retval
 
 	@staticmethod
-	def shallowCopy(aObj):
-		retval = None
-		s = Sutl()
-		objType = Util.gettype(aObj)
-		if (objType == "map"):
-			retval = Reflect.copy(aObj)
-		elif (objType == "list"):
-			retval = []
-			_g = 0
-			_g1 = None
-			def _hx_local_0():
-				_hx_local_0 = aObj
-				if Std._hx_is(_hx_local_0,list):
-					_hx_local_0
-				else:
-					raise _HxException("Class cast error")
-				return _hx_local_0
-			_g1 = _hx_local_0()
-			while (_g < len(_g1)):
-				elem = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
-				_g = (_g + 1)
-				Reflect.field(retval,"push")(elem)
-		else:
-			retval = aObj
-		return retval
-
-	@staticmethod
 	def addObject(aBase,aAdd):
 		if (Util2.isObject(aBase) and Util2.isObject(aAdd)):
 			_g = 0
@@ -2718,6 +2691,32 @@ class Util:
 	@staticmethod
 	def loadcoredist():
 		return Sutlcore.get()
+
+	@staticmethod
+	def shallowCopy(aObj):
+		retval = None
+		objType = Util.gettype(aObj)
+		if (objType == "map"):
+			retval = Reflect.copy(aObj)
+		elif (objType == "list"):
+			retval = []
+			_g = 0
+			_g1 = None
+			def _hx_local_0():
+				_hx_local_0 = aObj
+				if Std._hx_is(_hx_local_0,list):
+					_hx_local_0
+				else:
+					raise _HxException("Class cast error")
+				return _hx_local_0
+			_g1 = _hx_local_0()
+			while (_g < len(_g1)):
+				elem = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
+				_g = (_g + 1)
+				Reflect.field(retval,"push")(elem)
+		else:
+			retval = aObj
+		return retval
 Util._hx_class = Util
 
 
