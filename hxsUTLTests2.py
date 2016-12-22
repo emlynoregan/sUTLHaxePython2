@@ -582,20 +582,20 @@ class Sutl:
 		def _hx_local_10(parentscope10,scope10,l10,src10,tt10,b12,h10):
 			if hasattr(scope10,(("_hx_" + "a") if ("a" in python_Boot.keywords) else (("_hx_" + "a") if (((((len("a") > 2) and ((ord("a"[0]) == 95))) and ((ord("a"[1]) == 95))) and ((ord("a"[(len("a") - 1)]) != 95)))) else "a"))):
 				if hasattr(scope10,(("_hx_" + "b") if ("b" in python_Boot.keywords) else (("_hx_" + "b") if (((((len("b") > 2) and ((ord("b"[0]) == 95))) and ((ord("b"[1]) == 95))) and ((ord("b"[(len("b") - 1)]) != 95)))) else "b"))):
-					return (Util.isTruthy(Util.get(scope10,"a",False)) and Util.isTruthy(Util.get(scope10,"b",False)))
+					return (Util3.isTruthy(Util.get(scope10,"a",False)) and Util3.isTruthy(Util.get(scope10,"b",False)))
 				else:
-					return Util.isTruthy(Util.get(scope10,"a",False))
+					return Util3.isTruthy(Util.get(scope10,"a",False))
 			else:
-				return Util.isTruthy(Util.get(scope10,"b",False))
+				return Util3.isTruthy(Util.get(scope10,"b",False))
 		def _hx_local_11(parentscope11,scope11,l11,src11,tt11,b13,h11):
-			return (Util.isTruthy(Util.get(scope11,"a",False)) or Util.isTruthy(Util.get(scope11,"b",False)))
+			return (Util3.isTruthy(Util.get(scope11,"a",False)) or Util3.isTruthy(Util.get(scope11,"b",False)))
 		def _hx_local_12(parentscope12,scope12,l12,src12,tt12,b14,h12):
-			return (not Util.isTruthy(Util.get(scope12,"b",False)))
+			return (not Util3.isTruthy(Util.get(scope12,"b",False)))
 		def _hx_local_13(parentscope13,scope13,l13,src13,tt13,b15,h13):
 			retval = None
 			condvalue = False
 			if hasattr(scope13,(("_hx_" + "cond") if ("cond" in python_Boot.keywords) else (("_hx_" + "cond") if (((((len("cond") > 2) and ((ord("cond"[0]) == 95))) and ((ord("cond"[1]) == 95))) and ((ord("cond"[(len("cond") - 1)]) != 95)))) else "cond"))):
-				condvalue = Util.isTruthy(_g._evaluate(parentscope13,Util.get(scope13,"cond"),l13,src13,tt13,b15,h13))
+				condvalue = Util3.isTruthy(_g._evaluate(parentscope13,Util.get(scope13,"cond"),l13,src13,tt13,b15,h13))
 			if condvalue:
 				if hasattr(scope13,(("_hx_" + "true") if ("true" in python_Boot.keywords) else (("_hx_" + "true") if (((((len("true") > 2) and ((ord("true"[0]) == 95))) and ((ord("true"[1]) == 95))) and ((ord("true"[(len("true") - 1)]) != 95)))) else "true"))):
 					retval = _g._evaluate(parentscope13,Util.get(scope13,"true"),l13,src13,tt13,b15,h13)
@@ -723,7 +723,7 @@ class Sutl:
 			retval4 = None
 			if (not Util2.isString(lvalue)):
 				pass
-			elif (not ((Util.isTruthy(lsep) and Util2.isString(lsep)))):
+			elif (not ((Util3.isTruthy(lsep) and Util2.isString(lsep)))):
 				pass
 			elif (not ((Util2.isNumber(lmax) or ((lmax is None))))):
 				pass
@@ -758,7 +758,7 @@ class Sutl:
 			retval6 = None
 			if (not Util2.isString(lvalue2)):
 				pass
-			elif (not ((Util.isTruthy(lsub) and Util2.isString(lsub)))):
+			elif (not ((Util3.isTruthy(lsub) and Util2.isString(lsub)))):
 				pass
 			else:
 				_this = None
@@ -805,31 +805,31 @@ class Sutl:
 		return (x - 1)
 
 	def _evaluate(self,s,t,l,src,tt,b,h):
-		if (not Util.isTruthy(h)):
+		if (not Util3.isTruthy(h)):
 			h = 0
 		r = None
 		self.logenter("_evaluate",s,t,h)
-		if Util.isEval(t):
+		if Util3.isEval(t):
 			r = self._evaluateEval(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isEval2(t):
+		elif Util3.isEval2(t):
 			r = self._evaluateEval2(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isBuiltinEval(t):
+		elif Util3.isBuiltinEval(t):
 			r = self._evaluateBuiltin(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isQuoteEval(t):
+		elif Util3.isQuoteEval(t):
 			r = self._quoteEvaluate(s,Util.get(t,"'"),l,src,tt,b,self.dec(h))
-		elif Util.isColonEval(t):
+		elif Util3.isColonEval(t):
 			r = Util.get(t,":")
-		elif Util.isDictTransform(t):
+		elif Util3.isDictTransform(t):
 			r = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
 		elif Util.isArrayBuiltinEval(t,b):
 			r = self._evaluateArrayBuiltin(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isListTransform(t):
+		elif Util3.isListTransform(t):
 			tlist = Util.SequenceToArray(t)
 			if ((len(tlist) > 0) and (((tlist[0] if 0 < len(tlist) else None) == "&&"))):
 				r = Util.flatten(self._evaluateList(s,tlist[1:None],l,src,tt,b,self.dec(h)))
 			else:
 				r = self._evaluateList(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isStringBuiltinEval(t,b):
+		elif Util3.isStringBuiltinEval(t,b):
 			r = self._evaluateStringBuiltin(s,t,l,src,tt,b,self.dec(h))
 		else:
 			r = t
@@ -839,11 +839,11 @@ class Sutl:
 	def _quoteEvaluate(self,s,t,l,src,tt,b,h):
 		self.logenter("_quoteEvaluate",s,t,h)
 		r = None
-		if Util.isDoubleQuoteEval(t):
+		if Util3.isDoubleQuoteEval(t):
 			r = self._evaluate(s,Util.get(t,"''"),l,src,tt,b,self.dec(h))
-		elif Util.isDictTransform(t):
+		elif Util3.isDictTransform(t):
 			r = self._quoteEvaluateDict(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isListTransform(t):
+		elif Util3.isListTransform(t):
 			r = self._quoteEvaluateList(s,t,l,src,tt,b,self.dec(h))
 		else:
 			r = t
@@ -940,7 +940,7 @@ class Sutl:
 					uset2 = _hx_AnonObject({'&': builtinname, 'a': retval, 'b': item, 'notfirst': notfirst})
 					retval = self._evaluateBuiltinSimple(False,s,uset2,l,src,tt,b,self.dec(h))
 					notfirst = True
-			if (Util2.isArray(retval) and Util.isTruthy(Util.get(t,"head"))):
+			if (Util2.isArray(retval) and Util3.isTruthy(Util.get(t,"head"))):
 				arrretval = None
 				def _hx_local_0():
 					_hx_local_2 = retval
@@ -1115,7 +1115,7 @@ class Sutl:
 						field = reqname
 						return hasattr(l,(("_hx_" + field) if (field in python_Boot.keywords) else (("_hx_" + field) if (((((len(field) > 2) and ((ord(field[0]) == 95))) and ((ord(field[1]) == 95))) and ((ord(field[(len(field) - 1)]) != 95)))) else field)))
 					if (not _hx_local_3()):
-						if Util.isPrefix(reqname,declname):
+						if Util3.isPrefix(reqname,declname):
 							field1 = reqname
 							value = Util.get(decl,"transform-t")
 							setattr(resultlib,(("_hx_" + field1) if (field1 in python_Boot.keywords) else (("_hx_" + field1) if (((((len(field1) > 2) and ((ord(field1[0]) == 95))) and ((ord(field1[1]) == 95))) and ((ord(field1[(len(field1) - 1)]) != 95)))) else field1)),value)
@@ -1137,7 +1137,7 @@ class Sutl:
 					decl1 = (dist[_g3] if _g3 >= 0 and _g3 < len(dist) else None)
 					_g3 = (_g3 + 1)
 					declname1 = Util.get(decl1,"name","")
-					if Util.isPrefix(reqname1,declname1):
+					if Util3.isPrefix(reqname1,declname1):
 						HxOverrides.push(candidate_decls, decl1)
 		_g4 = 0
 		_g12 = python_Boot.fields(all_candidate_decls)
@@ -1145,7 +1145,7 @@ class Sutl:
 			reqname2 = (_g12[_g4] if _g4 >= 0 and _g4 < len(_g12) else None)
 			_g4 = (_g4 + 1)
 			candidate_decls1 = Util.get(all_candidate_decls,reqname2)
-			if Util.isTruthy(candidate_decls1):
+			if Util3.isTruthy(candidate_decls1):
 				candidate_decls_arr = None
 				def _hx_local_0():
 					_hx_local_8 = candidate_decls1
@@ -2226,45 +2226,45 @@ class Tests_isType(haxe_unit_TestCase):
 		self.GetType("null",self.getValue("null"))
 
 	def testIsTruthyObj(self):
-		self.assertTrue(Util.isTruthy(_hx_AnonObject({'fred': 1})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 125, 'className': "Tests_isType", 'methodName': "testIsTruthyObj"}))
+		self.assertTrue(Util3.isTruthy(_hx_AnonObject({'fred': 1})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 125, 'className': "Tests_isType", 'methodName': "testIsTruthyObj"}))
 
 	def testIsNotTruthyObj(self):
-		self.assertFalse(Util.isTruthy(_hx_AnonObject({})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 130, 'className': "Tests_isType", 'methodName': "testIsNotTruthyObj"}))
+		self.assertFalse(Util3.isTruthy(_hx_AnonObject({})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 130, 'className': "Tests_isType", 'methodName': "testIsNotTruthyObj"}))
 
 	def testIsTruthyList(self):
-		self.assertTrue(Util.isTruthy([_hx_AnonObject({'fred': 1}), 1]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 135, 'className': "Tests_isType", 'methodName': "testIsTruthyList"}))
+		self.assertTrue(Util3.isTruthy([_hx_AnonObject({'fred': 1}), 1]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 135, 'className': "Tests_isType", 'methodName': "testIsTruthyList"}))
 
 	def testIsNotTruthyList(self):
-		self.assertFalse(Util.isTruthy([]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 140, 'className': "Tests_isType", 'methodName': "testIsNotTruthyList"}))
+		self.assertFalse(Util3.isTruthy([]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 140, 'className': "Tests_isType", 'methodName': "testIsNotTruthyList"}))
 
 	def testIsTruthyString(self):
-		self.assertTrue(Util.isTruthy("fred"),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 145, 'className': "Tests_isType", 'methodName': "testIsTruthyString"}))
+		self.assertTrue(Util3.isTruthy("fred"),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 145, 'className': "Tests_isType", 'methodName': "testIsTruthyString"}))
 
 	def testIsNotTruthyString(self):
-		self.assertFalse(Util.isTruthy(""),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 150, 'className': "Tests_isType", 'methodName': "testIsNotTruthyString"}))
+		self.assertFalse(Util3.isTruthy(""),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 150, 'className': "Tests_isType", 'methodName': "testIsNotTruthyString"}))
 
 	def testIsTruthyNumber(self):
-		self.assertTrue(Util.isTruthy(4.7),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 155, 'className': "Tests_isType", 'methodName': "testIsTruthyNumber"}))
+		self.assertTrue(Util3.isTruthy(4.7),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 155, 'className': "Tests_isType", 'methodName': "testIsTruthyNumber"}))
 
 	def testIsNotTruthyNumber(self):
-		self.assertFalse(Util.isTruthy(0),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 160, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNumber"}))
+		self.assertFalse(Util3.isTruthy(0),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 160, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNumber"}))
 
 	def testIsTruthyBool(self):
-		self.assertTrue(Util.isTruthy(True),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 165, 'className': "Tests_isType", 'methodName': "testIsTruthyBool"}))
+		self.assertTrue(Util3.isTruthy(True),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 165, 'className': "Tests_isType", 'methodName': "testIsTruthyBool"}))
 
 	def testIsNotTruthyBool(self):
-		self.assertFalse(Util.isTruthy(False),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 170, 'className': "Tests_isType", 'methodName': "testIsNotTruthyBool"}))
+		self.assertFalse(Util3.isTruthy(False),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 170, 'className': "Tests_isType", 'methodName': "testIsNotTruthyBool"}))
 
 	def testIsNotTruthyNull(self):
-		self.assertFalse(Util.isTruthy(None),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 175, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNull"}))
+		self.assertFalse(Util3.isTruthy(None),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 175, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNull"}))
 
 	def testIsBuiltinEval(self):
 		obj = _hx_AnonObject({'&': "thing", 'x': 2})
-		self.assertTrue(Util.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 185, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval"}))
+		self.assertTrue(Util3.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 185, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval"}))
 
 	def testIsBuiltinEval2(self):
 		obj = _hx_AnonObject({'x&': "thing", 'x': 2})
-		self.assertFalse(Util.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 195, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval2"}))
+		self.assertFalse(Util3.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 195, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval2"}))
 
 	def testIsArrayBuiltinEval(self):
 		s = Sutl()
@@ -2282,47 +2282,47 @@ class Tests_isType(haxe_unit_TestCase):
 		s = Sutl()
 		b = s.builtins()
 		obj = "^@.x.y.z"
-		self.assertTrue(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 236, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval"}))
+		self.assertTrue(Util3.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 236, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval"}))
 
 	def testIsStringBuiltinEval2(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = "@.x.y.z"
-		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 247, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval2"}))
+		self.assertFalse(Util3.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 247, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval2"}))
 
 	def testIsStringBuiltinEval3(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = "&zzz.x.y.z"
-		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 258, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval3"}))
+		self.assertFalse(Util3.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 258, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval3"}))
 
 	def testIsEval(self):
 		obj = _hx_AnonObject({'!': _hx_AnonObject({'x': 1}), 'z': 2})
-		self.assertTrue(Util.isEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 268, 'className': "Tests_isType", 'methodName': "testIsEval"}))
+		self.assertTrue(Util3.isEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 268, 'className': "Tests_isType", 'methodName': "testIsEval"}))
 
 	def testIsEval2(self):
 		obj = _hx_AnonObject({'!!': _hx_AnonObject({'x': 1}), 's': 2})
-		self.assertTrue(Util.isEval2(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 278, 'className': "Tests_isType", 'methodName': "testIsEval2"}))
+		self.assertTrue(Util3.isEval2(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 278, 'className': "Tests_isType", 'methodName': "testIsEval2"}))
 
 	def testIsQuoteEval(self):
 		obj = self.quote(_hx_AnonObject({'x': 1}))
-		self.assertTrue(Util.isQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 285, 'className': "Tests_isType", 'methodName': "testIsQuoteEval"}))
+		self.assertTrue(Util3.isQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 285, 'className': "Tests_isType", 'methodName': "testIsQuoteEval"}))
 
 	def testIsDoubleQuoteEval(self):
 		obj = self.unquote(_hx_AnonObject({'x': 1}))
-		self.assertTrue(Util.isDoubleQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 292, 'className': "Tests_isType", 'methodName': "testIsDoubleQuoteEval"}))
+		self.assertTrue(Util3.isDoubleQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 292, 'className': "Tests_isType", 'methodName': "testIsDoubleQuoteEval"}))
 
 	def testIsColonEval(self):
 		obj = _hx_AnonObject({':': _hx_AnonObject({'x': 1}), 's': 2})
-		self.assertTrue(Util.isColonEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 302, 'className': "Tests_isType", 'methodName': "testIsColonEval"}))
+		self.assertTrue(Util3.isColonEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 302, 'className': "Tests_isType", 'methodName': "testIsColonEval"}))
 
 	def testIsListTransform(self):
 		obj = [1, 2, 3]
-		self.assertTrue(Util.isListTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 309, 'className': "Tests_isType", 'methodName': "testIsListTransform"}))
+		self.assertTrue(Util3.isListTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 309, 'className': "Tests_isType", 'methodName': "testIsListTransform"}))
 
 	def testIsDictTransform(self):
 		obj = _hx_AnonObject({})
-		self.assertTrue(Util.isDictTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 316, 'className': "Tests_isType", 'methodName': "testIsDictTransform"}))
+		self.assertTrue(Util3.isDictTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 316, 'className': "Tests_isType", 'methodName': "testIsDictTransform"}))
 
 	def testShallowCopy(self):
 		lsource = python_Boot.fields(_hx_AnonObject({'a': 1, 'b': 2}))
@@ -2424,28 +2424,7 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isTruthy", "isBuiltinEval", "isArrayBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist", "isPrefix"]
-
-	@staticmethod
-	def isTruthy(aObj):
-		retval = False
-		if Util2.isArray(aObj):
-			retval = (Reflect.field(aObj,"length") > 0)
-		elif Util2.isString(aObj):
-			retval = (aObj != "")
-		elif Util2.isNumber(aObj):
-			retval = (aObj != 0)
-		elif Util2.isBool(aObj):
-			retval = aObj
-		elif Util2.isObject(aObj):
-			retval = (len(python_Boot.fields(aObj)) > 0)
-		else:
-			retval = (aObj is not None)
-		return retval
-
-	@staticmethod
-	def isBuiltinEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "&") if ("&" in python_Boot.keywords) else (("_hx_" + "&") if (((((len("&") > 2) and ((ord("&"[0]) == 95))) and ((ord("&"[1]) == 95))) and ((ord("&"[(len("&") - 1)]) != 95)))) else "&"))))
+	_hx_statics = ["isArrayBuiltinEval", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
 
 	@staticmethod
 	def isArrayBuiltinEval(obj,b):
@@ -2484,51 +2463,6 @@ class Util:
 					lopBuiltinName = Util.getArrayBuiltinName(lopStr)
 					retval = ((((lopSignifier1 == "&") or ((lopSignifier1 == "^")))) and hasattr(b,(("_hx_" + lopBuiltinName) if (lopBuiltinName in python_Boot.keywords) else (("_hx_" + lopBuiltinName) if (((((len(lopBuiltinName) > 2) and ((ord(lopBuiltinName[0]) == 95))) and ((ord(lopBuiltinName[1]) == 95))) and ((ord(lopBuiltinName[(len(lopBuiltinName) - 1)]) != 95)))) else lopBuiltinName))))
 		return retval
-
-	@staticmethod
-	def isStringBuiltinEval(obj,b):
-		retval = Util2.isString(obj)
-		if retval:
-			_hx_str = None
-			def _hx_local_0():
-				_hx_local_0 = obj
-				if Std._hx_is(_hx_local_0,str):
-					_hx_local_0
-				else:
-					raise _HxException("Class cast error")
-				return _hx_local_0
-			_hx_str = _hx_local_0()
-			larr = _hx_str.split(".")
-			retval = Util.isArrayBuiltinEval(larr,b)
-		return retval
-
-	@staticmethod
-	def isEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!"))))
-
-	@staticmethod
-	def isEval2(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!!") if ("!!" in python_Boot.keywords) else (("_hx_" + "!!") if (((((len("!!") > 2) and ((ord("!!"[0]) == 95))) and ((ord("!!"[1]) == 95))) and ((ord("!!"[(len("!!") - 1)]) != 95)))) else "!!"))))
-
-	@staticmethod
-	def isQuoteEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'"))))
-
-	@staticmethod
-	def isDoubleQuoteEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''"))))
-
-	@staticmethod
-	def isColonEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + ":") if (":" in python_Boot.keywords) else (("_hx_" + ":") if (((((len(":") > 2) and ((ord(":"[0]) == 95))) and ((ord(":"[1]) == 95))) and ((ord(":"[(len(":") - 1)]) != 95)))) else ":"))))
-
-	@staticmethod
-	def isDictTransform(obj):
-		return Util2.isObject(obj)
-
-	@staticmethod
-	def isListTransform(obj):
-		return Util2.isArray(obj)
 
 	@staticmethod
 	def getArrayBuiltinName(aOp):
@@ -2775,10 +2709,6 @@ class Util:
 	@staticmethod
 	def loadcoredist():
 		return Sutlcore.get()
-
-	@staticmethod
-	def isPrefix(str1,str2):
-		return (str2.find(str1) == 0)
 Util._hx_class = Util
 
 
@@ -2820,6 +2750,82 @@ class SlowUtil2:
 		ltype = Type.typeof(obj)
 		return (ltype == ValueType.TBool)
 
+
+
+class Util3:
+	_hx_class_name = "Util3"
+	_hx_statics = ["isBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
+
+	@staticmethod
+	def isBuiltinEval(obj):
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "&") if ("&" in python_Boot.keywords) else (("_hx_" + "&") if (((((len("&") > 2) and ((ord("&"[0]) == 95))) and ((ord("&"[1]) == 95))) and ((ord("&"[(len("&") - 1)]) != 95)))) else "&"))))
+
+	@staticmethod
+	def isStringBuiltinEval(obj,b):
+		retval = Util2.isString(obj)
+		if retval:
+			_hx_str = None
+			def _hx_local_0():
+				_hx_local_0 = obj
+				if Std._hx_is(_hx_local_0,str):
+					_hx_local_0
+				else:
+					raise _HxException("Class cast error")
+				return _hx_local_0
+			_hx_str = _hx_local_0()
+			larr = _hx_str.split(".")
+			retval = Util.isArrayBuiltinEval(larr,b)
+		return retval
+
+	@staticmethod
+	def isEval(obj):
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!"))))
+
+	@staticmethod
+	def isEval2(obj):
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!!") if ("!!" in python_Boot.keywords) else (("_hx_" + "!!") if (((((len("!!") > 2) and ((ord("!!"[0]) == 95))) and ((ord("!!"[1]) == 95))) and ((ord("!!"[(len("!!") - 1)]) != 95)))) else "!!"))))
+
+	@staticmethod
+	def isQuoteEval(obj):
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'"))))
+
+	@staticmethod
+	def isDoubleQuoteEval(obj):
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''"))))
+
+	@staticmethod
+	def isColonEval(obj):
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + ":") if (":" in python_Boot.keywords) else (("_hx_" + ":") if (((((len(":") > 2) and ((ord(":"[0]) == 95))) and ((ord(":"[1]) == 95))) and ((ord(":"[(len(":") - 1)]) != 95)))) else ":"))))
+
+	@staticmethod
+	def isDictTransform(obj):
+		return Util2.isObject(obj)
+
+	@staticmethod
+	def isListTransform(obj):
+		return Util2.isArray(obj)
+
+	@staticmethod
+	def isTruthy(aObj):
+		retval = False
+		if Util2.isArray(aObj):
+			retval = (Reflect.field(aObj,"length") > 0)
+		elif Util2.isString(aObj):
+			retval = (aObj != "")
+		elif Util2.isNumber(aObj):
+			retval = (aObj != 0)
+		elif Util2.isBool(aObj):
+			retval = aObj
+		elif Util2.isObject(aObj):
+			retval = (len(python_Boot.fields(aObj)) > 0)
+		else:
+			retval = (aObj is not None)
+		return retval
+
+	@staticmethod
+	def isPrefix(str1,str2):
+		return (str2.find(str1) == 0)
+Util3._hx_class = Util3
 
 class haxe_StackItem(Enum):
 	_hx_class_name = "haxe.StackItem"
