@@ -2462,9 +2462,7 @@ class Util:
 	@staticmethod
 	def isTruthy(aObj):
 		retval = False
-		if Util.isObject(aObj):
-			retval = (len(python_Boot.fields(aObj)) > 0)
-		elif Util.isArray(aObj):
+		if Util.isArray(aObj):
 			retval = (Reflect.field(aObj,"length") > 0)
 		elif Util.isString(aObj):
 			retval = (aObj != "")
@@ -2472,6 +2470,8 @@ class Util:
 			retval = (aObj != 0)
 		elif Util.isBool(aObj):
 			retval = aObj
+		elif Util.isObject(aObj):
+			retval = (len(python_Boot.fields(aObj)) > 0)
 		else:
 			retval = (aObj is not None)
 		return retval
@@ -3749,7 +3749,7 @@ class python_Boot:
 
 	@staticmethod
 	def unhandleKeywords(name):
-		return unicode(name)
+		name = unicode(name)
 		if (HxString.substr(name,0,python_Boot.prefixLength) == "_hx_"):
 			real = HxString.substr(name,python_Boot.prefixLength,None)
 			if real in python_Boot.keywords:
