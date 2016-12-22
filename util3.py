@@ -56,4 +56,22 @@ class Util3:
     @staticmethod
     def isPrefix(str1,str2):
         return (str2.find(str1) == 0)
+
+    @staticmethod
+    def get(obj,key, adef = None):
+        retval = None
+        
+        print obj
+        print key
+        
+        if Util2.isObject(obj):
+            if key == "if":
+                key1 = "_hx_%s" % key
+            else:
+                key1 = key
+            retval = getattr(obj, key1) if hasattr(obj, key1) else None
+        if (retval is None):
+            retval = adef
+        return retval
+
 Util3._hx_class = Util3

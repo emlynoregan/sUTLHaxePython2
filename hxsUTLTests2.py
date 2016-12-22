@@ -442,9 +442,9 @@ class Sutl:
 		return _hx_AnonObject({'x': 1})
 
 	def _processPath(self,startfrom,parentscope,scope,l,src,tt,b,h):
-		la = Util.get(scope,"a")
-		lb = Util.get(scope,"b")
-		lnotfirst = Util.get(scope,"notfirst",False)
+		la = Util3.get(scope,"a")
+		lb = Util3.get(scope,"b")
+		lnotfirst = Util3.get(scope,"notfirst",False)
 		if lnotfirst:
 			return self._doPath(la,lb)
 		else:
@@ -483,7 +483,7 @@ class Sutl:
 									while (_g2 < len(_g3)):
 										lattrib = (_g3[_g2] if _g2 >= 0 and _g2 < len(_g3) else None)
 										_g2 = (_g2 + 1)
-										lelem = Util.get(litem,lattrib)
+										lelem = Util3.get(litem,lattrib)
 										retval.append(lelem)
 										lstack.append(lelem)
 								elif Util2.isArray(litem):
@@ -511,7 +511,7 @@ class Sutl:
 								while (_g22 < len(_g32)):
 									lattrib1 = (_g32[_g22] if _g22 >= 0 and _g22 < len(_g32) else None)
 									_g22 = (_g22 + 1)
-									lelem2 = Util.get(lsourceItem,lattrib1)
+									lelem2 = Util3.get(lsourceItem,lattrib1)
 									retval.append(lelem2)
 							elif Util2.isArray(lsourceItem):
 								_g23 = 0
@@ -552,59 +552,59 @@ class Sutl:
 	def builtins(self):
 		_g = self
 		def _hx_local_0(parentscope,scope,l,src,tt,b,h):
-			a = Util.get(scope,"a",0)
-			bb = Util.get(scope,"b",0)
+			a = Util3.get(scope,"a",0)
+			bb = Util3.get(scope,"b",0)
 			if (Util.gettype(a) == Util.gettype(bb)):
 				return (a + bb)
 			else:
 				return None
 		def _hx_local_1(parentscope1,scope1,l1,src1,tt1,b1,h1):
-			return (Util.get(scope1,"a",0) - Util.get(scope1,"b",0))
+			return (Util3.get(scope1,"a",0) - Util3.get(scope1,"b",0))
 		def _hx_local_2(parentscope2,scope2,l2,src2,tt2,b2,h2):
-			return (Util.get(scope2,"a",1) * Util.get(scope2,"b",1))
+			return (Util3.get(scope2,"a",1) * Util3.get(scope2,"b",1))
 		def _hx_local_3(parentscope3,scope3,l3,src3,tt3,b3,h3):
-			return (Util.get(scope3,"a",1) / Util.get(scope3,"b",1))
+			return (Util3.get(scope3,"a",1) / Util3.get(scope3,"b",1))
 		def _hx_local_4(parentscope4,scope4,l4,src4,tt4,b4,h4):
-			a1 = Util.get(scope4,"a",None)
-			b5 = Util.get(scope4,"b",None)
+			a1 = Util3.get(scope4,"a",None)
+			b5 = Util3.get(scope4,"b",None)
 			return ((Util.gettype(a1) == Util.gettype(b5)) and (HxOverrides.eq(a1,b5)))
 		def _hx_local_5(parentscope5,scope5,l5,src5,tt5,b6,h5):
-			a2 = Util.get(scope5,"a",None)
-			b7 = Util.get(scope5,"b",None)
+			a2 = Util3.get(scope5,"a",None)
+			b7 = Util3.get(scope5,"b",None)
 			return (not (((Util.gettype(a2) == Util.gettype(b7)) and (HxOverrides.eq(a2,b7)))))
 		def _hx_local_6(parentscope6,scope6,l6,src6,tt6,b8,h6):
-			return (Util.get(scope6,"a",None) >= Util.get(scope6,"b",None))
+			return (Util3.get(scope6,"a",None) >= Util3.get(scope6,"b",None))
 		def _hx_local_7(parentscope7,scope7,l7,src7,tt7,b9,h7):
-			return (Util.get(scope7,"a",None) <= Util.get(scope7,"b",None))
+			return (Util3.get(scope7,"a",None) <= Util3.get(scope7,"b",None))
 		def _hx_local_8(parentscope8,scope8,l8,src8,tt8,b10,h8):
-			return (Util.get(scope8,"a",None) > Util.get(scope8,"b",None))
+			return (Util3.get(scope8,"a",None) > Util3.get(scope8,"b",None))
 		def _hx_local_9(parentscope9,scope9,l9,src9,tt9,b11,h9):
-			return (Util.get(scope9,"a",None) < Util.get(scope9,"b",None))
+			return (Util3.get(scope9,"a",None) < Util3.get(scope9,"b",None))
 		def _hx_local_10(parentscope10,scope10,l10,src10,tt10,b12,h10):
 			if hasattr(scope10,(("_hx_" + "a") if ("a" in python_Boot.keywords) else (("_hx_" + "a") if (((((len("a") > 2) and ((ord("a"[0]) == 95))) and ((ord("a"[1]) == 95))) and ((ord("a"[(len("a") - 1)]) != 95)))) else "a"))):
 				if hasattr(scope10,(("_hx_" + "b") if ("b" in python_Boot.keywords) else (("_hx_" + "b") if (((((len("b") > 2) and ((ord("b"[0]) == 95))) and ((ord("b"[1]) == 95))) and ((ord("b"[(len("b") - 1)]) != 95)))) else "b"))):
-					return (Util3.isTruthy(Util.get(scope10,"a",False)) and Util3.isTruthy(Util.get(scope10,"b",False)))
+					return (Util3.isTruthy(Util3.get(scope10,"a",False)) and Util3.isTruthy(Util3.get(scope10,"b",False)))
 				else:
-					return Util3.isTruthy(Util.get(scope10,"a",False))
+					return Util3.isTruthy(Util3.get(scope10,"a",False))
 			else:
-				return Util3.isTruthy(Util.get(scope10,"b",False))
+				return Util3.isTruthy(Util3.get(scope10,"b",False))
 		def _hx_local_11(parentscope11,scope11,l11,src11,tt11,b13,h11):
-			return (Util3.isTruthy(Util.get(scope11,"a",False)) or Util3.isTruthy(Util.get(scope11,"b",False)))
+			return (Util3.isTruthy(Util3.get(scope11,"a",False)) or Util3.isTruthy(Util3.get(scope11,"b",False)))
 		def _hx_local_12(parentscope12,scope12,l12,src12,tt12,b14,h12):
-			return (not Util3.isTruthy(Util.get(scope12,"b",False)))
+			return (not Util3.isTruthy(Util3.get(scope12,"b",False)))
 		def _hx_local_13(parentscope13,scope13,l13,src13,tt13,b15,h13):
 			retval = None
 			condvalue = False
 			if hasattr(scope13,(("_hx_" + "cond") if ("cond" in python_Boot.keywords) else (("_hx_" + "cond") if (((((len("cond") > 2) and ((ord("cond"[0]) == 95))) and ((ord("cond"[1]) == 95))) and ((ord("cond"[(len("cond") - 1)]) != 95)))) else "cond"))):
-				condvalue = Util3.isTruthy(_g._evaluate(parentscope13,Util.get(scope13,"cond"),l13,src13,tt13,b15,h13))
+				condvalue = Util3.isTruthy(_g._evaluate(parentscope13,Util3.get(scope13,"cond"),l13,src13,tt13,b15,h13))
 			if condvalue:
 				if hasattr(scope13,(("_hx_" + "true") if ("true" in python_Boot.keywords) else (("_hx_" + "true") if (((((len("true") > 2) and ((ord("true"[0]) == 95))) and ((ord("true"[1]) == 95))) and ((ord("true"[(len("true") - 1)]) != 95)))) else "true"))):
-					retval = _g._evaluate(parentscope13,Util.get(scope13,"true"),l13,src13,tt13,b15,h13)
+					retval = _g._evaluate(parentscope13,Util3.get(scope13,"true"),l13,src13,tt13,b15,h13)
 			elif hasattr(scope13,(("_hx_" + "false") if ("false" in python_Boot.keywords) else (("_hx_" + "false") if (((((len("false") > 2) and ((ord("false"[0]) == 95))) and ((ord("false"[1]) == 95))) and ((ord("false"[(len("false") - 1)]) != 95)))) else "false"))):
-				retval = _g._evaluate(parentscope13,Util.get(scope13,"false"),l13,src13,tt13,b15,h13)
+				retval = _g._evaluate(parentscope13,Util3.get(scope13,"false"),l13,src13,tt13,b15,h13)
 			return retval
 		def _hx_local_15(parentscope14,scope14,l14,src14,tt14,b16,h14):
-			obj = Util.get(scope14,"map")
+			obj = Util3.get(scope14,"map")
 			if Util2.isObject(obj):
 				retval1 = python_Boot.fields(obj)
 				def _hx_local_14(a3,b17):
@@ -614,31 +614,31 @@ class Sutl:
 			else:
 				return None
 		def _hx_local_18(parentscope15,scope15,l15,src15,tt15,b18,h15):
-			obj1 = Util.get(scope15,"map")
+			obj1 = Util3.get(scope15,"map")
 			if Util2.isObject(obj1):
 				keys = python_Boot.fields(obj1)
 				def _hx_local_16(a4,b19):
 					return Reflect.compare(a4,b19)
 				Reflect.field(keys,"sort")(_hx_local_16)
 				def _hx_local_17(key):
-					return Util.get(obj1,key)
+					return Util3.get(obj1,key)
 				vals = Reflect.field(keys,"map")(_hx_local_17)
 				return vals
 			else:
 				return None
 		def _hx_local_19(parentscope16,scope16,l16,src16,tt16,b20,h16):
-			item = Util.get(scope16,"list",Util.get(scope16,"value"))
+			item = Util3.get(scope16,"list",Util3.get(scope16,"value"))
 			if Util2.isSequence(item):
 				arr = Util.SequenceToArray(item)
 				return len(arr)
 			else:
 				return 0
 		def _hx_local_20(parentscope17,scope17,l17,src17,tt17,b21,h17):
-			item1 = Util.get(scope17,"value")
+			item1 = Util3.get(scope17,"value")
 			return Util.gettype(item1)
 		def _hx_local_23(parentscope18,scope18,l18,src18,tt18,b22,h18):
 			retval2 = _hx_AnonObject({})
-			arr1 = Util.get(scope18,"value")
+			arr1 = Util3.get(scope18,"value")
 			if Util2.isArray(arr1):
 				_g1 = 0
 				_g11 = None
@@ -659,9 +659,9 @@ class Sutl:
 			return retval2
 		def _hx_local_24(parentscope19,scope19,l19,src19,tt19,b23,h19):
 			retval3 = _hx_AnonObject({})
-			listobj = Util.get(scope19,"list")
-			t = Util.get(scope19,"t")
-			accum = Util.get(scope19,"accum")
+			listobj = Util3.get(scope19,"list")
+			t = Util3.get(scope19,"t")
+			accum = Util3.get(scope19,"accum")
 			if Util2.isSequence(listobj):
 				_hx_list = Util.SequenceToArray(listobj)
 				s2 = _hx_AnonObject({})
@@ -688,9 +688,9 @@ class Sutl:
 		def _hx_local_28(parentscope23,scope23,l23,src23,tt23,b27,h23):
 			return _g._processPath(tt23,parentscope23,scope23,l23,src23,tt23,b27,h23)
 		def _hx_local_29(parentscope24,scope24,l24,src24,tt24,b28,h24):
-			la = Util.get(scope24,"a")
-			lb = Util.get(scope24,"b")
-			lnotfirst = Util.get(scope24,"notfirst")
+			la = Util3.get(scope24,"a")
+			lb = Util3.get(scope24,"b")
+			lnotfirst = Util3.get(scope24,"notfirst")
 			if lnotfirst:
 				return _g._doPath(la,lb)
 			elif (la is None):
@@ -698,7 +698,7 @@ class Sutl:
 			else:
 				return _g._doPath([la],lb)
 		def _hx_local_30(parentscope25,scope25,l25,src25,tt25,b29,h25):
-			lb1 = Util.get(scope25,"b")
+			lb1 = Util3.get(scope25,"b")
 			if Util2.isSequence(lb1):
 				arr2 = Util.SequenceToArray(lb1)
 				if (len(arr2) > 0):
@@ -708,7 +708,7 @@ class Sutl:
 			else:
 				return None
 		def _hx_local_31(parentscope26,scope26,l26,src26,tt26,b30,h26):
-			lb2 = Util.get(scope26,"b")
+			lb2 = Util3.get(scope26,"b")
 			if Util2.isSequence(lb2):
 				arr3 = Util.SequenceToArray(lb2)
 				if (len(arr3) > 0):
@@ -718,9 +718,9 @@ class Sutl:
 			else:
 				return None
 		def _hx_local_33(parentscope27,scope27,l27,src27,tt27,b31,h27):
-			lvalue = Util.get(scope27,"value")
-			lsep = Util.get(scope27,"sep",",")
-			lmax = Util.get(scope27,"max")
+			lvalue = Util3.get(scope27,"value")
+			lsep = Util3.get(scope27,"sep",",")
+			lmax = Util3.get(scope27,"max")
 			retval4 = None
 			if (not Util2.isString(lvalue)):
 				pass
@@ -746,7 +746,7 @@ class Sutl:
 					retval4 = lresult1
 			return retval4
 		def _hx_local_34(parentscope28,scope28,l28,src28,tt28,b32,h28):
-			lvalue1 = Util.get(scope28,"value")
+			lvalue1 = Util3.get(scope28,"value")
 			retval5 = None
 			if (not Util2.isString(lvalue1)):
 				pass
@@ -754,8 +754,8 @@ class Sutl:
 				retval5 = StringTools.trim(lvalue1)
 			return retval5
 		def _hx_local_36(parentscope29,scope29,l29,src29,tt29,b33,h29):
-			lvalue2 = Util.get(scope29,"value")
-			lsub = Util.get(scope29,"sub")
+			lvalue2 = Util3.get(scope29,"value")
+			lsub = Util3.get(scope29,"sub")
 			retval6 = None
 			if (not Util2.isString(lvalue2)):
 				pass
@@ -817,9 +817,9 @@ class Sutl:
 		elif Util3.isBuiltinEval(t):
 			r = self._evaluateBuiltin(s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isQuoteEval(t):
-			r = self._quoteEvaluate(s,Util.get(t,"'"),l,src,tt,b,self.dec(h))
+			r = self._quoteEvaluate(s,Util3.get(t,"'"),l,src,tt,b,self.dec(h))
 		elif Util3.isColonEval(t):
-			r = Util.get(t,":")
+			r = Util3.get(t,":")
 		elif Util3.isDictTransform(t):
 			r = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
 		elif Util.isArrayBuiltinEval(t,b):
@@ -841,7 +841,7 @@ class Sutl:
 		self.logenter("_quoteEvaluate",s,t,h)
 		r = None
 		if Util3.isDoubleQuoteEval(t):
-			r = self._evaluate(s,Util.get(t,"''"),l,src,tt,b,self.dec(h))
+			r = self._evaluate(s,Util3.get(t,"''"),l,src,tt,b,self.dec(h))
 		elif Util3.isDictTransform(t):
 			r = self._quoteEvaluateDict(s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isListTransform(t):
@@ -914,8 +914,8 @@ class Sutl:
 		self.logenter("_evaluateBuiltin",s,t,h)
 		retval = None
 		if hasattr(t,(("_hx_" + "args") if ("args" in python_Boot.keywords) else (("_hx_" + "args") if (((((len("args") > 2) and ((ord("args"[0]) == 95))) and ((ord("args"[1]) == 95))) and ((ord("args"[(len("args") - 1)]) != 95)))) else "args"))):
-			args = Util.get(t,"args")
-			builtinname = self._evaluate(s,Util.get(t,"&"),l,src,tt,b,self.dec(h))
+			args = Util3.get(t,"args")
+			builtinname = self._evaluate(s,Util3.get(t,"&"),l,src,tt,b,self.dec(h))
 			if (len(args) == 0):
 				uset = _hx_AnonObject({'&': builtinname})
 				retval = self._evaluateBuiltinSimple(False,s,uset,l,src,tt,b,self.dec(h))
@@ -941,7 +941,7 @@ class Sutl:
 					uset2 = _hx_AnonObject({'&': builtinname, 'a': retval, 'b': item, 'notfirst': notfirst})
 					retval = self._evaluateBuiltinSimple(False,s,uset2,l,src,tt,b,self.dec(h))
 					notfirst = True
-			if (Util2.isArray(retval) and Util3.isTruthy(Util.get(t,"head"))):
+			if (Util2.isArray(retval) and Util3.isTruthy(Util3.get(t,"head"))):
 				arrretval = None
 				def _hx_local_0():
 					_hx_local_2 = retval
@@ -962,16 +962,16 @@ class Sutl:
 
 	def _evaluateBuiltinSimple(self,needseval,s,t,l,src,tt,b,h):
 		retval = None
-		builtinname = Util.get(t,"&")
-		builtinf = Util.get(b,builtinname)
+		builtinname = Util3.get(t,"&")
+		builtinf = Util3.get(b,builtinname)
 		llibname = None
 		if builtinf:
-			llibname = ("_override_" + Std.string(Util.get(t,"&")))
+			llibname = ("_override_" + Std.string(Util3.get(t,"&")))
 		else:
-			llibname = Util.get(t,"&")
+			llibname = Util3.get(t,"&")
 		if (Util2.isObject(l) and hasattr(l,(("_hx_" + llibname) if (llibname in python_Boot.keywords) else (("_hx_" + llibname) if (((((len(llibname) > 2) and ((ord(llibname[0]) == 95))) and ((ord(llibname[1]) == 95))) and ((ord(llibname[(len(llibname) - 1)]) != 95)))) else llibname)))):
 			t2 = Util.shallowCopy(t)
-			value = ["^*", Util.get(t,"&")]
+			value = ["^*", Util3.get(t,"&")]
 			setattr(t2,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!")),value)
 			Reflect.deleteField(t2,"&")
 			retval = self._evaluateEval(s,t2,l,src,tt,b,self.dec(h))
@@ -988,7 +988,7 @@ class Sutl:
 				s2 = sX
 			l2 = l
 			if hasattr(t,(("_hx_" + "*") if ("*" in python_Boot.keywords) else (("_hx_" + "*") if (((((len("*") > 2) and ((ord("*"[0]) == 95))) and ((ord("*"[1]) == 95))) and ((ord("*"[(len("*") - 1)]) != 95)))) else "*"))):
-				l2 = self._evaluateDict(s,Util.get(t,"*"),l,src,tt,b,self.dec(h))
+				l2 = self._evaluateDict(s,Util3.get(t,"*"),l,src,tt,b,self.dec(h))
 			retval = builtinf(s,s2,l2,src,tt,b,self.dec(h))
 		return retval
 
@@ -996,14 +996,14 @@ class Sutl:
 		self.logenter("_evaluateEval",s,t,h)
 		retval = None
 		teval = self._evaluateDict(s,t,l,src,tt,b,h)
-		t2 = Util.get(teval,"!")
+		t2 = Util3.get(teval,"!")
 		s2 = _hx_AnonObject({})
 		if Util2.isObject(s):
 			s2 = Util.shallowCopy(s)
 		Util.addObject(s2,teval)
 		l2 = l
 		if hasattr(t,(("_hx_" + "*") if ("*" in python_Boot.keywords) else (("_hx_" + "*") if (((((len("*") > 2) and ((ord("*"[0]) == 95))) and ((ord("*"[1]) == 95))) and ((ord("*"[(len("*") - 1)]) != 95)))) else "*"))):
-			l2 = self._evaluate(s,Util.get(t,"*"),l,src,tt,b,h)
+			l2 = self._evaluate(s,Util3.get(t,"*"),l,src,tt,b,h)
 		r = self._evaluate(s2,t2,l2,src,tt,b,h)
 		self.logexit("_evaluateEval",r,h)
 		return r
@@ -1011,10 +1011,10 @@ class Sutl:
 	def _evaluateEval2(self,s,t,l,src,tt,b,h):
 		self.logenter("_evaluateEval2",s,t,h)
 		retval = None
-		t2 = self._evaluate(s,Util.get(t,"!!"),l,src,tt,b,h)
+		t2 = self._evaluate(s,Util3.get(t,"!!"),l,src,tt,b,h)
 		s2 = s
 		if hasattr(t,(("_hx_" + "s") if ("s" in python_Boot.keywords) else (("_hx_" + "s") if (((((len("s") > 2) and ((ord("s"[0]) == 95))) and ((ord("s"[1]) == 95))) and ((ord("s"[(len("s") - 1)]) != 95)))) else "s"))):
-			ts = self._evaluate(s,Util.get(t,"s"),l,src,tt,b,h)
+			ts = self._evaluate(s,Util3.get(t,"s"),l,src,tt,b,h)
 			if Util2.isObject(ts):
 				s2 = _hx_AnonObject({})
 				if Util2.isObject(s):
@@ -1024,7 +1024,7 @@ class Sutl:
 				s2 = ts
 		l2 = l
 		if hasattr(t,(("_hx_" + "*") if ("*" in python_Boot.keywords) else (("_hx_" + "*") if (((((len("*") > 2) and ((ord("*"[0]) == 95))) and ((ord("*"[1]) == 95))) and ((ord("*"[(len("*") - 1)]) != 95)))) else "*"))):
-			l2 = self._evaluate(s,Util.get(t,"*"),l,src,tt,b,h)
+			l2 = self._evaluate(s,Util3.get(t,"*"),l,src,tt,b,h)
 		r = self._evaluate(s2,t2,l2,src,tt,b,h)
 		self.logexit("_evaluateEval",r,h)
 		return r
@@ -1049,10 +1049,10 @@ class Sutl:
 			key = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
 			_g = (_g + 1)
 			if usequoteform:
-				value = self._quoteEvaluate(s,Util.get(t,key),l,src,tt,b,h)
+				value = self._quoteEvaluate(s,Util3.get(t,key),l,src,tt,b,h)
 				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),value)
 			else:
-				lnewt = self._evaluate(s,Util.get(t,key),l,src,tt,b,h)
+				lnewt = self._evaluate(s,Util3.get(t,key),l,src,tt,b,h)
 				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),lnewt)
 		return retval
 
@@ -1097,11 +1097,11 @@ class Sutl:
 		while (_g < len(decls)):
 			decl = (decls[_g] if _g >= 0 and _g < len(decls) else None)
 			_g = (_g + 1)
-			declname = Util.get(decl,"name","")
-			if (hasattr(decl,(("_hx_" + "requires") if ("requires" in python_Boot.keywords) else (("_hx_" + "requires") if (((((len("requires") > 2) and ((ord("requires"[0]) == 95))) and ((ord("requires"[1]) == 95))) and ((ord("requires"[(len("requires") - 1)]) != 95)))) else "requires"))) and Util2.isArray(Util.get(decl,"requires"))):
+			declname = Util3.get(decl,"name","")
+			if (hasattr(decl,(("_hx_" + "requires") if ("requires" in python_Boot.keywords) else (("_hx_" + "requires") if (((((len("requires") > 2) and ((ord("requires"[0]) == 95))) and ((ord("requires"[1]) == 95))) and ((ord("requires"[(len("requires") - 1)]) != 95)))) else "requires"))) and Util2.isArray(Util3.get(decl,"requires"))):
 				reqnames = None
 				def _hx_local_0():
-					_hx_local_1 = Util.get(decl,"requires")
+					_hx_local_1 = Util3.get(decl,"requires")
 					if Std._hx_is(_hx_local_1,list):
 						_hx_local_1
 					else:
@@ -1118,7 +1118,7 @@ class Sutl:
 					if (not _hx_local_3()):
 						if Util3.isPrefix(reqname,declname):
 							field1 = reqname
-							value = Util.get(decl,"transform-t")
+							value = Util3.get(decl,"transform-t")
 							setattr(resultlib,(("_hx_" + field1) if (field1 in python_Boot.keywords) else (("_hx_" + field1) if (((((len(field1) > 2) and ((ord(field1[0]) == 95))) and ((ord(field1[1]) == 95))) and ((ord(field1[(len(field1) - 1)]) != 95)))) else field1)),value)
 						else:
 							field2 = reqname
@@ -1128,7 +1128,7 @@ class Sutl:
 		while (_g2 < len(_g11)):
 			reqname1 = (_g11[_g2] if _g2 >= 0 and _g2 < len(_g11) else None)
 			_g2 = (_g2 + 1)
-			candidate_decls = Util.get(all_candidate_decls,reqname1)
+			candidate_decls = Util3.get(all_candidate_decls,reqname1)
 			_g21 = 0
 			while (_g21 < len(dists)):
 				dist = (dists[_g21] if _g21 >= 0 and _g21 < len(dists) else None)
@@ -1137,7 +1137,7 @@ class Sutl:
 				while (_g3 < len(dist)):
 					decl1 = (dist[_g3] if _g3 >= 0 and _g3 < len(dist) else None)
 					_g3 = (_g3 + 1)
-					declname1 = Util.get(decl1,"name","")
+					declname1 = Util3.get(decl1,"name","")
 					if Util3.isPrefix(reqname1,declname1):
 						HxOverrides.push(candidate_decls, decl1)
 		_g4 = 0
@@ -1145,7 +1145,7 @@ class Sutl:
 		while (_g4 < len(_g12)):
 			reqname2 = (_g12[_g4] if _g4 >= 0 and _g4 < len(_g12) else None)
 			_g4 = (_g4 + 1)
-			candidate_decls1 = Util.get(all_candidate_decls,reqname2)
+			candidate_decls1 = Util3.get(all_candidate_decls,reqname2)
 			if Util3.isTruthy(candidate_decls1):
 				candidate_decls_arr = None
 				def _hx_local_0():
@@ -1161,9 +1161,9 @@ class Sutl:
 					candidate_decl = (candidate_decls_arr[_g22] if _g22 >= 0 and _g22 < len(candidate_decls_arr) else None)
 					_g22 = (_g22 + 1)
 					clresult = self._compilelib([candidate_decl],dists,resultlib,b)
-					clresultlib = Util.get(clresult,"lib")
+					clresultlib = Util3.get(clresult,"lib")
 					Util.addObject(resultlib,clresultlib)
-					value1 = Util.get(candidate_decl,"transform-t")
+					value1 = Util3.get(candidate_decl,"transform-t")
 					setattr(resultlib,(("_hx_" + reqname2) if (reqname2 in python_Boot.keywords) else (("_hx_" + reqname2) if (((((len(reqname2) > 2) and ((ord(reqname2[0]) == 95))) and ((ord(reqname2[1]) == 95))) and ((ord(reqname2[(len(reqname2) - 1)]) != 95)))) else reqname2)),value1)
 					break
 		return _hx_AnonObject({'lib': resultlib})
@@ -1182,13 +1182,7 @@ class SutlTests:
 	@staticmethod
 	def RunTests():
 		r = haxe_unit_TestRunner()
-		r.add(TestsHelloWorld())
-		r.add(TestsGet())
-		r.add(Tests_isType())
-		r.add(Tests_Paths())
 		r.add(Tests_Builtins())
-		r.add(Tests_Evaluate())
-		r.add(Tests_Decls())
 		r.run()
 		if (not r.result.success):
 			haxe_Log.trace("failure",_hx_AnonObject({'fileName': "SutlTests.hx", 'lineNumber': 20, 'className': "SutlTests", 'methodName': "RunTests"}))
@@ -1257,85 +1251,10 @@ class haxe_unit_TestCase:
 haxe_unit_TestCase._hx_class = haxe_unit_TestCase
 
 
-class TestsGet(haxe_unit_TestCase):
-	_hx_class_name = "TestsGet"
-	_hx_fields = []
-	_hx_methods = ["testGet1", "testGetDefault", "testGetArray", "testGetSimple", "testGetNull", "testGetNoDefault"]
-	_hx_statics = []
-	_hx_interfaces = []
-	_hx_super = haxe_unit_TestCase
-
-
-	def __init__(self):
-		haxe_unit_TestCase.__init__(self)
-
-	def testGet1(self):
-		s = Sutl()
-		obj = haxe_ds_StringMap()
-		obj = python_lib_Json.loads("{\"fred\": 2}",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
-		result = Util.get(obj,"fred","zzz")
-		self.assertEquals(2,result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 11, 'className': "TestsGet", 'methodName': "testGet1"}))
-
-	def testGetDefault(self):
-		s = Sutl()
-		obj = haxe_ds_StringMap()
-		obj = python_lib_Json.loads("{\"george\": 2}",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
-		result = Util.get(obj,"fred","zzz")
-		self.assertEquals("zzz",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 23, 'className': "TestsGet", 'methodName': "testGetDefault"}))
-
-	def testGetArray(self):
-		s = Sutl()
-		obj = haxe_ds_StringMap()
-		obj = python_lib_Json.loads("[{\"fred\": 2}]",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
-		result = Util.get(obj,"fred","isarray")
-		self.assertEquals("isarray",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 35, 'className': "TestsGet", 'methodName': "testGetArray"}))
-
-	def testGetSimple(self):
-		s = Sutl()
-		obj = haxe_ds_StringMap()
-		obj = python_lib_Json.loads("1",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
-		result = Util.get(obj,"fred","isnumber")
-		self.assertEquals("isnumber",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 46, 'className': "TestsGet", 'methodName': "testGetSimple"}))
-
-	def testGetNull(self):
-		s = Sutl()
-		obj = haxe_ds_StringMap()
-		obj = python_lib_Json.loads("null",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
-		result = Util.get(obj,"fred","isnull")
-		self.assertEquals("isnull",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 57, 'className': "TestsGet", 'methodName': "testGetNull"}))
-
-	def testGetNoDefault(self):
-		s = Sutl()
-		obj = haxe_ds_StringMap()
-		obj = python_lib_Json.loads("{\"george\": 3}",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
-		result = Util.get(obj,"fred")
-		self.assertEquals(None,result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 68, 'className': "TestsGet", 'methodName': "testGetNoDefault"}))
-
-TestsGet._hx_class = TestsGet
-
-
-class TestsHelloWorld(haxe_unit_TestCase):
-	_hx_class_name = "TestsHelloWorld"
-	_hx_fields = []
-	_hx_methods = ["testHelloWorld"]
-	_hx_statics = []
-	_hx_interfaces = []
-	_hx_super = haxe_unit_TestCase
-
-
-	def __init__(self):
-		haxe_unit_TestCase.__init__(self)
-
-	def testHelloWorld(self):
-		self.assertTrue(True,_hx_AnonObject({'fileName': "TestsHelloWorld.hx", 'lineNumber': 5, 'className': "TestsHelloWorld", 'methodName': "testHelloWorld"}))
-
-TestsHelloWorld._hx_class = TestsHelloWorld
-
-
 class Tests_Builtins(haxe_unit_TestCase):
 	_hx_class_name = "Tests_Builtins"
 	_hx_fields = []
-	_hx_methods = ["callbuiltin", "callbuiltin2", "callbuiltin3", "test_plus", "test_plus2", "test_minus", "test_mult", "test_div", "test_equal", "test_notequal", "test_notequal2", "test_ge", "test_le", "test_gt", "test_lt", "test_and", "test_or", "test_not", "test_if", "test_if2", "test_keys", "test_values", "test_len", "test_len2", "test_type", "test_makemap", "test_reduce", "test_reduce2", "test_pathsrc", "test_pathscope", "test_pathlib", "test_pathraw", "test_head", "test_tail", "test_split", "test_split2", "test_trim", "test_pos"]
+	_hx_methods = ["callbuiltin", "callbuiltin2", "callbuiltin3", "test_if", "test_if2"]
 	_hx_statics = []
 	_hx_interfaces = []
 	_hx_super = haxe_unit_TestCase
@@ -1351,7 +1270,7 @@ class Tests_Builtins(haxe_unit_TestCase):
 	def callbuiltin2(self,builtinname,scope,expected):
 		s = Sutl()
 		builtins = s.builtins()
-		f = Util.get(builtins,builtinname)
+		f = Util3.get(builtins,builtinname)
 		self.assertTrue((f is not None),_hx_AnonObject({'fileName': "Tests_Builtins.hx", 'lineNumber': 21, 'className': "Tests_Builtins", 'methodName': "callbuiltin2"}))
 		result = f(None,scope,None,None,None,None,None)
 		try:
@@ -1366,62 +1285,10 @@ class Tests_Builtins(haxe_unit_TestCase):
 	def callbuiltin3(self,builtinname,scope,parentscope,l,src,tt,expected):
 		s = Sutl()
 		builtins = s.builtins()
-		f = Util.get(builtins,builtinname)
+		f = Util3.get(builtins,builtinname)
 		self.assertTrue((f is not None),_hx_AnonObject({'fileName': "Tests_Builtins.hx", 'lineNumber': 45, 'className': "Tests_Builtins", 'methodName': "callbuiltin3"}))
 		result = f(parentscope,scope,l,src,tt,None,None)
 		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Builtins.hx", 'lineNumber': 49, 'className': "Tests_Builtins", 'methodName': "callbuiltin3"}))
-
-	def test_plus(self):
-		self.callbuiltin("+",4.2,6,10.2)
-
-	def test_plus2(self):
-		self.callbuiltin("+","first","second","firstsecond")
-
-	def test_minus(self):
-		self.callbuiltin("-",3,2,1)
-
-	def test_mult(self):
-		self.callbuiltin("x",3,2,6)
-
-	def test_div(self):
-		self.callbuiltin("/",3,2,1.5)
-
-	def test_equal(self):
-		self.callbuiltin("=","freddo","freddo",True)
-
-	def test_notequal(self):
-		self.callbuiltin("!=","freddo","Freddo",True)
-
-	def test_notequal2(self):
-		self.callbuiltin("!=",False,0,True)
-
-	def test_ge(self):
-		self.callbuiltin(">=",14,5,True)
-
-	def test_le(self):
-		self.callbuiltin("<=",14,5,False)
-
-	def test_gt(self):
-		self.callbuiltin(">",14,5,True)
-
-	def test_lt(self):
-		self.callbuiltin("<",14,14,False)
-
-	def test_and(self):
-		self.callbuiltin("&&",True,True,True)
-		self.callbuiltin("&&",True,False,False)
-		self.callbuiltin("&&",False,True,False)
-		self.callbuiltin("&&",False,False,False)
-
-	def test_or(self):
-		self.callbuiltin("||",True,0,True)
-		self.callbuiltin("||",1,False,True)
-		self.callbuiltin("||",False,"x",True)
-		self.callbuiltin("||",None,False,False)
-
-	def test_not(self):
-		self.callbuiltin("!",None,True,False)
-		self.callbuiltin("!",None,False,True)
 
 	def test_if(self):
 		scope = _hx_AnonObject({'cond': True, 'true': "expected"})
@@ -1431,911 +1298,7 @@ class Tests_Builtins(haxe_unit_TestCase):
 		scope = _hx_AnonObject({'false': "expected"})
 		self.callbuiltin2("if",scope,"expected")
 
-	def test_keys(self):
-		scope = _hx_AnonObject({'map': _hx_AnonObject({'x': 1, 'y': 2, 'z': 3})})
-		self.callbuiltin2("keys",scope,["x", "y", "z"])
-
-	def test_values(self):
-		scope = _hx_AnonObject({'map': _hx_AnonObject({'x': 1, 'y': 2, 'z': 3})})
-		self.callbuiltin2("values",scope,[1, 2, 3])
-
-	def test_len(self):
-		scope = _hx_AnonObject({'list': [1, 2, 3, 4, 5]})
-		self.callbuiltin2("len",scope,5)
-
-	def test_len2(self):
-		scope = _hx_AnonObject({'value': "xyz"})
-		self.callbuiltin2("len",scope,3)
-
-	def test_type(self):
-		scope = _hx_AnonObject({'value': "xyz"})
-		self.callbuiltin2("type",scope,"string")
-
-	def test_makemap(self):
-		entry1 = ["a", 1]
-		entry2 = ["b", "two"]
-		entry3 = ["c", 3]
-		scope = _hx_AnonObject({'value': [entry1, entry2, entry3]})
-		self.callbuiltin2("makemap",scope,_hx_AnonObject({'a': 1, 'b': "two", 'c': 3}))
-
-	def test_reduce(self):
-		scope = _hx_AnonObject({'list': [1, 2, 3], 't': "transform"})
-		self.callbuiltin2("reduce",scope,"transform")
-
-	def test_reduce2(self):
-		scope = _hx_AnonObject({'list': "hello", 't': "transform"})
-		self.callbuiltin2("reduce",scope,"transform")
-
-	def test_pathsrc(self):
-		scope = _hx_AnonObject({'a': "x", 'b': "y"})
-		src = _hx_AnonObject({'x': _hx_AnonObject({'y': 1})})
-		self.callbuiltin3("$",scope,None,None,src,None,[1])
-
-	def test_pathscope(self):
-		scope = _hx_AnonObject({'a': "x", 'b': "y"})
-		parentscope = _hx_AnonObject({'x': _hx_AnonObject({'y': 1})})
-		self.callbuiltin3("@",scope,parentscope,None,None,None,[1])
-
-	def test_pathlib(self):
-		scope = _hx_AnonObject({'a': "x", 'b': "y"})
-		lib = _hx_AnonObject({'x': _hx_AnonObject({'y': 1})})
-		self.callbuiltin3("*",scope,None,lib,None,None,[1])
-
-	def test_pathraw(self):
-		scope = _hx_AnonObject({'a': _hx_AnonObject({'x': _hx_AnonObject({'y': 1})}), 'b': "x"})
-		self.callbuiltin2("%",scope,[_hx_AnonObject({'y': 1})])
-
-	def test_head(self):
-		scope = _hx_AnonObject({'b': [1, 2, 3]})
-		self.callbuiltin2("head",scope,1)
-
-	def test_tail(self):
-		scope = _hx_AnonObject({'b': [1, 2, 3]})
-		self.callbuiltin2("tail",scope,[2, 3])
-
-	def test_split(self):
-		scope = _hx_AnonObject({'value': "three,distinct,items"})
-		self.callbuiltin2("split",scope,["three", "distinct", "items"])
-
-	def test_split2(self):
-		scope = _hx_AnonObject({'value': "three-distinct-items", 'sep': "-", 'max': 2})
-		self.callbuiltin2("split",scope,["three", "distinct-items"])
-
-	def test_trim(self):
-		scope = _hx_AnonObject({'value': "  \t  fne rgle      \n    "})
-		self.callbuiltin2("trim",scope,"fne rgle")
-
-	def test_pos(self):
-		scope = _hx_AnonObject({'value': "the quick brown fox", 'sub': "quick"})
-		self.callbuiltin2("pos",scope,4)
-
 Tests_Builtins._hx_class = Tests_Builtins
-
-
-class Tests_Decls(haxe_unit_TestCase):
-	_hx_class_name = "Tests_Decls"
-	_hx_fields = ["_coreDist"]
-	_hx_methods = ["quote", "unquote", "LoadCoreDist", "EvaluateTransform", "EvaluateTransform2", "testLoadCoreDist", "test_concat", "test_path1", "test_reduce1", "test_reduce2", "test_foldone", "test_zip", "test_1a", "test_1", "test_2", "test_3", "test_4", "test_5", "test_6", "test_7", "test_8", "test_9", "test_10", "test_11", "test_12", "test_13", "test_14", "test_15", "test_16", "test_17", "test_18", "test_19", "test_20", "test_21", "test_22", "test_23", "test_24", "test_25", "test_26", "test_27", "test_28", "test_29", "test_30", "test_30b", "test_31", "test_32", "test_33", "test_34", "test_35", "test_36", "test_37"]
-	_hx_statics = ["GetSource"]
-	_hx_interfaces = []
-	_hx_super = haxe_unit_TestCase
-
-
-	def __init__(self):
-		self._coreDist = None
-		self._coreDist = None
-		haxe_unit_TestCase.__init__(self)
-
-	def quote(self,aElem):
-		retval = _hx_AnonObject({})
-		setattr(retval,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'")),aElem)
-		return retval
-
-	def unquote(self,aElem):
-		retval = _hx_AnonObject({})
-		setattr(retval,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''")),aElem)
-		return retval
-
-	def LoadCoreDist(self):
-		if (self._coreDist is None):
-			self._coreDist = Util.loadcoredist()
-		return self._coreDist
-
-	def EvaluateTransform(self,aDecl,aLibDecls,aSource = None):
-		s = Sutl()
-		llibresult = s.compilelib([aDecl],aLibDecls)
-		llib = _hx_AnonObject({})
-		if hasattr(llibresult,(("_hx_" + "lib") if ("lib" in python_Boot.keywords) else (("_hx_" + "lib") if (((((len("lib") > 2) and ((ord("lib"[0]) == 95))) and ((ord("lib"[1]) == 95))) and ((ord("lib"[(len("lib") - 1)]) != 95)))) else "lib"))):
-			llib = Util.get(llibresult,"lib")
-		lresult = s.evaluate(aSource,Util.get(aDecl,"transform-t"),llib,0)
-		return lresult
-
-	def EvaluateTransform2(self,aDecl,aLib,aSource = None):
-		s = Sutl()
-		lresult = s.evaluate(aSource,Util.get(aDecl,"transform-t"),aLib,0)
-		return lresult
-
-	def testLoadCoreDist(self):
-		lcoreDist = self.LoadCoreDist()
-		self.assertTrue(Util2.isArray(lcoreDist),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 93, 'className': "Tests_Decls", 'methodName': "testLoadCoreDist"}))
-
-	def test_concat(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclarr1 = ["&&", 1, "^@.list"]
-		ldecl = _hx_AnonObject({'transform-t': ldeclarr1})
-		lsource = _hx_AnonObject({'list': [2, 3]})
-		lexpected = [1, 2, 3]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 121, 'className': "Tests_Decls", 'methodName': "test_concat"}))
-
-	def test_path1(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': "^@.accum.0"})
-		lsource = _hx_AnonObject({'accum': [2, 3]})
-		lexpected = 2
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 144, 'className': "Tests_Decls", 'methodName': "test_path1"}))
-
-	def test_reduce1(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclarr1_0 = [1, 2]
-		ldeclarr1_1 = ["a", "b"]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "reduce", 'accum': [], 't': _hx_AnonObject({':': ["&&", "^@.item", "^@.accum"]})})})
-		lsource = _hx_AnonObject({'list': [1, 2, 3, 4, 5]})
-		lexpected = [5, 4, 3, 2, 1]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 176, 'className': "Tests_Decls", 'methodName': "test_reduce1"}))
-
-	def test_reduce2(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "reduce", 'accum': 0, 't': _hx_AnonObject({':': ["&+", "^@.item", "^@.accum"]})})})
-		lsource = _hx_AnonObject({'list': [1, 2, 3, 4, 5]})
-		lexpected = 15
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 207, 'className': "Tests_Decls", 'methodName': "test_reduce2"}))
-
-	def test_foldone(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclarr1_0 = [1, 2]
-		ldeclarr1_1 = ["a", "b"]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "foldone"}), 'language': "sUTL0", 'requires': ["foldone"]})
-		lsource = _hx_AnonObject({'list': [4, 5], 'lists': [[1, 1], [2, 4]]})
-		lexpected = [[1, 1, 4], [2, 4, 5]]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 247, 'className': "Tests_Decls", 'methodName': "test_foldone"}))
-
-	def test_zip(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclarr1 = [[1, 2], ["a", "b"]]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "zip", 'list': ldeclarr1}), 'language': "sUTL0", 'requires': ["zip"]})
-		lexpected = [[1, "a"], [2, "b"]]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 272, 'className': "Tests_Decls", 'methodName': "test_zip"}))
-
-	def test_1a(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["addmaps_core"], 'transform-t': _hx_AnonObject({'&': "addmaps_core", 'map2': _hx_AnonObject({'x': 1}), 'map1': _hx_AnonObject({'y': 2})}), 'language': "sUTL0"})
-		lexpected = _hx_AnonObject({'x': 1, 'y': 2})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 306, 'className': "Tests_Decls", 'methodName': "test_1a"}))
-
-	def test_1(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["addmaps_core", "removekeys_core"], 'transform-t': _hx_AnonObject({'!': "^*.addmaps_core", 'map1': "^$.document", 'map2': _hx_AnonObject({'__meta__': _hx_AnonObject({'!': "^*.removekeys_core", 'map': "^$", 'keys': ["document"]})})}), 'language': "sUTL0"})
-		lexpectedArr1 = [1, 2, [3, 4]]
-		lexpected = _hx_AnonObject({'description': "stuff", 'themeindex': 6, 'eventkeyid': "3a300a90-eca4-e101-383d-6bfd5990d791", 'published': True, '__meta__': _hx_AnonObject({'docalt': lexpectedArr1, 'updated': 1438517599342400, 'apkey': "2a02d608-6431-40aa-b0b2-91bf5f48cd84", 'invalid': False, 'stored': 1438313529667260, 'eventkeyid': "3a300a90-eca4-e101-383d-6bfd5990d791", 'key': "244de280-a01a-c5da-4162-ced9775246a5", 'clientkey': "82b25cfa-f0ec-4f44-9209-77cbd98edd6a", 'type': "CachedObject", 'indexnames': ["82B25CFA-F0EC-4F44-9209-77CBD98EDD6A-Metric"], 'objecttype': "Metric"}), 'type': "Metric_update", 'name': "thingo"})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 373, 'className': "Tests_Decls", 'methodName': "test_1"}))
-
-	def test_2(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': "^$.indexnames.1", 'language': "sUTL0"})
-		lexpected = None
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 393, 'className': "Tests_Decls", 'methodName': "test_2"}))
-
-	def test_3(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["removekeys_core"], 'transform-t': _hx_AnonObject({'!': "^*.removekeys_core", 'map': "^$", 'keys': ["document", "updated", "apkey", "key", "clientkey", "invalid", "indexnames", "docalt"]}), 'language': "sUTL0"})
-		lexpected = _hx_AnonObject({'stored': 1438313529667260, 'eventkeyid': "3a300a90-eca4-e101-383d-6bfd5990d791", 'type': "CachedObject", 'objecttype': "Metric"})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 434, 'className': "Tests_Decls", 'methodName': "test_3"}))
-
-	def test_4(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["isinlist_core"], 'transform-t': _hx_AnonObject({'!': "^*.isinlist_core", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"}), 'item': "document"}), 'language': "sUTL0"})
-		lexpected = True
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 463, 'className': "Tests_Decls", 'methodName': "test_4"}))
-
-	def test_5(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["quicksort", "filter_core"], 'transform-t': _hx_AnonObject({'!': "^*.filter_core", 'list': _hx_AnonObject({'&': "quicksort", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"})}), 'filter-t': True}), 'language': "sUTL0"})
-		lexpected = ["apkey", "clientkey", "docalt", "document", "eventkeyid", "indexnames", "invalid", "key", "objecttype", "stored", "type", "updated"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 506, 'className': "Tests_Decls", 'methodName': "test_5"}))
-
-	def test_6(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "reduce", 'list': _hx_AnonObject({'&': "quicksort", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"})}), 'accum': "", 't': self.quote(_hx_AnonObject({'&': "+", 'b': "^@.item", 'a': "^@.accum"}))}), 'language': "sUTL0", 'requires': ["quicksort"]})
-		lexpected = "apkeyclientkeydocaltdocumenteventkeyidindexnamesinvalidkeyobjecttypestoredtypeupdated"
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 539, 'className': "Tests_Decls", 'methodName': "test_6"}))
-
-	def test_7(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lfilterDeclArr1 = ["&&", "^@.accum", _hx_AnonObject({'&': "if", 'cond': self.quote(self.unquote("^@.filter-t")), 'true': ["^@.item"], 'false': []})]
-		lfilterDecl = _hx_AnonObject({'name': "testfilter", 'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "reduce", 'list': "^@.list", 'accum': [], 't': self.quote(lfilterDeclArr1)})})
-		ljsonDecls.append([lfilterDecl])
-		ldecl = _hx_AnonObject({'requires': ["testfilter"], 'transform-t': _hx_AnonObject({'!': "^*.testfilter", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"}), 'filter-t': self.quote(_hx_AnonObject({'&': "=", 'a': "^@.item", 'b': "stored"}))}), 'language': "sUTL0"})
-		lexpected = ["stored"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 597, 'className': "Tests_Decls", 'methodName': "test_7"}))
-
-	def test_8(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "if", 'cond': [], 'true': 1, 'false': 0})})
-		lexpected = 0
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 622, 'className': "Tests_Decls", 'methodName': "test_8"}))
-
-	def test_9(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lreduceDecl = _hx_AnonObject({'name': "testreduce", 'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "if", 'cond': "^@.list", 'true': self.quote(_hx_AnonObject({'!': "^*.testreduce", 'list': _hx_AnonObject({'&': "tail", 'b': "^@.list"}), 't': "^@.t", 'accum': _hx_AnonObject({'!': "^@.t", 'item': _hx_AnonObject({'&': "head", 'b': "^@.list"}), 'accum': "^@.accum"})})), 'false': self.quote("^@.accum")}), 'requires': ["testreduce", "head_core_emlynoregan_com", "tail_core_emlynoregan_com"]})
-		ljsonDecls.append([lreduceDecl])
-		ldecl = _hx_AnonObject({'requires': ["testreduce", "quicksort"], 'transform-t': _hx_AnonObject({'!': "^*.testreduce", 'list': _hx_AnonObject({'&': "quicksort", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"})}), 'accum': "", 't': self.quote(["&+", "^@.accum", "^@.item"])}), 'language': "sUTL0"})
-		lexpected = "apkeyclientkeydocaltdocumenteventkeyidindexnamesinvalidkeyobjecttypestoredtypeupdated"
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 687, 'className': "Tests_Decls", 'methodName': "test_9"}))
-
-	def test_10(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lcondDecl = _hx_AnonObject({'name': "testcond", 'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "if", 'cond': "^@.list", 'true': self.quote(True), 'false': self.quote(False)}), 'requires': []})
-		ljsonDecls.append([lcondDecl])
-		ldecl = _hx_AnonObject({'requires': ["testcond"], 'transform-t': _hx_AnonObject({'!': "^*.testcond", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"})}), 'language': "sUTL0"})
-		lexpected = True
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 729, 'className': "Tests_Decls", 'methodName': "test_10"}))
-
-	def test_11(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "quicksort", 'list': _hx_AnonObject({'&': "keys", 'map': "^$"})}), 'language': "sUTL0", 'requires': ["quicksort"]})
-		lexpected = ["apkey", "clientkey", "docalt", "document", "eventkeyid", "indexnames", "invalid", "key", "objecttype", "stored", "type", "updated"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 766, 'className': "Tests_Decls", 'methodName': "test_11"}))
-
-	def test_12(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': self.quote(_hx_AnonObject({'a': "^$.updated", 'b': self.unquote("^$.updated")})), 'language': "sUTL0"})
-		lexpected = _hx_AnonObject({'a': "^$.updated", 'b': 1438517599342400})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 792, 'className': "Tests_Decls", 'methodName': "test_12"}))
-
-	def test_13(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["zip_core"], 'transform-t': _hx_AnonObject({'!': "^*.zip_core", 'list': [[1, 2], [3, 4]]}), 'language': "sUTL0"})
-		lexpected = [[1, 3], [2, 4]]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 818, 'className': "Tests_Decls", 'methodName': "test_13"}))
-
-	def test_14(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'requires': ["count_core"], 'transform-t': _hx_AnonObject({'&': "<", 'a': 0, 'b': _hx_AnonObject({'!': "^*.count_core", 'obj': [[], []]})}), 'language': "sUTL0"})
-		lexpected = False
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 848, 'className': "Tests_Decls", 'methodName': "test_14"}))
-
-	def test_15(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': "^$", 'language': "sUTL0"})
-		lexpected = Tests_Decls.GetSource()
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 868, 'className': "Tests_Decls", 'methodName': "test_15"}))
-
-	def test_16(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "len", 'list': [1, 2]}), 'language': "sUTL0"})
-		lexpected = 2
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 891, 'className': "Tests_Decls", 'methodName': "test_16"}))
-
-	def test_17(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'!': "^*.foldone", 'lists': [[1], [2]], 'list': [3, 4]}), 'requires': ["foldone"]})
-		lexpected = [[1, 3], [2, 4]]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 927, 'className': "Tests_Decls", 'methodName': "test_17"}))
-
-	def test_18(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'!': "^*.quicksort", 'list': [8, 1, 5, 3, 8, 9, 4, 3, 6, 2, 1]}), 'requires': ["quicksort"]})
-		lexpected = [1, 1, 2, 3, 3, 4, 5, 6, 8, 8, 9]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,Tests_Decls.GetSource())
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 965, 'className': "Tests_Decls", 'methodName': "test_18"}))
-
-	def test_19(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'x': [_hx_AnonObject({'y': "001"}), _hx_AnonObject({'y': "002"}), _hx_AnonObject({'y': "003"})]})
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': "&$.x.**.y"})
-		lexpected = ["001", "002", "003"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 999, 'className': "Tests_Decls", 'methodName': "test_19"}))
-
-	def test_20(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': ["&=", "thing", "thing"]})
-		lexpected = True
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1019, 'className': "Tests_Decls", 'methodName': "test_20"}))
-
-	def test_21(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': "^@.wontbefound"})
-		lexpected = None
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1039, 'className': "Tests_Decls", 'methodName': "test_21"}))
-
-	def test_22(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = [_hx_AnonObject({'id': "001", 'parent': None}), _hx_AnonObject({'id': "002", 'parent': None}), _hx_AnonObject({'id': "003", 'parent': _hx_AnonObject({'id': "002"})})]
-		ldeclTransform = ["^%", _hx_AnonObject({'!': "^*.mapget_core", 'key': "^$.2.parent.id", 'map': _hx_AnonObject({'!': "^*.idlisttomap", 'list': "^$", 'keypath': ["id"]})}), "id"]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': ldeclTransform, 'requires': ["mapget_core", "idlisttomap"]})
-		lexpected = "002"
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1091, 'className': "Tests_Decls", 'methodName': "test_22"}))
-
-	def test_23(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclTransform = ["^%", _hx_AnonObject({'x': 1, 'y': 2}), "y"]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': ldeclTransform, 'requires': ["calcpath", "stepneedscomplete", "calcstepevents"]})
-		lexpected = 2
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1121, 'className': "Tests_Decls", 'methodName': "test_23"}))
-
-	def test_24(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclTransform = ["&+", None, 3]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': ldeclTransform})
-		lexpected = 3
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1143, 'className': "Tests_Decls", 'methodName': "test_24"}))
-
-	def test_25(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "split", 'value': "mailto:thingo@example.com", 'sep': ":"})})
-		lexpected = ["mailto", "thingo@example.com"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1167, 'className': "Tests_Decls", 'methodName': "test_25"}))
-
-	def test_26(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "trim", 'value': "    blabo    "})})
-		lexpected = "blabo"
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1190, 'className': "Tests_Decls", 'methodName': "test_26"}))
-
-	def test_27(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'a': _hx_AnonObject({'&': "pos", 'value': "HelloWorld!!", 'sub': "or"}), 'b': _hx_AnonObject({'&': "pos", 'value': "HelloWorld!!", 'sub': "x"})})})
-		lexpected = _hx_AnonObject({'a': 6, 'b': -1})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1225, 'className': "Tests_Decls", 'methodName': "test_27"}))
-
-	def test_28(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'language': "sUTL0", 'transform-t': _hx_AnonObject({'&': "map_core", 'list': "Hello World!!", 't': _hx_AnonObject({':': "^@.item"})}), 'requires': ["map_core"]})
-		lexpected = ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", "!", "!"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1251, 'className': "Tests_Decls", 'methodName': "test_28"}))
-
-	def test_29(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldeclArr = [["a", "b"], [1, 2]]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "zip_core_emlynoregan_com", 'list': ldeclArr}), 'requires': ["zip_core_emlynoregan_com"]})
-		lexpectedArr1 = ["a", 1]
-		lexpectedArr2 = ["b", 2]
-		lexpected = [lexpectedArr1, lexpectedArr2]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1285, 'className': "Tests_Decls", 'methodName': "test_29"}))
-
-	def test_30(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'map1': _hx_AnonObject({'x': 1, 'y': "two"})})
-		ldeclArr = [_hx_AnonObject({'&': "keys", 'map': "^@.map1"}), _hx_AnonObject({'&': "values", 'map': "^@.map1"})]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'!': "^*.zip_core_emlynoregan_com", 'list': ldeclArr})}), 'map1': _hx_AnonObject({'x': 1, 'y': "two"})}), 'requires': ["zip_core_emlynoregan_com"]})
-		lexpectedArr1 = ["x", 1]
-		lexpectedArr2 = ["y", "two"]
-		lexpected = [lexpectedArr1, lexpectedArr2]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1337, 'className': "Tests_Decls", 'methodName': "test_30"}))
-
-	def test_30b(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'map1': _hx_AnonObject({'x': 1, 'y': 2}), 'keys': ["x", "y"], 'values': [1, 2]})
-		ldeclArr = ["^@.keys", _hx_AnonObject({'&': "values", 'map': "^@.map1"})]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'!': _hx_AnonObject({':': ldeclArr}), 'map1': _hx_AnonObject({'x': 1, 'y': 2}), 'keys': ["x", "y"], 'values': [1, 2]})})
-		lexpectedArr1 = ["x", "y"]
-		lexpectedArr2 = [1, 2]
-		lexpected = [lexpectedArr1, lexpectedArr2]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1386, 'className': "Tests_Decls", 'methodName': "test_30b"}))
-
-	def test_31(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'map1': _hx_AnonObject({'x': 1, 'y': "two"}), 'map2': _hx_AnonObject({'z': 3})})
-		ldeclArr1 = ["&&", _hx_AnonObject({'&': "keys", 'map': "^@.map1"}), _hx_AnonObject({'&': "keys", 'map': "^@.map2"})]
-		ldeclArr2 = ["&&", _hx_AnonObject({'&': "values", 'map': "^@.map1"}), _hx_AnonObject({'&': "values", 'map': "^@.map2"})]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "zip", 'list': [ldeclArr1, ldeclArr2]}), 'requires': ["zip"]})
-		lexpectedArr1 = ["x", 1]
-		lexpectedArr2 = ["y", "two"]
-		lexpectedArr3 = ["z", 3]
-		lexpected = [lexpectedArr1, lexpectedArr2, lexpectedArr3]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1449, 'className': "Tests_Decls", 'methodName': "test_31"}))
-
-	def test_32(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsourceArr1 = ["x", 1]
-		lsourceArr2 = ["y", "two"]
-		lsourceArr3 = ["z", 3]
-		lsource = _hx_AnonObject({'x': [lsourceArr1, lsourceArr2, lsourceArr3], 'value': _hx_AnonObject({'z': 5})})
-		ldeclArr = ["^%", _hx_AnonObject({'z': "^@.x"}), "z"]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'&': "makemap"})}), 'value': ldeclArr})})
-		lexpected = _hx_AnonObject({'x': 1, 'y': "two", 'z': 3})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1484, 'className': "Tests_Decls", 'methodName': "test_32"}))
-
-	def test_33(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'map1': _hx_AnonObject({'x': 1, 'y': "two"}), 'map2': _hx_AnonObject({'z': 3})})
-		ldeclArr1 = ["&&", _hx_AnonObject({'&': "keys", 'map': "^@.map1"}), _hx_AnonObject({'&': "keys", 'map': "^@.map2"})]
-		ldeclArr2 = ["&&", _hx_AnonObject({'&': "values", 'map': "^@.map1"}), _hx_AnonObject({'&': "values", 'map': "^@.map2"})]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'&': "makemap", 'value': _hx_AnonObject({'!': "^*.zip_core_emlynoregan_com", 'list': [ldeclArr1, ldeclArr2]})})}), 'map1': _hx_AnonObject({'x': 1, 'y': "two"}), 'map2': _hx_AnonObject({'z': 3})}), 'requires': ["zip_core_emlynoregan_com"]})
-		lexpected = _hx_AnonObject({'x': 1, 'y': "two", 'z': 3})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1560, 'className': "Tests_Decls", 'methodName': "test_33"}))
-
-	def test_34(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'z': ["^@.x", "^@.y"]})}), 'x': _hx_AnonObject({'z': 5})})}), 'x': _hx_AnonObject({'z': 3}), 'y': _hx_AnonObject({'z': 4})})})
-		lexpected = _hx_AnonObject({'z': [_hx_AnonObject({'z': 5}), _hx_AnonObject({'z': 4})]})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1588, 'className': "Tests_Decls", 'methodName': "test_34"}))
-
-	def test_35(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'map1': _hx_AnonObject({'x': 1, 'y': "two"}), 'map2': _hx_AnonObject({'z': 3})})
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "addmaps_core"}), 'requires': ["addmaps_core"]})
-		lexpected = _hx_AnonObject({'x': 1, 'y': "two", 'z': 3})
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1625, 'className': "Tests_Decls", 'methodName': "test_35"}))
-
-	def test_36(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource = _hx_AnonObject({'map1': _hx_AnonObject({'x': 1, 'y': 2})})
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'&': "keys", 'map': "^@.map1"})}), 'map1': _hx_AnonObject({'x': 1, 'y': 2})})})
-		lexpected = ["x", "y"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,lsource)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1661, 'className': "Tests_Decls", 'methodName': "test_36"}))
-
-	def test_37(self):
-		ljsonDecls = [self.LoadCoreDist()]
-		lsource_map1 = _hx_AnonObject({'x': 1, 'y': 2})
-		ldecl = _hx_AnonObject({'transform-t': _hx_AnonObject({'&': "keys", 'map': _hx_AnonObject({'xxx': 1, 'yyy': 2})})})
-		lexpected = ["xxx", "yyy"]
-		lresult = self.EvaluateTransform(ldecl,ljsonDecls,None)
-		self.assertTrue(Util.deepEqual(lexpected,lresult),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 1694, 'className': "Tests_Decls", 'methodName': "test_37"}))
-
-	@staticmethod
-	def GetSource():
-		_sourceArr1 = [1, 2, [3, 4]]
-		_source = _hx_AnonObject({'updated': 1438517599342400, 'apkey': "2a02d608-6431-40aa-b0b2-91bf5f48cd84", 'stored': 1438313529667260, 'eventkeyid': "3a300a90-eca4-e101-383d-6bfd5990d791", 'key': "244de280-a01a-c5da-4162-ced9775246a5", 'clientkey': "82b25cfa-f0ec-4f44-9209-77cbd98edd6a", 'docalt': _sourceArr1, 'invalid': False, 'document': _hx_AnonObject({'description': "stuff", 'themeindex': 6, 'eventkeyid': "3a300a90-eca4-e101-383d-6bfd5990d791", 'published': True, 'type': "Metric_update", 'name': "thingo"}), 'type': "CachedObject", 'indexnames': ["82B25CFA-F0EC-4F44-9209-77CBD98EDD6A-Metric"], 'objecttype': "Metric"})
-		return _source
-
-Tests_Decls._hx_class = Tests_Decls
-
-
-class Tests_Evaluate(haxe_unit_TestCase):
-	_hx_class_name = "Tests_Evaluate"
-	_hx_fields = []
-	_hx_methods = ["checkEvaluate", "testEvalSimple", "testEvalArray", "testEvalDict", "testFlatten", "testEval_1", "testEval2_1", "testEvaluateBuiltinSimple1", "testEvaluateBuiltinSimple2", "testEvaluateBuiltinSimple3", "testEvaluateBuiltin1", "testEvaluateBuiltin2", "testEvaluateBuiltin3", "testEvaluateArrayBuiltin1", "testEvaluateStringBuiltin1", "testEvaluateStringBuiltin2", "testEvaluate1", "testEvaluate2"]
-	_hx_statics = []
-	_hx_interfaces = []
-	_hx_super = haxe_unit_TestCase
-
-
-	def __init__(self):
-		haxe_unit_TestCase.__init__(self)
-
-	def checkEvaluate(self,src,tt,expected):
-		s = Sutl()
-		result = s.evaluate(src,tt,None)
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 12, 'className': "Tests_Evaluate", 'methodName': "checkEvaluate"}))
-
-	def testEvalSimple(self):
-		self.checkEvaluate(None,5,5)
-
-	def testEvalArray(self):
-		self.checkEvaluate(None,[1, 2],[1, 2])
-
-	def testEvalDict(self):
-		self.checkEvaluate(None,_hx_AnonObject({'x': 1, 'y': 2}),_hx_AnonObject({'x': 1, 'y': 2}))
-
-	def testFlatten(self):
-		tt = ["&&", 1, 2, [3, 4], 5]
-		self.checkEvaluate(None,tt,[1, 2, 3, 4, 5])
-
-	def testEval_1(self):
-		tt = _hx_AnonObject({'!': _hx_AnonObject({':': _hx_AnonObject({'x': "^@.y"})}), 'y': 4})
-		self.checkEvaluate(None,tt,_hx_AnonObject({'x': 4}))
-
-	def testEval2_1(self):
-		tt = _hx_AnonObject({'!!': _hx_AnonObject({':': _hx_AnonObject({'x': "^@"})}), 's': 4})
-		self.checkEvaluate(None,tt,_hx_AnonObject({'x': 4}))
-
-	def testEvaluateBuiltinSimple1(self):
-		tt = _hx_AnonObject({'&': "head", 'b': [1, 2, 3]})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateBuiltinSimple(True,None,tt,None,None,tt,b,0)
-		expected = 1
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 76, 'className': "Tests_Evaluate", 'methodName': "testEvaluateBuiltinSimple1"}))
-
-	def testEvaluateBuiltinSimple2(self):
-		tt = _hx_AnonObject({'&': "tail", 'b': [1, 2, 3]})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateBuiltinSimple(True,None,tt,None,None,tt,b,0)
-		expected = [2, 3]
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 94, 'className': "Tests_Evaluate", 'methodName': "testEvaluateBuiltinSimple2"}))
-
-	def testEvaluateBuiltinSimple3(self):
-		tt = _hx_AnonObject({'&': "xxx"})
-		l = _hx_AnonObject({'xxx': 7})
-		src = _hx_AnonObject({'thing': 12})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateBuiltinSimple(True,src,tt,l,src,tt,b,0)
-		expected = 7
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 122, 'className': "Tests_Evaluate", 'methodName': "testEvaluateBuiltinSimple3"}))
-
-	def testEvaluateBuiltin1(self):
-		tt = _hx_AnonObject({'&': "x", 'args': [2, 3, 4]})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateBuiltin(None,tt,None,None,tt,b,0)
-		expected = 24
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 142, 'className': "Tests_Evaluate", 'methodName': "testEvaluateBuiltin1"}))
-
-	def testEvaluateBuiltin2(self):
-		tt = _hx_AnonObject({'&': "x", 'args': [2]})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateBuiltin(None,tt,None,None,tt,b,0)
-		expected = 2
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 162, 'className': "Tests_Evaluate", 'methodName': "testEvaluateBuiltin2"}))
-
-	def testEvaluateBuiltin3(self):
-		tt = _hx_AnonObject({'&': "@", 'head': True, 'args': ["*", "y"]})
-		src = _hx_AnonObject({'x': _hx_AnonObject({'y': 3})})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateBuiltin(src,tt,None,src,tt,b,0)
-		expected = 3
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 189, 'className': "Tests_Evaluate", 'methodName': "testEvaluateBuiltin3"}))
-
-	def testEvaluateArrayBuiltin1(self):
-		tt = ["^@", "*", "y"]
-		src = _hx_AnonObject({'x': _hx_AnonObject({'y': 3})})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateArrayBuiltin(src,tt,None,src,tt,b,0)
-		expected = 3
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 216, 'className': "Tests_Evaluate", 'methodName': "testEvaluateArrayBuiltin1"}))
-
-	def testEvaluateStringBuiltin1(self):
-		tt = "^@.*.y"
-		src = _hx_AnonObject({'x': _hx_AnonObject({'y': 3})})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateStringBuiltin(src,tt,None,src,tt,b,0)
-		expected = 3
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 239, 'className': "Tests_Evaluate", 'methodName': "testEvaluateStringBuiltin1"}))
-
-	def testEvaluateStringBuiltin2(self):
-		tt = "^@.x.2"
-		src = _hx_AnonObject({'x': [1, 2, 3]})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluateStringBuiltin(src,tt,None,src,tt,b,0)
-		expected = 3
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 260, 'className': "Tests_Evaluate", 'methodName': "testEvaluateStringBuiltin2"}))
-
-	def testEvaluate1(self):
-		tt = _hx_AnonObject({'name': "^@.x.y"})
-		src = _hx_AnonObject({'x': _hx_AnonObject({'y': "fred"})})
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluate(src,tt,None,src,tt,b,0)
-		expected = _hx_AnonObject({'name': "fred"})
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 285, 'className': "Tests_Evaluate", 'methodName': "testEvaluate1"}))
-
-	def testEvaluate2(self):
-		tt = "^@.2"
-		src = "Hello World"
-		s = Sutl()
-		b = s.builtins()
-		result = s._evaluate(src,tt,None,src,tt,b,0)
-		expected = "l"
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Evaluate.hx", 'lineNumber': 303, 'className': "Tests_Evaluate", 'methodName': "testEvaluate2"}))
-
-Tests_Evaluate._hx_class = Tests_Evaluate
-
-
-class Tests_Paths(haxe_unit_TestCase):
-	_hx_class_name = "Tests_Paths"
-	_hx_fields = []
-	_hx_methods = ["test_deepEqual1", "test_deepEqual2", "testPath1", "testPath2", "testPath3", "testPath4", "testProcessPath", "testProcessPath2"]
-	_hx_statics = []
-	_hx_interfaces = []
-	_hx_super = haxe_unit_TestCase
-
-
-	def __init__(self):
-		haxe_unit_TestCase.__init__(self)
-
-	def test_deepEqual1(self):
-		s = Sutl()
-		arr = [12, _hx_AnonObject({'z': 3, 'k': None}), "x"]
-		obj1 = _hx_AnonObject({'x': arr, 'y': _hx_AnonObject({'xx': 14})})
-		self.assertTrue(Util.deepEqual(obj1,obj1),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 21, 'className': "Tests_Paths", 'methodName': "test_deepEqual1"}))
-
-	def test_deepEqual2(self):
-		s = Sutl()
-		arr = [12, _hx_AnonObject({'z': 3, 'k': [1, 2, 3]}), "x"]
-		obj1 = _hx_AnonObject({'x': arr, 'y': _hx_AnonObject({'xx': 14})})
-		obj2 = Util.deepCopy(obj1)
-		o = HxOverrides.arrayGet(Reflect.field(obj2,"x"), 1)
-		setattr(o,(("_hx_" + "k") if ("k" in python_Boot.keywords) else (("_hx_" + "k") if (((((len("k") > 2) and ((ord("k"[0]) == 95))) and ((ord("k"[1]) == 95))) and ((ord("k"[(len("k") - 1)]) != 95)))) else "k")),[1, 2, 4])
-		isequal = False
-		try:
-			isequal = Util.deepEqual(obj1,obj2)
-		except Exception as _hx_e:
-			_hx_e1 = _hx_e.val if isinstance(_hx_e, _HxException) else _hx_e
-			pass
-		self.assertFalse(isequal,_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 57, 'className': "Tests_Paths", 'methodName': "test_deepEqual2"}))
-
-	def testPath1(self):
-		s = Sutl()
-		result = s._doPath(["xx"],"y")
-		self.assertTrue(Util.deepEqual([],result),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 69, 'className': "Tests_Paths", 'methodName': "testPath1"}))
-
-	def testPath2(self):
-		s = Sutl()
-		result = s._doPath([_hx_AnonObject({'x': 1}), _hx_AnonObject({'x': 2.3})],"x")
-		self.assertTrue(Util.deepEqual([1, 2.3],result),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 83, 'className': "Tests_Paths", 'methodName': "testPath2"}))
-
-	def testPath3(self):
-		s = Sutl()
-		dynarr = [1, 2, _hx_AnonObject({'x': 4})]
-		result = s._doPath([_hx_AnonObject({'x': [1, 2, 3]}), _hx_AnonObject({'x': _hx_AnonObject({'y': _hx_AnonObject({'yy': dynarr}), 'z': _hx_AnonObject({'z': _hx_AnonObject({'z': "zz"})})})})],"**")
-		expected = [_hx_AnonObject({'x': [1, 2, 3]}), [1, 2, 3], 1, 2, 3, _hx_AnonObject({'x': _hx_AnonObject({'y': _hx_AnonObject({'yy': dynarr}), 'z': _hx_AnonObject({'z': _hx_AnonObject({'z': "zz"})})})}), _hx_AnonObject({'y': _hx_AnonObject({'yy': dynarr}), 'z': _hx_AnonObject({'z': _hx_AnonObject({'z': "zz"})})}), _hx_AnonObject({'yy': dynarr}), _hx_AnonObject({'z': _hx_AnonObject({'z': "zz"})}), _hx_AnonObject({'z': "zz"}), "zz", dynarr, (dynarr[0] if 0 < len(dynarr) else None), (dynarr[1] if 1 < len(dynarr) else None), (dynarr[2] if 2 < len(dynarr) else None), 4]
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 124, 'className': "Tests_Paths", 'methodName': "testPath3"}))
-
-	def testPath4(self):
-		s = Sutl()
-		dynarr = [1, 2, _hx_AnonObject({'x': 4})]
-		result = s._doPath([_hx_AnonObject({'x': [1, 2, 3]}), _hx_AnonObject({'x': _hx_AnonObject({'y': _hx_AnonObject({'yy': dynarr}), 'z': _hx_AnonObject({'z': _hx_AnonObject({'z': "zz"})})})})],"*")
-		expected = [[1, 2, 3], _hx_AnonObject({'y': _hx_AnonObject({'yy': dynarr}), 'z': _hx_AnonObject({'z': _hx_AnonObject({'z': "zz"})})})]
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 151, 'className': "Tests_Paths", 'methodName': "testPath4"}))
-
-	def testProcessPath(self):
-		s = Sutl()
-		startfrom = _hx_AnonObject({'x': _hx_AnonObject({'y': _hx_AnonObject({'z': 3})})})
-		scope = _hx_AnonObject({'a': "x", 'b': "y"})
-		result = s._processPath(startfrom,None,scope,None,None,None,None,None)
-		expected = [_hx_AnonObject({'z': 3})]
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 175, 'className': "Tests_Paths", 'methodName': "testProcessPath"}))
-
-	def testProcessPath2(self):
-		s = Sutl()
-		startfrom = _hx_AnonObject({'x': _hx_AnonObject({'y': _hx_AnonObject({'z': 3})})})
-		scope = _hx_AnonObject({'a': [_hx_AnonObject({'z': 3})], 'b': "z", 'notfirst': True})
-		result = s._processPath(startfrom,None,scope,None,None,None,None,None)
-		expected = [3]
-		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Paths.hx", 'lineNumber': 201, 'className': "Tests_Paths", 'methodName': "testProcessPath2"}))
-
-Tests_Paths._hx_class = Tests_Paths
-
-
-class Tests_isType(haxe_unit_TestCase):
-	_hx_class_name = "Tests_isType"
-	_hx_fields = []
-	_hx_methods = ["quote", "unquote", "isType", "GetType", "getValue", "testIsObject", "testIsArray", "testIsString", "testIsNumber", "testIsNumber2", "testIsBool", "testGetTypeObject", "testGetTypeArray", "testGetTypeString", "testGetTypeNumber", "testGetTypeNumber2", "testGetTypeBool", "testGetTypeNull", "testIsTruthyObj", "testIsNotTruthyObj", "testIsTruthyList", "testIsNotTruthyList", "testIsTruthyString", "testIsNotTruthyString", "testIsTruthyNumber", "testIsNotTruthyNumber", "testIsTruthyBool", "testIsNotTruthyBool", "testIsNotTruthyNull", "testIsBuiltinEval", "testIsBuiltinEval2", "testIsArrayBuiltinEval", "testIsArrayBuiltinEval2", "testIsStringBuiltinEval", "testIsStringBuiltinEval2", "testIsStringBuiltinEval3", "testIsEval", "testIsEval2", "testIsQuoteEval", "testIsDoubleQuoteEval", "testIsColonEval", "testIsListTransform", "testIsDictTransform", "testShallowCopy", "testAddObject"]
-	_hx_statics = []
-	_hx_interfaces = []
-	_hx_super = haxe_unit_TestCase
-
-
-	def __init__(self):
-		haxe_unit_TestCase.__init__(self)
-
-	def quote(self,aElem):
-		retval = _hx_AnonObject({})
-		setattr(retval,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'")),aElem)
-		return retval
-
-	def unquote(self,aElem):
-		retval = _hx_AnonObject({})
-		setattr(retval,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''")),aElem)
-		return retval
-
-	def isType(self,aTypeName,aObj):
-		self.assertTrue((Util2.isObject(aObj) == ((aTypeName == "object"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 19, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isArray(aObj) == ((aTypeName == "array"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 20, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isString(aObj) == ((aTypeName == "string"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 21, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isNumber(aObj) == ((aTypeName == "number"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 22, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isBool(aObj) == ((aTypeName == "bool"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 23, 'className': "Tests_isType", 'methodName': "isType"}))
-
-	def GetType(self,aSutlTypeName,aObj):
-		s = Sutl()
-		self.assertTrue((Util.gettype(aObj) == aSutlTypeName),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 30, 'className': "Tests_isType", 'methodName': "GetType"}))
-
-	def getValue(self,aTypeName):
-		_dynamicArray = [1, 2, "xxx"]
-		_values = _hx_AnonObject({'object': _hx_AnonObject({'x': 1, 'y': 2}), 'array': _dynamicArray, 'string': "xxxx", 'number': 2, 'number2': 2.5, 'bool': True, 'null': None})
-		s = Sutl()
-		return Util.get(_values,aTypeName)
-
-	def testIsObject(self):
-		self.isType("object",self.getValue("object"))
-
-	def testIsArray(self):
-		self.isType("array",self.getValue("array"))
-
-	def testIsString(self):
-		self.isType("string",self.getValue("string"))
-
-	def testIsNumber(self):
-		self.isType("number",self.getValue("number"))
-
-	def testIsNumber2(self):
-		self.isType("number",self.getValue("number2"))
-
-	def testIsBool(self):
-		self.isType("bool",self.getValue("bool"))
-
-	def testGetTypeObject(self):
-		self.GetType("map",self.getValue("object"))
-
-	def testGetTypeArray(self):
-		self.GetType("list",self.getValue("array"))
-
-	def testGetTypeString(self):
-		self.GetType("string",self.getValue("string"))
-
-	def testGetTypeNumber(self):
-		self.GetType("number",self.getValue("number"))
-
-	def testGetTypeNumber2(self):
-		self.GetType("number",self.getValue("number2"))
-
-	def testGetTypeBool(self):
-		self.GetType("boolean",self.getValue("bool"))
-
-	def testGetTypeNull(self):
-		self.GetType("null",self.getValue("null"))
-
-	def testIsTruthyObj(self):
-		self.assertTrue(Util3.isTruthy(_hx_AnonObject({'fred': 1})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 125, 'className': "Tests_isType", 'methodName': "testIsTruthyObj"}))
-
-	def testIsNotTruthyObj(self):
-		self.assertFalse(Util3.isTruthy(_hx_AnonObject({})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 130, 'className': "Tests_isType", 'methodName': "testIsNotTruthyObj"}))
-
-	def testIsTruthyList(self):
-		self.assertTrue(Util3.isTruthy([_hx_AnonObject({'fred': 1}), 1]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 135, 'className': "Tests_isType", 'methodName': "testIsTruthyList"}))
-
-	def testIsNotTruthyList(self):
-		self.assertFalse(Util3.isTruthy([]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 140, 'className': "Tests_isType", 'methodName': "testIsNotTruthyList"}))
-
-	def testIsTruthyString(self):
-		self.assertTrue(Util3.isTruthy("fred"),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 145, 'className': "Tests_isType", 'methodName': "testIsTruthyString"}))
-
-	def testIsNotTruthyString(self):
-		self.assertFalse(Util3.isTruthy(""),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 150, 'className': "Tests_isType", 'methodName': "testIsNotTruthyString"}))
-
-	def testIsTruthyNumber(self):
-		self.assertTrue(Util3.isTruthy(4.7),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 155, 'className': "Tests_isType", 'methodName': "testIsTruthyNumber"}))
-
-	def testIsNotTruthyNumber(self):
-		self.assertFalse(Util3.isTruthy(0),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 160, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNumber"}))
-
-	def testIsTruthyBool(self):
-		self.assertTrue(Util3.isTruthy(True),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 165, 'className': "Tests_isType", 'methodName': "testIsTruthyBool"}))
-
-	def testIsNotTruthyBool(self):
-		self.assertFalse(Util3.isTruthy(False),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 170, 'className': "Tests_isType", 'methodName': "testIsNotTruthyBool"}))
-
-	def testIsNotTruthyNull(self):
-		self.assertFalse(Util3.isTruthy(None),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 175, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNull"}))
-
-	def testIsBuiltinEval(self):
-		obj = _hx_AnonObject({'&': "thing", 'x': 2})
-		self.assertTrue(Util3.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 185, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval"}))
-
-	def testIsBuiltinEval2(self):
-		obj = _hx_AnonObject({'x&': "thing", 'x': 2})
-		self.assertFalse(Util3.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 195, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval2"}))
-
-	def testIsArrayBuiltinEval(self):
-		s = Sutl()
-		b = s.builtins()
-		obj = ["&+", 1, 2]
-		self.assertTrue(Util.isArrayBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 210, 'className': "Tests_isType", 'methodName': "testIsArrayBuiltinEval"}))
-
-	def testIsArrayBuiltinEval2(self):
-		s = Sutl()
-		b = s.builtins()
-		obj = ["&foo", 1, 2]
-		self.assertFalse(Util.isArrayBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 225, 'className': "Tests_isType", 'methodName': "testIsArrayBuiltinEval2"}))
-
-	def testIsStringBuiltinEval(self):
-		s = Sutl()
-		b = s.builtins()
-		obj = "^@.x.y.z"
-		self.assertTrue(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 236, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval"}))
-
-	def testIsStringBuiltinEval2(self):
-		s = Sutl()
-		b = s.builtins()
-		obj = "@.x.y.z"
-		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 247, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval2"}))
-
-	def testIsStringBuiltinEval3(self):
-		s = Sutl()
-		b = s.builtins()
-		obj = "&zzz.x.y.z"
-		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 258, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval3"}))
-
-	def testIsEval(self):
-		obj = _hx_AnonObject({'!': _hx_AnonObject({'x': 1}), 'z': 2})
-		self.assertTrue(Util3.isEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 268, 'className': "Tests_isType", 'methodName': "testIsEval"}))
-
-	def testIsEval2(self):
-		obj = _hx_AnonObject({'!!': _hx_AnonObject({'x': 1}), 's': 2})
-		self.assertTrue(Util3.isEval2(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 278, 'className': "Tests_isType", 'methodName': "testIsEval2"}))
-
-	def testIsQuoteEval(self):
-		obj = self.quote(_hx_AnonObject({'x': 1}))
-		self.assertTrue(Util3.isQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 285, 'className': "Tests_isType", 'methodName': "testIsQuoteEval"}))
-
-	def testIsDoubleQuoteEval(self):
-		obj = self.unquote(_hx_AnonObject({'x': 1}))
-		self.assertTrue(Util3.isDoubleQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 292, 'className': "Tests_isType", 'methodName': "testIsDoubleQuoteEval"}))
-
-	def testIsColonEval(self):
-		obj = _hx_AnonObject({':': _hx_AnonObject({'x': 1}), 's': 2})
-		self.assertTrue(Util3.isColonEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 302, 'className': "Tests_isType", 'methodName': "testIsColonEval"}))
-
-	def testIsListTransform(self):
-		obj = [1, 2, 3]
-		self.assertTrue(Util3.isListTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 309, 'className': "Tests_isType", 'methodName': "testIsListTransform"}))
-
-	def testIsDictTransform(self):
-		obj = _hx_AnonObject({})
-		self.assertTrue(Util3.isDictTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 316, 'className': "Tests_isType", 'methodName': "testIsDictTransform"}))
-
-	def testShallowCopy(self):
-		lsource = python_Boot.fields(_hx_AnonObject({'a': 1, 'b': 2}))
-		lcopy = Util.shallowCopy(lsource)
-		self.assertTrue(Util.deepEqual(lsource,lcopy),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 325, 'className': "Tests_isType", 'methodName': "testShallowCopy"}))
-
-	def testAddObject(self):
-		lsource = _hx_AnonObject({'a': 1, 'b': 2})
-		Util.addObject(lsource,_hx_AnonObject({'c': 3}))
-		self.assertTrue(Util.deepEqual(lsource,_hx_AnonObject({'a': 1, 'b': 2, 'c': 3})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 334, 'className': "Tests_isType", 'methodName': "testAddObject"}))
-
-Tests_isType._hx_class = Tests_isType
 
 class ValueType(Enum):
 	_hx_class_name = "ValueType"
@@ -2425,7 +1388,7 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
+	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
 
 	@staticmethod
 	def isStringBuiltinEval(obj,b):
@@ -2488,15 +1451,6 @@ class Util:
 			return HxString.substr(aOp,1,(len(aOp) - 1))
 		else:
 			return None
-
-	@staticmethod
-	def get(obj,key,_hx_def = None):
-		retval = None
-		if Util2.isObject(obj):
-			retval = Reflect.field(obj,key)
-		if (retval is None):
-			retval = _hx_def
-		return retval
 
 	@staticmethod
 	def gettype(item):
@@ -2772,7 +1726,7 @@ class SlowUtil2:
 
 class SlowUtil3:
 	_hx_class_name = "Util3"
-	_hx_statics = ["isBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
+	_hx_statics = ["isBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix", "get"]
 
 	@staticmethod
 	def isBuiltinEval(obj):
@@ -2826,6 +1780,15 @@ class SlowUtil3:
 	@staticmethod
 	def isPrefix(str1,str2):
 		return (str2.find(str1) == 0)
+
+	@staticmethod
+	def get(obj,key,_hx_def = None):
+		retval = None
+		if Util2.isObject(obj):
+			retval = Reflect.field(obj,key)
+		if (retval is None):
+			retval = _hx_def
+		return retval
 
 
 class haxe_StackItem(Enum):
@@ -2943,10 +1906,6 @@ class haxe_ds_StringMap:
 	_hx_fields = ["h"]
 	_hx_methods = ["keys"]
 	_hx_interfaces = [haxe_IMap]
-
-	def __init__(self):
-		self.h = None
-		self.h = dict()
 
 	def keys(self):
 		this1 = None
@@ -3519,8 +2478,6 @@ class python_Boot:
 		if (field is None):
 			return None
 		_hx_local_0 = len(field)
-		if hasattr(o,field):
-			return getattr(o,field)
 		if (_hx_local_0 == 10):
 			if (field == "charCodeAt"):
 				if isinstance(o,str):

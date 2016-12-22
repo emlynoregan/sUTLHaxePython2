@@ -393,9 +393,9 @@ class Sutl:
 		return _hx_AnonObject({'x': 1})
 
 	def _processPath(self,startfrom,parentscope,scope,l,src,tt,b,h):
-		la = Util.get(scope,"a")
-		lb = Util.get(scope,"b")
-		lnotfirst = Util.get(scope,"notfirst",False)
+		la = Util3.get(scope,"a")
+		lb = Util3.get(scope,"b")
+		lnotfirst = Util3.get(scope,"notfirst",False)
 		if lnotfirst:
 			return self._doPath(la,lb)
 		else:
@@ -434,7 +434,7 @@ class Sutl:
 									while (_g2 < len(_g3)):
 										lattrib = (_g3[_g2] if _g2 >= 0 and _g2 < len(_g3) else None)
 										_g2 = (_g2 + 1)
-										lelem = Util.get(litem,lattrib)
+										lelem = Util3.get(litem,lattrib)
 										retval.append(lelem)
 										lstack.append(lelem)
 								elif Util2.isArray(litem):
@@ -462,7 +462,7 @@ class Sutl:
 								while (_g22 < len(_g32)):
 									lattrib1 = (_g32[_g22] if _g22 >= 0 and _g22 < len(_g32) else None)
 									_g22 = (_g22 + 1)
-									lelem2 = Util.get(lsourceItem,lattrib1)
+									lelem2 = Util3.get(lsourceItem,lattrib1)
 									retval.append(lelem2)
 							elif Util2.isArray(lsourceItem):
 								_g23 = 0
@@ -503,59 +503,59 @@ class Sutl:
 	def builtins(self):
 		_g = self
 		def _hx_local_0(parentscope,scope,l,src,tt,b,h):
-			a = Util.get(scope,"a",0)
-			bb = Util.get(scope,"b",0)
+			a = Util3.get(scope,"a",0)
+			bb = Util3.get(scope,"b",0)
 			if (Util.gettype(a) == Util.gettype(bb)):
 				return (a + bb)
 			else:
 				return None
 		def _hx_local_1(parentscope1,scope1,l1,src1,tt1,b1,h1):
-			return (Util.get(scope1,"a",0) - Util.get(scope1,"b",0))
+			return (Util3.get(scope1,"a",0) - Util3.get(scope1,"b",0))
 		def _hx_local_2(parentscope2,scope2,l2,src2,tt2,b2,h2):
-			return (Util.get(scope2,"a",1) * Util.get(scope2,"b",1))
+			return (Util3.get(scope2,"a",1) * Util3.get(scope2,"b",1))
 		def _hx_local_3(parentscope3,scope3,l3,src3,tt3,b3,h3):
-			return (Util.get(scope3,"a",1) / Util.get(scope3,"b",1))
+			return (Util3.get(scope3,"a",1) / Util3.get(scope3,"b",1))
 		def _hx_local_4(parentscope4,scope4,l4,src4,tt4,b4,h4):
-			a1 = Util.get(scope4,"a",None)
-			b5 = Util.get(scope4,"b",None)
+			a1 = Util3.get(scope4,"a",None)
+			b5 = Util3.get(scope4,"b",None)
 			return ((Util.gettype(a1) == Util.gettype(b5)) and (HxOverrides.eq(a1,b5)))
 		def _hx_local_5(parentscope5,scope5,l5,src5,tt5,b6,h5):
-			a2 = Util.get(scope5,"a",None)
-			b7 = Util.get(scope5,"b",None)
+			a2 = Util3.get(scope5,"a",None)
+			b7 = Util3.get(scope5,"b",None)
 			return (not (((Util.gettype(a2) == Util.gettype(b7)) and (HxOverrides.eq(a2,b7)))))
 		def _hx_local_6(parentscope6,scope6,l6,src6,tt6,b8,h6):
-			return (Util.get(scope6,"a",None) >= Util.get(scope6,"b",None))
+			return (Util3.get(scope6,"a",None) >= Util3.get(scope6,"b",None))
 		def _hx_local_7(parentscope7,scope7,l7,src7,tt7,b9,h7):
-			return (Util.get(scope7,"a",None) <= Util.get(scope7,"b",None))
+			return (Util3.get(scope7,"a",None) <= Util3.get(scope7,"b",None))
 		def _hx_local_8(parentscope8,scope8,l8,src8,tt8,b10,h8):
-			return (Util.get(scope8,"a",None) > Util.get(scope8,"b",None))
+			return (Util3.get(scope8,"a",None) > Util3.get(scope8,"b",None))
 		def _hx_local_9(parentscope9,scope9,l9,src9,tt9,b11,h9):
-			return (Util.get(scope9,"a",None) < Util.get(scope9,"b",None))
+			return (Util3.get(scope9,"a",None) < Util3.get(scope9,"b",None))
 		def _hx_local_10(parentscope10,scope10,l10,src10,tt10,b12,h10):
 			if hasattr(scope10,(("_hx_" + "a") if ("a" in python_Boot.keywords) else (("_hx_" + "a") if (((((len("a") > 2) and ((ord("a"[0]) == 95))) and ((ord("a"[1]) == 95))) and ((ord("a"[(len("a") - 1)]) != 95)))) else "a"))):
 				if hasattr(scope10,(("_hx_" + "b") if ("b" in python_Boot.keywords) else (("_hx_" + "b") if (((((len("b") > 2) and ((ord("b"[0]) == 95))) and ((ord("b"[1]) == 95))) and ((ord("b"[(len("b") - 1)]) != 95)))) else "b"))):
-					return (Util3.isTruthy(Util.get(scope10,"a",False)) and Util3.isTruthy(Util.get(scope10,"b",False)))
+					return (Util3.isTruthy(Util3.get(scope10,"a",False)) and Util3.isTruthy(Util3.get(scope10,"b",False)))
 				else:
-					return Util3.isTruthy(Util.get(scope10,"a",False))
+					return Util3.isTruthy(Util3.get(scope10,"a",False))
 			else:
-				return Util3.isTruthy(Util.get(scope10,"b",False))
+				return Util3.isTruthy(Util3.get(scope10,"b",False))
 		def _hx_local_11(parentscope11,scope11,l11,src11,tt11,b13,h11):
-			return (Util3.isTruthy(Util.get(scope11,"a",False)) or Util3.isTruthy(Util.get(scope11,"b",False)))
+			return (Util3.isTruthy(Util3.get(scope11,"a",False)) or Util3.isTruthy(Util3.get(scope11,"b",False)))
 		def _hx_local_12(parentscope12,scope12,l12,src12,tt12,b14,h12):
-			return (not Util3.isTruthy(Util.get(scope12,"b",False)))
+			return (not Util3.isTruthy(Util3.get(scope12,"b",False)))
 		def _hx_local_13(parentscope13,scope13,l13,src13,tt13,b15,h13):
 			retval = None
 			condvalue = False
 			if hasattr(scope13,(("_hx_" + "cond") if ("cond" in python_Boot.keywords) else (("_hx_" + "cond") if (((((len("cond") > 2) and ((ord("cond"[0]) == 95))) and ((ord("cond"[1]) == 95))) and ((ord("cond"[(len("cond") - 1)]) != 95)))) else "cond"))):
-				condvalue = Util3.isTruthy(_g._evaluate(parentscope13,Util.get(scope13,"cond"),l13,src13,tt13,b15,h13))
+				condvalue = Util3.isTruthy(_g._evaluate(parentscope13,Util3.get(scope13,"cond"),l13,src13,tt13,b15,h13))
 			if condvalue:
 				if hasattr(scope13,(("_hx_" + "true") if ("true" in python_Boot.keywords) else (("_hx_" + "true") if (((((len("true") > 2) and ((ord("true"[0]) == 95))) and ((ord("true"[1]) == 95))) and ((ord("true"[(len("true") - 1)]) != 95)))) else "true"))):
-					retval = _g._evaluate(parentscope13,Util.get(scope13,"true"),l13,src13,tt13,b15,h13)
+					retval = _g._evaluate(parentscope13,Util3.get(scope13,"true"),l13,src13,tt13,b15,h13)
 			elif hasattr(scope13,(("_hx_" + "false") if ("false" in python_Boot.keywords) else (("_hx_" + "false") if (((((len("false") > 2) and ((ord("false"[0]) == 95))) and ((ord("false"[1]) == 95))) and ((ord("false"[(len("false") - 1)]) != 95)))) else "false"))):
-				retval = _g._evaluate(parentscope13,Util.get(scope13,"false"),l13,src13,tt13,b15,h13)
+				retval = _g._evaluate(parentscope13,Util3.get(scope13,"false"),l13,src13,tt13,b15,h13)
 			return retval
 		def _hx_local_15(parentscope14,scope14,l14,src14,tt14,b16,h14):
-			obj = Util.get(scope14,"map")
+			obj = Util3.get(scope14,"map")
 			if Util2.isObject(obj):
 				retval1 = python_Boot.fields(obj)
 				def _hx_local_14(a3,b17):
@@ -565,31 +565,31 @@ class Sutl:
 			else:
 				return None
 		def _hx_local_18(parentscope15,scope15,l15,src15,tt15,b18,h15):
-			obj1 = Util.get(scope15,"map")
+			obj1 = Util3.get(scope15,"map")
 			if Util2.isObject(obj1):
 				keys = python_Boot.fields(obj1)
 				def _hx_local_16(a4,b19):
 					return Reflect.compare(a4,b19)
 				Reflect.field(keys,"sort")(_hx_local_16)
 				def _hx_local_17(key):
-					return Util.get(obj1,key)
+					return Util3.get(obj1,key)
 				vals = Reflect.field(keys,"map")(_hx_local_17)
 				return vals
 			else:
 				return None
 		def _hx_local_19(parentscope16,scope16,l16,src16,tt16,b20,h16):
-			item = Util.get(scope16,"list",Util.get(scope16,"value"))
+			item = Util3.get(scope16,"list",Util3.get(scope16,"value"))
 			if Util2.isSequence(item):
 				arr = Util.SequenceToArray(item)
 				return len(arr)
 			else:
 				return 0
 		def _hx_local_20(parentscope17,scope17,l17,src17,tt17,b21,h17):
-			item1 = Util.get(scope17,"value")
+			item1 = Util3.get(scope17,"value")
 			return Util.gettype(item1)
 		def _hx_local_23(parentscope18,scope18,l18,src18,tt18,b22,h18):
 			retval2 = _hx_AnonObject({})
-			arr1 = Util.get(scope18,"value")
+			arr1 = Util3.get(scope18,"value")
 			if Util2.isArray(arr1):
 				_g1 = 0
 				_g11 = None
@@ -610,9 +610,9 @@ class Sutl:
 			return retval2
 		def _hx_local_24(parentscope19,scope19,l19,src19,tt19,b23,h19):
 			retval3 = _hx_AnonObject({})
-			listobj = Util.get(scope19,"list")
-			t = Util.get(scope19,"t")
-			accum = Util.get(scope19,"accum")
+			listobj = Util3.get(scope19,"list")
+			t = Util3.get(scope19,"t")
+			accum = Util3.get(scope19,"accum")
 			if Util2.isSequence(listobj):
 				_hx_list = Util.SequenceToArray(listobj)
 				s2 = _hx_AnonObject({})
@@ -639,9 +639,9 @@ class Sutl:
 		def _hx_local_28(parentscope23,scope23,l23,src23,tt23,b27,h23):
 			return _g._processPath(tt23,parentscope23,scope23,l23,src23,tt23,b27,h23)
 		def _hx_local_29(parentscope24,scope24,l24,src24,tt24,b28,h24):
-			la = Util.get(scope24,"a")
-			lb = Util.get(scope24,"b")
-			lnotfirst = Util.get(scope24,"notfirst")
+			la = Util3.get(scope24,"a")
+			lb = Util3.get(scope24,"b")
+			lnotfirst = Util3.get(scope24,"notfirst")
 			if lnotfirst:
 				return _g._doPath(la,lb)
 			elif (la is None):
@@ -649,7 +649,7 @@ class Sutl:
 			else:
 				return _g._doPath([la],lb)
 		def _hx_local_30(parentscope25,scope25,l25,src25,tt25,b29,h25):
-			lb1 = Util.get(scope25,"b")
+			lb1 = Util3.get(scope25,"b")
 			if Util2.isSequence(lb1):
 				arr2 = Util.SequenceToArray(lb1)
 				if (len(arr2) > 0):
@@ -659,7 +659,7 @@ class Sutl:
 			else:
 				return None
 		def _hx_local_31(parentscope26,scope26,l26,src26,tt26,b30,h26):
-			lb2 = Util.get(scope26,"b")
+			lb2 = Util3.get(scope26,"b")
 			if Util2.isSequence(lb2):
 				arr3 = Util.SequenceToArray(lb2)
 				if (len(arr3) > 0):
@@ -669,9 +669,9 @@ class Sutl:
 			else:
 				return None
 		def _hx_local_33(parentscope27,scope27,l27,src27,tt27,b31,h27):
-			lvalue = Util.get(scope27,"value")
-			lsep = Util.get(scope27,"sep",",")
-			lmax = Util.get(scope27,"max")
+			lvalue = Util3.get(scope27,"value")
+			lsep = Util3.get(scope27,"sep",",")
+			lmax = Util3.get(scope27,"max")
 			retval4 = None
 			if (not Util2.isString(lvalue)):
 				pass
@@ -697,7 +697,7 @@ class Sutl:
 					retval4 = lresult1
 			return retval4
 		def _hx_local_34(parentscope28,scope28,l28,src28,tt28,b32,h28):
-			lvalue1 = Util.get(scope28,"value")
+			lvalue1 = Util3.get(scope28,"value")
 			retval5 = None
 			if (not Util2.isString(lvalue1)):
 				pass
@@ -705,8 +705,8 @@ class Sutl:
 				retval5 = StringTools.trim(lvalue1)
 			return retval5
 		def _hx_local_36(parentscope29,scope29,l29,src29,tt29,b33,h29):
-			lvalue2 = Util.get(scope29,"value")
-			lsub = Util.get(scope29,"sub")
+			lvalue2 = Util3.get(scope29,"value")
+			lsub = Util3.get(scope29,"sub")
 			retval6 = None
 			if (not Util2.isString(lvalue2)):
 				pass
@@ -768,9 +768,9 @@ class Sutl:
 		elif Util3.isBuiltinEval(t):
 			r = self._evaluateBuiltin(s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isQuoteEval(t):
-			r = self._quoteEvaluate(s,Util.get(t,"'"),l,src,tt,b,self.dec(h))
+			r = self._quoteEvaluate(s,Util3.get(t,"'"),l,src,tt,b,self.dec(h))
 		elif Util3.isColonEval(t):
-			r = Util.get(t,":")
+			r = Util3.get(t,":")
 		elif Util3.isDictTransform(t):
 			r = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
 		elif Util.isArrayBuiltinEval(t,b):
@@ -792,7 +792,7 @@ class Sutl:
 		self.logenter("_quoteEvaluate",s,t,h)
 		r = None
 		if Util3.isDoubleQuoteEval(t):
-			r = self._evaluate(s,Util.get(t,"''"),l,src,tt,b,self.dec(h))
+			r = self._evaluate(s,Util3.get(t,"''"),l,src,tt,b,self.dec(h))
 		elif Util3.isDictTransform(t):
 			r = self._quoteEvaluateDict(s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isListTransform(t):
@@ -865,8 +865,8 @@ class Sutl:
 		self.logenter("_evaluateBuiltin",s,t,h)
 		retval = None
 		if hasattr(t,(("_hx_" + "args") if ("args" in python_Boot.keywords) else (("_hx_" + "args") if (((((len("args") > 2) and ((ord("args"[0]) == 95))) and ((ord("args"[1]) == 95))) and ((ord("args"[(len("args") - 1)]) != 95)))) else "args"))):
-			args = Util.get(t,"args")
-			builtinname = self._evaluate(s,Util.get(t,"&"),l,src,tt,b,self.dec(h))
+			args = Util3.get(t,"args")
+			builtinname = self._evaluate(s,Util3.get(t,"&"),l,src,tt,b,self.dec(h))
 			if (len(args) == 0):
 				uset = _hx_AnonObject({'&': builtinname})
 				retval = self._evaluateBuiltinSimple(False,s,uset,l,src,tt,b,self.dec(h))
@@ -892,7 +892,7 @@ class Sutl:
 					uset2 = _hx_AnonObject({'&': builtinname, 'a': retval, 'b': item, 'notfirst': notfirst})
 					retval = self._evaluateBuiltinSimple(False,s,uset2,l,src,tt,b,self.dec(h))
 					notfirst = True
-			if (Util2.isArray(retval) and Util3.isTruthy(Util.get(t,"head"))):
+			if (Util2.isArray(retval) and Util3.isTruthy(Util3.get(t,"head"))):
 				arrretval = None
 				def _hx_local_0():
 					_hx_local_2 = retval
@@ -913,16 +913,16 @@ class Sutl:
 
 	def _evaluateBuiltinSimple(self,needseval,s,t,l,src,tt,b,h):
 		retval = None
-		builtinname = Util.get(t,"&")
-		builtinf = Util.get(b,builtinname)
+		builtinname = Util3.get(t,"&")
+		builtinf = Util3.get(b,builtinname)
 		llibname = None
 		if builtinf:
-			llibname = ("_override_" + Std.string(Util.get(t,"&")))
+			llibname = ("_override_" + Std.string(Util3.get(t,"&")))
 		else:
-			llibname = Util.get(t,"&")
+			llibname = Util3.get(t,"&")
 		if (Util2.isObject(l) and hasattr(l,(("_hx_" + llibname) if (llibname in python_Boot.keywords) else (("_hx_" + llibname) if (((((len(llibname) > 2) and ((ord(llibname[0]) == 95))) and ((ord(llibname[1]) == 95))) and ((ord(llibname[(len(llibname) - 1)]) != 95)))) else llibname)))):
 			t2 = Util.shallowCopy(t)
-			value = ["^*", Util.get(t,"&")]
+			value = ["^*", Util3.get(t,"&")]
 			setattr(t2,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!")),value)
 			Reflect.deleteField(t2,"&")
 			retval = self._evaluateEval(s,t2,l,src,tt,b,self.dec(h))
@@ -939,7 +939,7 @@ class Sutl:
 				s2 = sX
 			l2 = l
 			if hasattr(t,(("_hx_" + "*") if ("*" in python_Boot.keywords) else (("_hx_" + "*") if (((((len("*") > 2) and ((ord("*"[0]) == 95))) and ((ord("*"[1]) == 95))) and ((ord("*"[(len("*") - 1)]) != 95)))) else "*"))):
-				l2 = self._evaluateDict(s,Util.get(t,"*"),l,src,tt,b,self.dec(h))
+				l2 = self._evaluateDict(s,Util3.get(t,"*"),l,src,tt,b,self.dec(h))
 			retval = builtinf(s,s2,l2,src,tt,b,self.dec(h))
 		return retval
 
@@ -947,14 +947,14 @@ class Sutl:
 		self.logenter("_evaluateEval",s,t,h)
 		retval = None
 		teval = self._evaluateDict(s,t,l,src,tt,b,h)
-		t2 = Util.get(teval,"!")
+		t2 = Util3.get(teval,"!")
 		s2 = _hx_AnonObject({})
 		if Util2.isObject(s):
 			s2 = Util.shallowCopy(s)
 		Util.addObject(s2,teval)
 		l2 = l
 		if hasattr(t,(("_hx_" + "*") if ("*" in python_Boot.keywords) else (("_hx_" + "*") if (((((len("*") > 2) and ((ord("*"[0]) == 95))) and ((ord("*"[1]) == 95))) and ((ord("*"[(len("*") - 1)]) != 95)))) else "*"))):
-			l2 = self._evaluate(s,Util.get(t,"*"),l,src,tt,b,h)
+			l2 = self._evaluate(s,Util3.get(t,"*"),l,src,tt,b,h)
 		r = self._evaluate(s2,t2,l2,src,tt,b,h)
 		self.logexit("_evaluateEval",r,h)
 		return r
@@ -962,10 +962,10 @@ class Sutl:
 	def _evaluateEval2(self,s,t,l,src,tt,b,h):
 		self.logenter("_evaluateEval2",s,t,h)
 		retval = None
-		t2 = self._evaluate(s,Util.get(t,"!!"),l,src,tt,b,h)
+		t2 = self._evaluate(s,Util3.get(t,"!!"),l,src,tt,b,h)
 		s2 = s
 		if hasattr(t,(("_hx_" + "s") if ("s" in python_Boot.keywords) else (("_hx_" + "s") if (((((len("s") > 2) and ((ord("s"[0]) == 95))) and ((ord("s"[1]) == 95))) and ((ord("s"[(len("s") - 1)]) != 95)))) else "s"))):
-			ts = self._evaluate(s,Util.get(t,"s"),l,src,tt,b,h)
+			ts = self._evaluate(s,Util3.get(t,"s"),l,src,tt,b,h)
 			if Util2.isObject(ts):
 				s2 = _hx_AnonObject({})
 				if Util2.isObject(s):
@@ -975,7 +975,7 @@ class Sutl:
 				s2 = ts
 		l2 = l
 		if hasattr(t,(("_hx_" + "*") if ("*" in python_Boot.keywords) else (("_hx_" + "*") if (((((len("*") > 2) and ((ord("*"[0]) == 95))) and ((ord("*"[1]) == 95))) and ((ord("*"[(len("*") - 1)]) != 95)))) else "*"))):
-			l2 = self._evaluate(s,Util.get(t,"*"),l,src,tt,b,h)
+			l2 = self._evaluate(s,Util3.get(t,"*"),l,src,tt,b,h)
 		r = self._evaluate(s2,t2,l2,src,tt,b,h)
 		self.logexit("_evaluateEval",r,h)
 		return r
@@ -1000,10 +1000,10 @@ class Sutl:
 			key = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
 			_g = (_g + 1)
 			if usequoteform:
-				value = self._quoteEvaluate(s,Util.get(t,key),l,src,tt,b,h)
+				value = self._quoteEvaluate(s,Util3.get(t,key),l,src,tt,b,h)
 				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),value)
 			else:
-				lnewt = self._evaluate(s,Util.get(t,key),l,src,tt,b,h)
+				lnewt = self._evaluate(s,Util3.get(t,key),l,src,tt,b,h)
 				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),lnewt)
 		return retval
 
@@ -1048,11 +1048,11 @@ class Sutl:
 		while (_g < len(decls)):
 			decl = (decls[_g] if _g >= 0 and _g < len(decls) else None)
 			_g = (_g + 1)
-			declname = Util.get(decl,"name","")
-			if (hasattr(decl,(("_hx_" + "requires") if ("requires" in python_Boot.keywords) else (("_hx_" + "requires") if (((((len("requires") > 2) and ((ord("requires"[0]) == 95))) and ((ord("requires"[1]) == 95))) and ((ord("requires"[(len("requires") - 1)]) != 95)))) else "requires"))) and Util2.isArray(Util.get(decl,"requires"))):
+			declname = Util3.get(decl,"name","")
+			if (hasattr(decl,(("_hx_" + "requires") if ("requires" in python_Boot.keywords) else (("_hx_" + "requires") if (((((len("requires") > 2) and ((ord("requires"[0]) == 95))) and ((ord("requires"[1]) == 95))) and ((ord("requires"[(len("requires") - 1)]) != 95)))) else "requires"))) and Util2.isArray(Util3.get(decl,"requires"))):
 				reqnames = None
 				def _hx_local_0():
-					_hx_local_1 = Util.get(decl,"requires")
+					_hx_local_1 = Util3.get(decl,"requires")
 					if Std._hx_is(_hx_local_1,list):
 						_hx_local_1
 					else:
@@ -1069,7 +1069,7 @@ class Sutl:
 					if (not _hx_local_3()):
 						if Util3.isPrefix(reqname,declname):
 							field1 = reqname
-							value = Util.get(decl,"transform-t")
+							value = Util3.get(decl,"transform-t")
 							setattr(resultlib,(("_hx_" + field1) if (field1 in python_Boot.keywords) else (("_hx_" + field1) if (((((len(field1) > 2) and ((ord(field1[0]) == 95))) and ((ord(field1[1]) == 95))) and ((ord(field1[(len(field1) - 1)]) != 95)))) else field1)),value)
 						else:
 							field2 = reqname
@@ -1079,7 +1079,7 @@ class Sutl:
 		while (_g2 < len(_g11)):
 			reqname1 = (_g11[_g2] if _g2 >= 0 and _g2 < len(_g11) else None)
 			_g2 = (_g2 + 1)
-			candidate_decls = Util.get(all_candidate_decls,reqname1)
+			candidate_decls = Util3.get(all_candidate_decls,reqname1)
 			_g21 = 0
 			while (_g21 < len(dists)):
 				dist = (dists[_g21] if _g21 >= 0 and _g21 < len(dists) else None)
@@ -1088,7 +1088,7 @@ class Sutl:
 				while (_g3 < len(dist)):
 					decl1 = (dist[_g3] if _g3 >= 0 and _g3 < len(dist) else None)
 					_g3 = (_g3 + 1)
-					declname1 = Util.get(decl1,"name","")
+					declname1 = Util3.get(decl1,"name","")
 					if Util3.isPrefix(reqname1,declname1):
 						HxOverrides.push(candidate_decls, decl1)
 		_g4 = 0
@@ -1096,7 +1096,7 @@ class Sutl:
 		while (_g4 < len(_g12)):
 			reqname2 = (_g12[_g4] if _g4 >= 0 and _g4 < len(_g12) else None)
 			_g4 = (_g4 + 1)
-			candidate_decls1 = Util.get(all_candidate_decls,reqname2)
+			candidate_decls1 = Util3.get(all_candidate_decls,reqname2)
 			if Util3.isTruthy(candidate_decls1):
 				candidate_decls_arr = None
 				def _hx_local_0():
@@ -1112,9 +1112,9 @@ class Sutl:
 					candidate_decl = (candidate_decls_arr[_g22] if _g22 >= 0 and _g22 < len(candidate_decls_arr) else None)
 					_g22 = (_g22 + 1)
 					clresult = self._compilelib([candidate_decl],dists,resultlib,b)
-					clresultlib = Util.get(clresult,"lib")
+					clresultlib = Util3.get(clresult,"lib")
 					Util.addObject(resultlib,clresultlib)
-					value1 = Util.get(candidate_decl,"transform-t")
+					value1 = Util3.get(candidate_decl,"transform-t")
 					setattr(resultlib,(("_hx_" + reqname2) if (reqname2 in python_Boot.keywords) else (("_hx_" + reqname2) if (((((len(reqname2) > 2) and ((ord(reqname2[0]) == 95))) and ((ord(reqname2[1]) == 95))) and ((ord(reqname2[(len(reqname2) - 1)]) != 95)))) else reqname2)),value1)
 					break
 		return _hx_AnonObject({'lib': resultlib})
@@ -1209,7 +1209,7 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
+	_hx_statics = ["isStringBuiltinEval", "isArrayBuiltinEval", "getArrayBuiltinName", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist"]
 
 	@staticmethod
 	def isStringBuiltinEval(obj,b):
@@ -1272,15 +1272,6 @@ class Util:
 			return HxString.substr(aOp,1,(len(aOp) - 1))
 		else:
 			return None
-
-	@staticmethod
-	def get(obj,key,_hx_def = None):
-		retval = None
-		if Util2.isObject(obj):
-			retval = Reflect.field(obj,key)
-		if (retval is None):
-			retval = _hx_def
-		return retval
 
 	@staticmethod
 	def gettype(item):
@@ -1556,7 +1547,7 @@ class SlowUtil2:
 
 class SlowUtil3:
 	_hx_class_name = "Util3"
-	_hx_statics = ["isBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
+	_hx_statics = ["isBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix", "get"]
 
 	@staticmethod
 	def isBuiltinEval(obj):
@@ -1610,6 +1601,15 @@ class SlowUtil3:
 	@staticmethod
 	def isPrefix(str1,str2):
 		return (str2.find(str1) == 0)
+
+	@staticmethod
+	def get(obj,key,_hx_def = None):
+		retval = None
+		if Util2.isObject(obj):
+			retval = Reflect.field(obj,key)
+		if (retval is None):
+			retval = _hx_def
+		return retval
 
 
 
@@ -2025,8 +2025,6 @@ class python_Boot:
 		if (field is None):
 			return None
 		_hx_local_0 = len(field)
-		if hasattr(o,field):
-			return getattr(o,field)
 		if (_hx_local_0 == 10):
 			if (field == "charCodeAt"):
 				if isinstance(o,str):
