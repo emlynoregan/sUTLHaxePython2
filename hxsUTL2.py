@@ -1019,15 +1019,7 @@ class Sutl:
 
 	def _doevaluateList(self,usequoteform,s,t,l,src,tt,b,h):
 		retval = []
-		tarr = None
-		def _hx_local_0():
-			_hx_local_0 = t
-			if Std._hx_is(_hx_local_0,list):
-				_hx_local_0
-			else:
-				raise _HxException("Class cast error")
-			return _hx_local_0
-		tarr = _hx_local_0()
+		tarr = Util.SequenceToArray(t)
 		_g = 0
 		while (_g < len(tarr)):
 			elem = (tarr[_g] if _g >= 0 and _g < len(tarr) else None)
