@@ -762,7 +762,7 @@ class Sutl:
 		r = None
 		self.logenter("_evaluate",s,t,h)
 		if Util3.isEval(t):
-			r = self._evaluateEval(s,t,l,src,tt,b,self.dec(h))
+			r = self._evaluateEval(True,s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isEval2(t):
 			r = self._evaluateEval2(s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isBuiltinEval(t):
@@ -925,7 +925,7 @@ class Sutl:
 			value = ["^*", Util3.get(t,"&")]
 			setattr(t2,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!")),value)
 			Reflect.deleteField(t2,"&")
-			retval = self._evaluateEval(s,t2,l,src,tt,b,self.dec(h))
+			retval = self._evaluateEval(needseval,s,t2,l,src,tt,b,self.dec(h))
 		elif (builtinf is not None):
 			sX = None
 			if needseval:
@@ -944,10 +944,14 @@ class Sutl:
 			retval = builtinf(s,s2,l2,src,tt,b,self.dec(h))
 		return retval
 
-	def _evaluateEval(self,s,t,l,src,tt,b,h):
+	def _evaluateEval(self,needseval,s,t,l,src,tt,b,h):
 		self.logenter("_evaluateEval",s,t,h)
 		retval = None
-		teval = self._evaluateDict(s,t,l,src,tt,b,h)
+		teval = None
+		if needseval:
+			teval = self._evaluateDict(s,t,l,src,tt,b,h)
+		else:
+			teval = t
 		t2 = Util3.get(teval,"!")
 		s2 = _hx_AnonObject({})
 		if Util2.isObject(s):
