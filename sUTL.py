@@ -36,7 +36,7 @@ class sUTL():
 
     def sutl(self):
         if not self._s:
-            _s = Sutl()
+            self._s = Sutl()
         return self._s
     
     @classmethod
