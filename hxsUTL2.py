@@ -2011,6 +2011,8 @@ class python_Boot:
 		if (field is None):
 			return None
 		_hx_local_0 = len(field)
+		if hasattr(o,field):
+			return getattr(o,field)
 		if (_hx_local_0 == 10):
 			if (field == "charCodeAt"):
 				if isinstance(o,str):
