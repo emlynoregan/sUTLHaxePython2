@@ -849,7 +849,7 @@ class Sutl:
 					raise _HxException("Class cast error")
 				return _hx_local_1
 			lop = _hx_local_0()
-		if Util.isTruthy(lop):
+		if (len(lop) > 0):
 			lopChar = None
 			if (0 >= len(lop)):
 				lopChar = ""
@@ -1293,8 +1293,13 @@ class Util:
 						lopSignifier = ""
 					else:
 						lopSignifier = lopStr[0]
+					lopSignifier1 = None
+					if (0 >= len(lopStr)):
+						lopSignifier1 = ""
+					else:
+						lopSignifier1 = lopStr[0]
 					lopBuiltinName = Util.getArrayBuiltinName(lopStr)
-					retval = ((((lopSignifier == "&") or ((lopSignifier == "^")))) and hasattr(b,(("_hx_" + lopBuiltinName) if (lopBuiltinName in python_Boot.keywords) else (("_hx_" + lopBuiltinName) if (((((len(lopBuiltinName) > 2) and ((ord(lopBuiltinName[0]) == 95))) and ((ord(lopBuiltinName[1]) == 95))) and ((ord(lopBuiltinName[(len(lopBuiltinName) - 1)]) != 95)))) else lopBuiltinName))))
+					retval = ((((lopSignifier1 == "&") or ((lopSignifier1 == "^")))) and hasattr(b,(("_hx_" + lopBuiltinName) if (lopBuiltinName in python_Boot.keywords) else (("_hx_" + lopBuiltinName) if (((((len(lopBuiltinName) > 2) and ((ord(lopBuiltinName[0]) == 95))) and ((ord(lopBuiltinName[1]) == 95))) and ((ord(lopBuiltinName[(len(lopBuiltinName) - 1)]) != 95)))) else lopBuiltinName))))
 		return retval
 
 	@staticmethod
