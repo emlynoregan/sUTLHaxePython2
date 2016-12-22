@@ -1273,21 +1273,15 @@ class Tests_isType(haxe_unit_TestCase):
 		return retval
 
 	def isType(self,aTypeName,aObj):
-		haxe_Log.trace(aTypeName,_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 19, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isObject(aObj) == ((aTypeName == "object"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 20, 'className': "Tests_isType", 'methodName': "isType"}))
-		haxe_Log.trace(1,_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 21, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isArray(aObj) == ((aTypeName == "array"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 22, 'className': "Tests_isType", 'methodName': "isType"}))
-		haxe_Log.trace(2,_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 23, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isString(aObj) == ((aTypeName == "string"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 24, 'className': "Tests_isType", 'methodName': "isType"}))
-		haxe_Log.trace(3,_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 25, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isNumber(aObj) == ((aTypeName == "number"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 26, 'className': "Tests_isType", 'methodName': "isType"}))
-		haxe_Log.trace(4,_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 27, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util2.isBool(aObj) == ((aTypeName == "bool"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 28, 'className': "Tests_isType", 'methodName': "isType"}))
-		haxe_Log.trace(5,_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 29, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isObject(aObj) == ((aTypeName == "object"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 19, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isArray(aObj) == ((aTypeName == "array"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 20, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isString(aObj) == ((aTypeName == "string"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 21, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isNumber(aObj) == ((aTypeName == "number"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 22, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isBool(aObj) == ((aTypeName == "bool"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 23, 'className': "Tests_isType", 'methodName': "isType"}))
 
 	def GetType(self,aSutlTypeName,aObj):
 		s = Sutl()
-		self.assertTrue((Util.gettype(aObj) == aSutlTypeName),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 36, 'className': "Tests_isType", 'methodName': "GetType"}))
+		self.assertTrue((Util.gettype(aObj) == aSutlTypeName),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 30, 'className': "Tests_isType", 'methodName': "GetType"}))
 
 	def getValue(self,aTypeName):
 		_dynamicArray = [1, 2, "xxx"]
@@ -1311,9 +1305,7 @@ class Tests_isType(haxe_unit_TestCase):
 		self.isType("number",self.getValue("number2"))
 
 	def testIsBool(self):
-		haxe_Log.trace("AAAAAAAAAAAA",_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 91, 'className': "Tests_isType", 'methodName': "testIsBool"}))
 		self.isType("bool",self.getValue("bool"))
-		haxe_Log.trace("BBBBBBBBBBBB",_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 93, 'className': "Tests_isType", 'methodName': "testIsBool"}))
 
 	def testGetTypeObject(self):
 		self.GetType("map",self.getValue("object"))
@@ -1337,113 +1329,113 @@ class Tests_isType(haxe_unit_TestCase):
 		self.GetType("null",self.getValue("null"))
 
 	def testIsTruthyObj(self):
-		self.assertTrue(Util.isTruthy(_hx_AnonObject({'fred': 1})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 133, 'className': "Tests_isType", 'methodName': "testIsTruthyObj"}))
+		self.assertTrue(Util.isTruthy(_hx_AnonObject({'fred': 1})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 125, 'className': "Tests_isType", 'methodName': "testIsTruthyObj"}))
 
 	def testIsNotTruthyObj(self):
-		self.assertFalse(Util.isTruthy(_hx_AnonObject({})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 138, 'className': "Tests_isType", 'methodName': "testIsNotTruthyObj"}))
+		self.assertFalse(Util.isTruthy(_hx_AnonObject({})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 130, 'className': "Tests_isType", 'methodName': "testIsNotTruthyObj"}))
 
 	def testIsTruthyList(self):
-		self.assertTrue(Util.isTruthy([_hx_AnonObject({'fred': 1}), 1]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 143, 'className': "Tests_isType", 'methodName': "testIsTruthyList"}))
+		self.assertTrue(Util.isTruthy([_hx_AnonObject({'fred': 1}), 1]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 135, 'className': "Tests_isType", 'methodName': "testIsTruthyList"}))
 
 	def testIsNotTruthyList(self):
-		self.assertFalse(Util.isTruthy([]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 148, 'className': "Tests_isType", 'methodName': "testIsNotTruthyList"}))
+		self.assertFalse(Util.isTruthy([]),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 140, 'className': "Tests_isType", 'methodName': "testIsNotTruthyList"}))
 
 	def testIsTruthyString(self):
-		self.assertTrue(Util.isTruthy("fred"),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 153, 'className': "Tests_isType", 'methodName': "testIsTruthyString"}))
+		self.assertTrue(Util.isTruthy("fred"),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 145, 'className': "Tests_isType", 'methodName': "testIsTruthyString"}))
 
 	def testIsNotTruthyString(self):
-		self.assertFalse(Util.isTruthy(""),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 158, 'className': "Tests_isType", 'methodName': "testIsNotTruthyString"}))
+		self.assertFalse(Util.isTruthy(""),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 150, 'className': "Tests_isType", 'methodName': "testIsNotTruthyString"}))
 
 	def testIsTruthyNumber(self):
-		self.assertTrue(Util.isTruthy(4.7),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 163, 'className': "Tests_isType", 'methodName': "testIsTruthyNumber"}))
+		self.assertTrue(Util.isTruthy(4.7),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 155, 'className': "Tests_isType", 'methodName': "testIsTruthyNumber"}))
 
 	def testIsNotTruthyNumber(self):
-		self.assertFalse(Util.isTruthy(0),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 168, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNumber"}))
+		self.assertFalse(Util.isTruthy(0),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 160, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNumber"}))
 
 	def testIsTruthyBool(self):
-		self.assertTrue(Util.isTruthy(True),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 173, 'className': "Tests_isType", 'methodName': "testIsTruthyBool"}))
+		self.assertTrue(Util.isTruthy(True),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 165, 'className': "Tests_isType", 'methodName': "testIsTruthyBool"}))
 
 	def testIsNotTruthyBool(self):
-		self.assertFalse(Util.isTruthy(False),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 178, 'className': "Tests_isType", 'methodName': "testIsNotTruthyBool"}))
+		self.assertFalse(Util.isTruthy(False),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 170, 'className': "Tests_isType", 'methodName': "testIsNotTruthyBool"}))
 
 	def testIsNotTruthyNull(self):
-		self.assertFalse(Util.isTruthy(None),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 183, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNull"}))
+		self.assertFalse(Util.isTruthy(None),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 175, 'className': "Tests_isType", 'methodName': "testIsNotTruthyNull"}))
 
 	def testIsBuiltinEval(self):
 		obj = _hx_AnonObject({'&': "thing", 'x': 2})
-		self.assertTrue(Util.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 193, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval"}))
+		self.assertTrue(Util.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 185, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval"}))
 
 	def testIsBuiltinEval2(self):
 		obj = _hx_AnonObject({'x&': "thing", 'x': 2})
-		self.assertFalse(Util.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 203, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval2"}))
+		self.assertFalse(Util.isBuiltinEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 195, 'className': "Tests_isType", 'methodName': "testIsBuiltinEval2"}))
 
 	def testIsArrayBuiltinEval(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = ["&+", 1, 2]
-		self.assertTrue(Util.isArrayBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 218, 'className': "Tests_isType", 'methodName': "testIsArrayBuiltinEval"}))
+		self.assertTrue(Util.isArrayBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 210, 'className': "Tests_isType", 'methodName': "testIsArrayBuiltinEval"}))
 
 	def testIsArrayBuiltinEval2(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = ["&foo", 1, 2]
-		self.assertFalse(Util.isArrayBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 233, 'className': "Tests_isType", 'methodName': "testIsArrayBuiltinEval2"}))
+		self.assertFalse(Util.isArrayBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 225, 'className': "Tests_isType", 'methodName': "testIsArrayBuiltinEval2"}))
 
 	def testIsStringBuiltinEval(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = "^@.x.y.z"
-		self.assertTrue(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 244, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval"}))
+		self.assertTrue(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 236, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval"}))
 
 	def testIsStringBuiltinEval2(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = "@.x.y.z"
-		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 255, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval2"}))
+		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 247, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval2"}))
 
 	def testIsStringBuiltinEval3(self):
 		s = Sutl()
 		b = s.builtins()
 		obj = "&zzz.x.y.z"
-		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 266, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval3"}))
+		self.assertFalse(Util.isStringBuiltinEval(obj,b),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 258, 'className': "Tests_isType", 'methodName': "testIsStringBuiltinEval3"}))
 
 	def testIsEval(self):
 		obj = _hx_AnonObject({'!': _hx_AnonObject({'x': 1}), 'z': 2})
-		self.assertTrue(Util.isEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 276, 'className': "Tests_isType", 'methodName': "testIsEval"}))
+		self.assertTrue(Util.isEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 268, 'className': "Tests_isType", 'methodName': "testIsEval"}))
 
 	def testIsEval2(self):
 		obj = _hx_AnonObject({'!!': _hx_AnonObject({'x': 1}), 's': 2})
-		self.assertTrue(Util.isEval2(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 286, 'className': "Tests_isType", 'methodName': "testIsEval2"}))
+		self.assertTrue(Util.isEval2(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 278, 'className': "Tests_isType", 'methodName': "testIsEval2"}))
 
 	def testIsQuoteEval(self):
 		obj = self.quote(_hx_AnonObject({'x': 1}))
-		self.assertTrue(Util.isQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 293, 'className': "Tests_isType", 'methodName': "testIsQuoteEval"}))
+		self.assertTrue(Util.isQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 285, 'className': "Tests_isType", 'methodName': "testIsQuoteEval"}))
 
 	def testIsDoubleQuoteEval(self):
 		obj = self.unquote(_hx_AnonObject({'x': 1}))
-		self.assertTrue(Util.isDoubleQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 300, 'className': "Tests_isType", 'methodName': "testIsDoubleQuoteEval"}))
+		self.assertTrue(Util.isDoubleQuoteEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 292, 'className': "Tests_isType", 'methodName': "testIsDoubleQuoteEval"}))
 
 	def testIsColonEval(self):
 		obj = _hx_AnonObject({':': _hx_AnonObject({'x': 1}), 's': 2})
-		self.assertTrue(Util.isColonEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 310, 'className': "Tests_isType", 'methodName': "testIsColonEval"}))
+		self.assertTrue(Util.isColonEval(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 302, 'className': "Tests_isType", 'methodName': "testIsColonEval"}))
 
 	def testIsListTransform(self):
 		obj = [1, 2, 3]
-		self.assertTrue(Util.isListTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 317, 'className': "Tests_isType", 'methodName': "testIsListTransform"}))
+		self.assertTrue(Util.isListTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 309, 'className': "Tests_isType", 'methodName': "testIsListTransform"}))
 
 	def testIsDictTransform(self):
 		obj = _hx_AnonObject({})
-		self.assertTrue(Util.isDictTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 324, 'className': "Tests_isType", 'methodName': "testIsDictTransform"}))
+		self.assertTrue(Util.isDictTransform(obj),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 316, 'className': "Tests_isType", 'methodName': "testIsDictTransform"}))
 
 	def testShallowCopy(self):
 		lsource = python_Boot.fields(_hx_AnonObject({'a': 1, 'b': 2}))
 		lcopy = Util.shallowCopy(lsource)
-		self.assertTrue(Util.deepEqual(lsource,lcopy),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 333, 'className': "Tests_isType", 'methodName': "testShallowCopy"}))
+		self.assertTrue(Util.deepEqual(lsource,lcopy),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 325, 'className': "Tests_isType", 'methodName': "testShallowCopy"}))
 
 	def testAddObject(self):
 		lsource = _hx_AnonObject({'a': 1, 'b': 2})
 		Util.addObject(lsource,_hx_AnonObject({'c': 3}))
-		self.assertTrue(Util.deepEqual(lsource,_hx_AnonObject({'a': 1, 'b': 2, 'c': 3})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 342, 'className': "Tests_isType", 'methodName': "testAddObject"}))
+		self.assertTrue(Util.deepEqual(lsource,_hx_AnonObject({'a': 1, 'b': 2, 'c': 3})),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 334, 'className': "Tests_isType", 'methodName': "testAddObject"}))
 
 Tests_isType._hx_class = Tests_isType
 
