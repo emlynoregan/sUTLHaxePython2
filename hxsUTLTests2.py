@@ -102,7 +102,7 @@ Main._hx_class = Main
 
 class Reflect:
 	_hx_class_name = "Reflect"
-	_hx_statics = ["field", "callMethod", "isFunction", "compare", "deleteField"]
+	_hx_statics = ["field", "callMethod", "isFunction", "compare", "deleteField", "copy"]
 
 	@staticmethod
 	def field(o,field):
@@ -140,6 +140,18 @@ class Reflect:
 			return False
 		del o.__dict__[field]
 		return True
+
+	@staticmethod
+	def copy(o):
+		o2 = _hx_AnonObject({})
+		_g = 0
+		_g1 = python_Boot.fields(o)
+		while (_g < len(_g1)):
+			f = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
+			_g = (_g + 1)
+			value = Reflect.field(o,f)
+			setattr(o2,(("_hx_" + f) if (f in python_Boot.keywords) else (("_hx_" + f) if (((((len(f) > 2) and ((ord(f[0]) == 95))) and ((ord(f[1]) == 95))) and ((ord(f[(len(f) - 1)]) != 95)))) else f)),value)
+		return o2
 Reflect._hx_class = Reflect
 
 
@@ -2705,29 +2717,22 @@ class Util:
 		s = Sutl()
 		objType = Util.gettype(aObj)
 		if (objType == "map"):
-			retval = _hx_AnonObject({})
-			objFields = python_Boot.fields(aObj)
-			_g = 0
-			while (_g < len(objFields)):
-				objField = (objFields[_g] if _g >= 0 and _g < len(objFields) else None)
-				_g = (_g + 1)
-				value = Reflect.field(aObj,objField)
-				setattr(retval,(("_hx_" + objField) if (objField in python_Boot.keywords) else (("_hx_" + objField) if (((((len(objField) > 2) and ((ord(objField[0]) == 95))) and ((ord(objField[1]) == 95))) and ((ord(objField[(len(objField) - 1)]) != 95)))) else objField)),value)
+			retval = Reflect.copy(aObj)
 		elif (objType == "list"):
 			retval = []
-			_g1 = 0
-			_g11 = None
+			_g = 0
+			_g1 = None
 			def _hx_local_0():
-				_hx_local_1 = aObj
-				if Std._hx_is(_hx_local_1,list):
-					_hx_local_1
+				_hx_local_0 = aObj
+				if Std._hx_is(_hx_local_0,list):
+					_hx_local_0
 				else:
 					raise _HxException("Class cast error")
-				return _hx_local_1
-			_g11 = _hx_local_0()
-			while (_g1 < len(_g11)):
-				elem = (_g11[_g1] if _g1 >= 0 and _g1 < len(_g11) else None)
-				_g1 = (_g1 + 1)
+				return _hx_local_0
+			_g1 = _hx_local_0()
+			while (_g < len(_g1)):
+				elem = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
+				_g = (_g + 1)
 				Reflect.field(retval,"push")(elem)
 		else:
 			retval = aObj
@@ -2775,7 +2780,14 @@ class Util:
 	def SequenceToArray(aObj):
 		retval = None
 		if Util.isArray(aObj):
-			retval = aObj
+			def _hx_local_0():
+				_hx_local_0 = aObj
+				if Std._hx_is(_hx_local_0,list):
+					_hx_local_0
+				else:
+					raise _HxException("Class cast error")
+				return _hx_local_0
+			retval = _hx_local_0()
 		elif Util.isString(aObj):
 			retval = Util.StringToArray(aObj)
 		return retval
