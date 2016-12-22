@@ -64,7 +64,7 @@ EnumValue._hx_class = EnumValue
 
 class Reflect:
 	_hx_class_name = "Reflect"
-	_hx_statics = ["field", "isFunction", "compare", "isObject", "deleteField"]
+	_hx_statics = ["field", "isFunction", "compare", "deleteField"]
 
 	@staticmethod
 	def field(o,field):
@@ -88,14 +88,6 @@ class Reflect:
 			return 1
 		else:
 			return -1
-
-	@staticmethod
-	def isObject(v):
-		_g = Type.typeof(v)
-		if (((_g.index) == 6) or (((_g.index) == 4))):
-			return True
-		else:
-			return False
 
 	@staticmethod
 	def deleteField(o,field):
@@ -1164,7 +1156,22 @@ ValueType._hx_class = ValueType
 
 class Type:
 	_hx_class_name = "Type"
-	_hx_statics = ["typeof"]
+	_hx_statics = ["getClass", "typeof"]
+
+	@staticmethod
+	def getClass(o):
+		if (o is None):
+			return None
+		if ((o is not None) and (((o == str) or python_lib_Inspect.isclass(o)))):
+			return None
+		if isinstance(o,_hx_AnonObject):
+			return None
+		if hasattr(o,"_hx_class"):
+			return o._hx_class
+		if hasattr(o,"__class__"):
+			return o.__class__
+		else:
+			return None
 
 	@staticmethod
 	def typeof(v):
@@ -1199,15 +1206,18 @@ class Util:
 
 	@staticmethod
 	def isObject(obj):
-		return ((Reflect.isObject(obj) and (not Util.isArray(obj))) and (not Util.isString(obj)))
+		retval = (Type.typeof(obj) == ValueType.TObject)
+		return retval
 
 	@staticmethod
 	def isArray(obj):
-		return Std._hx_is(obj,list)
+		retval = Std._hx_is(obj,list)
+		return retval
 
 	@staticmethod
 	def isString(obj):
-		return Std._hx_is(obj,str)
+		retval = (Type.getClass(obj) == str)
+		return retval
 
 	@staticmethod
 	def isSequence(obj):
@@ -1215,11 +1225,13 @@ class Util:
 
 	@staticmethod
 	def isNumber(obj):
-		return (Std._hx_is(obj,Int) or Std._hx_is(obj,Float))
+		ltype = Type.typeof(obj)
+		return ((ltype == ValueType.TInt) or ((ltype == ValueType.TFloat)))
 
 	@staticmethod
 	def isBool(obj):
-		return Std._hx_is(obj,Bool)
+		ltype = Type.typeof(obj)
+		return (ltype == ValueType.TBool)
 
 	@staticmethod
 	def isTruthy(aObj):

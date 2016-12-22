@@ -102,7 +102,7 @@ Main._hx_class = Main
 
 class Reflect:
 	_hx_class_name = "Reflect"
-	_hx_statics = ["field", "callMethod", "isFunction", "compare", "isObject", "deleteField"]
+	_hx_statics = ["field", "callMethod", "isFunction", "compare", "deleteField"]
 
 	@staticmethod
 	def field(o,field):
@@ -133,14 +133,6 @@ class Reflect:
 			return 1
 		else:
 			return -1
-
-	@staticmethod
-	def isObject(v):
-		_g = Type.typeof(v)
-		if (((_g.index) == 6) or (((_g.index) == 4))):
-			return True
-		else:
-			return False
 
 	@staticmethod
 	def deleteField(o,field):
@@ -2430,15 +2422,18 @@ class Util:
 
 	@staticmethod
 	def isObject(obj):
-		return ((Reflect.isObject(obj) and (not Util.isArray(obj))) and (not Util.isString(obj)))
+		retval = (Type.typeof(obj) == ValueType.TObject)
+		return retval
 
 	@staticmethod
 	def isArray(obj):
-		return Std._hx_is(obj,list)
+		retval = Std._hx_is(obj,list)
+		return retval
 
 	@staticmethod
 	def isString(obj):
-		return Std._hx_is(obj,str)
+		retval = (Type.getClass(obj) == str)
+		return retval
 
 	@staticmethod
 	def isSequence(obj):
@@ -2446,11 +2441,13 @@ class Util:
 
 	@staticmethod
 	def isNumber(obj):
-		return (Std._hx_is(obj,Int) or Std._hx_is(obj,Float))
+		ltype = Type.typeof(obj)
+		return ((ltype == ValueType.TInt) or ((ltype == ValueType.TFloat)))
 
 	@staticmethod
 	def isBool(obj):
-		return Std._hx_is(obj,Bool)
+		ltype = Type.typeof(obj)
+		return (ltype == ValueType.TBool)
 
 	@staticmethod
 	def isTruthy(aObj):
