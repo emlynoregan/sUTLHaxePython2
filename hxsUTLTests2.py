@@ -862,7 +862,6 @@ class Sutl:
 			except Exception as _hx_e:
 				_hx_e1 = _hx_e.val if isinstance(_hx_e, _HxException) else _hx_e
 				err = _hx_e1
-				haxe_Log.trace("!!!!!!!!!!!!!",_hx_AnonObject({'fileName': "Sutl.hx", 'lineNumber': 680, 'className': "Sutl", 'methodName': "_evaluateStringBuiltin"}))
 				larr2.append(litem)
 		return self._evaluateArrayBuiltin(s,larr2,l,src,tt,b,h)
 
