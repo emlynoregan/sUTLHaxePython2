@@ -1067,18 +1067,19 @@ class Sutl:
 		return retval
 
 	def _doevaluateList(self,usequoteform,s,t,l,src,tt,b,h):
-		retval = []
 		tarr = Util.SequenceToArray(t)
-		_g = 0
-		while (_g < len(tarr)):
-			elem = (tarr[_g] if _g >= 0 and _g < len(tarr) else None)
-			_g = (_g + 1)
+		retval = list(tarr)
+		_g1 = 0
+		_g = len(tarr)
+		while (_g1 < _g):
+			ix = _g1
+			_g1 = (_g1 + 1)
+			elem = (tarr[ix] if ix >= 0 and ix < len(tarr) else None)
 			if usequoteform:
-				x = self._quoteEvaluate(s,elem,l,src,tt,b,h)
-				retval.append(x)
+				elem = self._quoteEvaluate(s,elem,l,src,tt,b,h)
 			else:
-				x1 = self._evaluate(s,elem,l,src,tt,b,h)
-				retval.append(x1)
+				elem = self._evaluate(s,elem,l,src,tt,b,h)
+			python_internal_ArrayImpl._set(retval, ix, elem)
 		return retval
 
 	def compilelib(self,decls,dists):
