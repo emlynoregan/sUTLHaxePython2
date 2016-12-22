@@ -452,8 +452,8 @@ class Sutl:
 
 	def _doPath(self,a,b):
 		retval = []
-		if Util.isArray(a):
-			if ((b is not None) and (not ((Util.isString(b) and ((Reflect.field(b,"length") == 0)))))):
+		if Util2.isArray(a):
+			if ((b is not None) and (not ((Util2.isString(b) and ((Reflect.field(b,"length") == 0)))))):
 				_g = 0
 				_g1 = None
 				def _hx_local_0():
@@ -475,7 +475,7 @@ class Sutl:
 							while (len(lstack) > 0):
 								litem = None
 								litem = (None if ((len(lstack) == 0)) else lstack.pop())
-								if Util.isObject(litem):
+								if Util2.isObject(litem):
 									_g2 = 0
 									_g3 = python_Boot.fields(litem)
 									while (_g2 < len(_g3)):
@@ -484,7 +484,7 @@ class Sutl:
 										lelem = Util.get(litem,lattrib)
 										retval.append(lelem)
 										lstack.append(lelem)
-								elif Util.isArray(litem):
+								elif Util2.isArray(litem):
 									_g21 = 0
 									_g31 = None
 									def _hx_local_0():
@@ -503,7 +503,7 @@ class Sutl:
 										x2 = lelem1
 										lstack.append(x2)
 						elif (b == "*"):
-							if Util.isObject(lsourceItem):
+							if Util2.isObject(lsourceItem):
 								_g22 = 0
 								_g32 = python_Boot.fields(lsourceItem)
 								while (_g22 < len(_g32)):
@@ -511,7 +511,7 @@ class Sutl:
 									_g22 = (_g22 + 1)
 									lelem2 = Util.get(lsourceItem,lattrib1)
 									retval.append(lelem2)
-							elif Util.isArray(lsourceItem):
+							elif Util2.isArray(lsourceItem):
 								_g23 = 0
 								_g33 = None
 								def _hx_local_0():
@@ -527,14 +527,14 @@ class Sutl:
 									_g23 = (_g23 + 1)
 									x3 = lelem3
 									retval.append(x3)
-						elif (Util.isObject(lsourceItem) and Util.isString(b)):
+						elif (Util2.isObject(lsourceItem) and Util2.isString(b)):
 							def _hx_local_8():
 								field = b
 								return hasattr(lsourceItem,(("_hx_" + field) if (field in python_Boot.keywords) else (("_hx_" + field) if (((((len(field) > 2) and ((ord(field[0]) == 95))) and ((ord(field[1]) == 95))) and ((ord(field[(len(field) - 1)]) != 95)))) else field)))
 							if _hx_local_8():
 								x4 = Reflect.field(lsourceItem,b)
 								retval.append(x4)
-						elif (Util.isSequence(lsourceItem) and Util.isNumber(b)):
+						elif (Util2.isSequence(lsourceItem) and Util2.isNumber(b)):
 							arr = Util.SequenceToArray(lsourceItem)
 							if ((b >= 0) and ((b < len(arr)))):
 								x5 = (arr[b] if b >= 0 and b < len(arr) else None)
@@ -603,7 +603,7 @@ class Sutl:
 			return retval
 		def _hx_local_15(parentscope14,scope14,l14,src14,tt14,b16,h14):
 			obj = Util.get(scope14,"map")
-			if Util.isObject(obj):
+			if Util2.isObject(obj):
 				retval1 = python_Boot.fields(obj)
 				def _hx_local_14(a3,b17):
 					return Reflect.compare(a3,b17)
@@ -613,7 +613,7 @@ class Sutl:
 				return None
 		def _hx_local_18(parentscope15,scope15,l15,src15,tt15,b18,h15):
 			obj1 = Util.get(scope15,"map")
-			if Util.isObject(obj1):
+			if Util2.isObject(obj1):
 				keys = python_Boot.fields(obj1)
 				def _hx_local_16(a4,b19):
 					return Reflect.compare(a4,b19)
@@ -626,7 +626,7 @@ class Sutl:
 				return None
 		def _hx_local_19(parentscope16,scope16,l16,src16,tt16,b20,h16):
 			item = Util.get(scope16,"list",Util.get(scope16,"value"))
-			if Util.isSequence(item):
+			if Util2.isSequence(item):
 				arr = Util.SequenceToArray(item)
 				return len(arr)
 			else:
@@ -637,7 +637,7 @@ class Sutl:
 		def _hx_local_23(parentscope18,scope18,l18,src18,tt18,b22,h18):
 			retval2 = _hx_AnonObject({})
 			arr1 = Util.get(scope18,"value")
-			if Util.isArray(arr1):
+			if Util2.isArray(arr1):
 				_g1 = 0
 				_g11 = None
 				def _hx_local_0():
@@ -651,7 +651,7 @@ class Sutl:
 				while (_g1 < len(_g11)):
 					entry = (_g11[_g1] if _g1 >= 0 and _g1 < len(_g11) else None)
 					_g1 = (_g1 + 1)
-					if ((Util.isArray(entry) and ((Reflect.field(entry,"length") >= 2))) and Util.isString(HxOverrides.arrayGet(entry, 0))):
+					if ((Util2.isArray(entry) and ((Reflect.field(entry,"length") >= 2))) and Util2.isString(HxOverrides.arrayGet(entry, 0))):
 						field = HxOverrides.arrayGet(entry, 0)
 						setattr(retval2,(("_hx_" + field) if (field in python_Boot.keywords) else (("_hx_" + field) if (((((len(field) > 2) and ((ord(field[0]) == 95))) and ((ord(field[1]) == 95))) and ((ord(field[(len(field) - 1)]) != 95)))) else field)),HxOverrides.arrayGet(entry, 1))
 			return retval2
@@ -660,10 +660,10 @@ class Sutl:
 			listobj = Util.get(scope19,"list")
 			t = Util.get(scope19,"t")
 			accum = Util.get(scope19,"accum")
-			if Util.isSequence(listobj):
+			if Util2.isSequence(listobj):
 				_hx_list = Util.SequenceToArray(listobj)
 				s2 = _hx_AnonObject({})
-				if Util.isObject(parentscope19):
+				if Util2.isObject(parentscope19):
 					s2 = Util.shallowCopy(parentscope19)
 				Util.addObject(s2,scope19)
 				_g12 = 0
@@ -697,7 +697,7 @@ class Sutl:
 				return _g._doPath([la],lb)
 		def _hx_local_30(parentscope25,scope25,l25,src25,tt25,b29,h25):
 			lb1 = Util.get(scope25,"b")
-			if Util.isSequence(lb1):
+			if Util2.isSequence(lb1):
 				arr2 = Util.SequenceToArray(lb1)
 				if (len(arr2) > 0):
 					return (arr2[0] if 0 < len(arr2) else None)
@@ -707,7 +707,7 @@ class Sutl:
 				return None
 		def _hx_local_31(parentscope26,scope26,l26,src26,tt26,b30,h26):
 			lb2 = Util.get(scope26,"b")
-			if Util.isSequence(lb2):
+			if Util2.isSequence(lb2):
 				arr3 = Util.SequenceToArray(lb2)
 				if (len(arr3) > 0):
 					return arr3[1:None]
@@ -720,11 +720,11 @@ class Sutl:
 			lsep = Util.get(scope27,"sep",",")
 			lmax = Util.get(scope27,"max")
 			retval4 = None
-			if (not Util.isString(lvalue)):
+			if (not Util2.isString(lvalue)):
 				pass
-			elif (not ((Util.isTruthy(lsep) and Util.isString(lsep)))):
+			elif (not ((Util.isTruthy(lsep) and Util2.isString(lsep)))):
 				pass
-			elif (not ((Util.isNumber(lmax) or ((lmax is None))))):
+			elif (not ((Util2.isNumber(lmax) or ((lmax is None))))):
 				pass
 			else:
 				lstr = None
@@ -746,7 +746,7 @@ class Sutl:
 		def _hx_local_34(parentscope28,scope28,l28,src28,tt28,b32,h28):
 			lvalue1 = Util.get(scope28,"value")
 			retval5 = None
-			if (not Util.isString(lvalue1)):
+			if (not Util2.isString(lvalue1)):
 				pass
 			else:
 				retval5 = StringTools.trim(lvalue1)
@@ -755,9 +755,9 @@ class Sutl:
 			lvalue2 = Util.get(scope29,"value")
 			lsub = Util.get(scope29,"sub")
 			retval6 = None
-			if (not Util.isString(lvalue2)):
+			if (not Util2.isString(lvalue2)):
 				pass
-			elif (not ((Util.isTruthy(lsub) and Util.isString(lsub)))):
+			elif (not ((Util.isTruthy(lsub) and Util2.isString(lsub)))):
 				pass
 			else:
 				_this = None
@@ -939,7 +939,7 @@ class Sutl:
 					uset2 = _hx_AnonObject({'&': builtinname, 'a': retval, 'b': item, 'notfirst': notfirst})
 					retval = self._evaluateBuiltinSimple(False,s,uset2,l,src,tt,b,self.dec(h))
 					notfirst = True
-			if (Util.isArray(retval) and Util.isTruthy(Util.get(t,"head"))):
+			if (Util2.isArray(retval) and Util.isTruthy(Util.get(t,"head"))):
 				arrretval = None
 				def _hx_local_0():
 					_hx_local_2 = retval
@@ -967,7 +967,7 @@ class Sutl:
 			llibname = ("_override_" + Std.string(Util.get(t,"&")))
 		else:
 			llibname = Util.get(t,"&")
-		if (Util.isObject(l) and hasattr(l,(("_hx_" + llibname) if (llibname in python_Boot.keywords) else (("_hx_" + llibname) if (((((len(llibname) > 2) and ((ord(llibname[0]) == 95))) and ((ord(llibname[1]) == 95))) and ((ord(llibname[(len(llibname) - 1)]) != 95)))) else llibname)))):
+		if (Util2.isObject(l) and hasattr(l,(("_hx_" + llibname) if (llibname in python_Boot.keywords) else (("_hx_" + llibname) if (((((len(llibname) > 2) and ((ord(llibname[0]) == 95))) and ((ord(llibname[1]) == 95))) and ((ord(llibname[(len(llibname) - 1)]) != 95)))) else llibname)))):
 			t2 = Util.shallowCopy(t)
 			value = ["^*", Util.get(t,"&")]
 			setattr(t2,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!")),value)
@@ -980,7 +980,7 @@ class Sutl:
 				sX = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
 			else:
 				sX = t
-			if Util.isObject(s2):
+			if Util2.isObject(s2):
 				Util.addObject(s2,sX)
 			else:
 				s2 = sX
@@ -996,7 +996,7 @@ class Sutl:
 		teval = self._evaluateDict(s,t,l,src,tt,b,h)
 		t2 = Util.get(teval,"!")
 		s2 = _hx_AnonObject({})
-		if Util.isObject(s):
+		if Util2.isObject(s):
 			s2 = Util.shallowCopy(s)
 		Util.addObject(s2,teval)
 		l2 = l
@@ -1013,9 +1013,9 @@ class Sutl:
 		s2 = s
 		if hasattr(t,(("_hx_" + "s") if ("s" in python_Boot.keywords) else (("_hx_" + "s") if (((((len("s") > 2) and ((ord("s"[0]) == 95))) and ((ord("s"[1]) == 95))) and ((ord("s"[(len("s") - 1)]) != 95)))) else "s"))):
 			ts = self._evaluate(s,Util.get(t,"s"),l,src,tt,b,h)
-			if Util.isObject(ts):
+			if Util2.isObject(ts):
 				s2 = _hx_AnonObject({})
-				if Util.isObject(s):
+				if Util2.isObject(s):
 					s2 = Util.shallowCopy(s)
 				Util.addObject(s2,t2)
 			else:
@@ -1088,7 +1088,7 @@ class Sutl:
 	def _compilelib(self,decls,dists,l,b):
 		resultlib = _hx_AnonObject({})
 		resultliblib = _hx_AnonObject({})
-		if Util.isObject(l):
+		if Util2.isObject(l):
 			resultlib = Util.shallowCopy(l)
 		all_candidate_decls = _hx_AnonObject({})
 		_g = 0
@@ -1096,7 +1096,7 @@ class Sutl:
 			decl = (decls[_g] if _g >= 0 and _g < len(decls) else None)
 			_g = (_g + 1)
 			declname = Util.get(decl,"name","")
-			if (hasattr(decl,(("_hx_" + "requires") if ("requires" in python_Boot.keywords) else (("_hx_" + "requires") if (((((len("requires") > 2) and ((ord("requires"[0]) == 95))) and ((ord("requires"[1]) == 95))) and ((ord("requires"[(len("requires") - 1)]) != 95)))) else "requires"))) and Util.isArray(Util.get(decl,"requires"))):
+			if (hasattr(decl,(("_hx_" + "requires") if ("requires" in python_Boot.keywords) else (("_hx_" + "requires") if (((((len("requires") > 2) and ((ord("requires"[0]) == 95))) and ((ord("requires"[1]) == 95))) and ((ord("requires"[(len("requires") - 1)]) != 95)))) else "requires"))) and Util2.isArray(Util.get(decl,"requires"))):
 				reqnames = None
 				def _hx_local_0():
 					_hx_local_1 = Util.get(decl,"requires")
@@ -1555,7 +1555,7 @@ class Tests_Decls(haxe_unit_TestCase):
 
 	def testLoadCoreDist(self):
 		lcoreDist = self.LoadCoreDist()
-		self.assertTrue(Util.isArray(lcoreDist),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 93, 'className': "Tests_Decls", 'methodName': "testLoadCoreDist"}))
+		self.assertTrue(Util2.isArray(lcoreDist),_hx_AnonObject({'fileName': "Tests_Decls.hx", 'lineNumber': 93, 'className': "Tests_Decls", 'methodName': "testLoadCoreDist"}))
 
 	def test_concat(self):
 		ljsonDecls = [self.LoadCoreDist()]
@@ -2169,11 +2169,11 @@ class Tests_isType(haxe_unit_TestCase):
 		return retval
 
 	def isType(self,aTypeName,aObj):
-		self.assertTrue((Util.isObject(aObj) == ((aTypeName == "object"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 20, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util.isArray(aObj) == ((aTypeName == "array"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 21, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util.isString(aObj) == ((aTypeName == "string"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 22, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util.isNumber(aObj) == ((aTypeName == "number"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 23, 'className': "Tests_isType", 'methodName': "isType"}))
-		self.assertTrue((Util.isBool(aObj) == ((aTypeName == "bool"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 24, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isObject(aObj) == ((aTypeName == "object"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 20, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isArray(aObj) == ((aTypeName == "array"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 21, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isString(aObj) == ((aTypeName == "string"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 22, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isNumber(aObj) == ((aTypeName == "number"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 23, 'className': "Tests_isType", 'methodName': "isType"}))
+		self.assertTrue((Util2.isBool(aObj) == ((aTypeName == "bool"))),_hx_AnonObject({'fileName': "Tests_isType.hx", 'lineNumber': 24, 'className': "Tests_isType", 'methodName': "isType"}))
 
 	def GetType(self,aSutlTypeName,aObj):
 		s = Sutl()
@@ -2423,54 +2423,20 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isObject", "isArray", "isString", "isSequence", "isInt", "isNumber", "isBool", "isTruthy", "isBuiltinEval", "isArrayBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist", "isPrefix"]
-
-	@staticmethod
-	def isObject(obj):
-		retval = (Type.typeof(obj) == ValueType.TObject)
-		return retval
-
-	@staticmethod
-	def isArray(obj):
-		retval = Std._hx_is(obj,list)
-		return retval
-
-	@staticmethod
-	def isString(obj):
-		retval = (Type.getClass(obj) == str)
-		return retval
-
-	@staticmethod
-	def isSequence(obj):
-		return (Util.isArray(obj) or Util.isString(obj))
-
-	@staticmethod
-	def isInt(obj):
-		ltype = Type.typeof(obj)
-		return (ltype == ValueType.TInt)
-
-	@staticmethod
-	def isNumber(obj):
-		ltype = Type.typeof(obj)
-		return ((ltype == ValueType.TInt) or ((ltype == ValueType.TFloat)))
-
-	@staticmethod
-	def isBool(obj):
-		ltype = Type.typeof(obj)
-		return (ltype == ValueType.TBool)
+	_hx_statics = ["isTruthy", "isBuiltinEval", "isArrayBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist", "isPrefix"]
 
 	@staticmethod
 	def isTruthy(aObj):
 		retval = False
-		if Util.isArray(aObj):
+		if Util2.isArray(aObj):
 			retval = (Reflect.field(aObj,"length") > 0)
-		elif Util.isString(aObj):
+		elif Util2.isString(aObj):
 			retval = (aObj != "")
-		elif Util.isNumber(aObj):
+		elif Util2.isNumber(aObj):
 			retval = (aObj != 0)
-		elif Util.isBool(aObj):
+		elif Util2.isBool(aObj):
 			retval = aObj
-		elif Util.isObject(aObj):
+		elif Util2.isObject(aObj):
 			retval = (len(python_Boot.fields(aObj)) > 0)
 		else:
 			retval = (aObj is not None)
@@ -2478,11 +2444,11 @@ class Util:
 
 	@staticmethod
 	def isBuiltinEval(obj):
-		return (Util.isObject(obj) and hasattr(obj,(("_hx_" + "&") if ("&" in python_Boot.keywords) else (("_hx_" + "&") if (((((len("&") > 2) and ((ord("&"[0]) == 95))) and ((ord("&"[1]) == 95))) and ((ord("&"[(len("&") - 1)]) != 95)))) else "&"))))
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "&") if ("&" in python_Boot.keywords) else (("_hx_" + "&") if (((((len("&") > 2) and ((ord("&"[0]) == 95))) and ((ord("&"[1]) == 95))) and ((ord("&"[(len("&") - 1)]) != 95)))) else "&"))))
 
 	@staticmethod
 	def isArrayBuiltinEval(obj,b):
-		retval = Util.isArray(obj)
+		retval = Util2.isArray(obj)
 		if retval:
 			arr = Util.SequenceToArray(obj)
 			retval = (len(arr) > 0)
@@ -2493,7 +2459,7 @@ class Util:
 					lop = (lopArr[0] if 0 < len(lopArr) else None)
 				else:
 					lop = None
-				retval = Util.isString(lop)
+				retval = Util2.isString(lop)
 				if retval:
 					lopStr = None
 					def _hx_local_0():
@@ -2520,7 +2486,7 @@ class Util:
 
 	@staticmethod
 	def isStringBuiltinEval(obj,b):
-		retval = Util.isString(obj)
+		retval = Util2.isString(obj)
 		if retval:
 			_hx_str = None
 			def _hx_local_0():
@@ -2537,31 +2503,31 @@ class Util:
 
 	@staticmethod
 	def isEval(obj):
-		return (Util.isObject(obj) and hasattr(obj,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!"))))
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!"))))
 
 	@staticmethod
 	def isEval2(obj):
-		return (Util.isObject(obj) and hasattr(obj,(("_hx_" + "!!") if ("!!" in python_Boot.keywords) else (("_hx_" + "!!") if (((((len("!!") > 2) and ((ord("!!"[0]) == 95))) and ((ord("!!"[1]) == 95))) and ((ord("!!"[(len("!!") - 1)]) != 95)))) else "!!"))))
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!!") if ("!!" in python_Boot.keywords) else (("_hx_" + "!!") if (((((len("!!") > 2) and ((ord("!!"[0]) == 95))) and ((ord("!!"[1]) == 95))) and ((ord("!!"[(len("!!") - 1)]) != 95)))) else "!!"))))
 
 	@staticmethod
 	def isQuoteEval(obj):
-		return (Util.isObject(obj) and hasattr(obj,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'"))))
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'"))))
 
 	@staticmethod
 	def isDoubleQuoteEval(obj):
-		return (Util.isObject(obj) and hasattr(obj,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''"))))
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''"))))
 
 	@staticmethod
 	def isColonEval(obj):
-		return (Util.isObject(obj) and hasattr(obj,(("_hx_" + ":") if (":" in python_Boot.keywords) else (("_hx_" + ":") if (((((len(":") > 2) and ((ord(":"[0]) == 95))) and ((ord(":"[1]) == 95))) and ((ord(":"[(len(":") - 1)]) != 95)))) else ":"))))
+		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + ":") if (":" in python_Boot.keywords) else (("_hx_" + ":") if (((((len(":") > 2) and ((ord(":"[0]) == 95))) and ((ord(":"[1]) == 95))) and ((ord(":"[(len(":") - 1)]) != 95)))) else ":"))))
 
 	@staticmethod
 	def isDictTransform(obj):
-		return Util.isObject(obj)
+		return Util2.isObject(obj)
 
 	@staticmethod
 	def isListTransform(obj):
-		return Util.isArray(obj)
+		return Util2.isArray(obj)
 
 	@staticmethod
 	def getArrayBuiltinName(aOp):
@@ -2573,7 +2539,7 @@ class Util:
 	@staticmethod
 	def get(obj,key,_hx_def = None):
 		retval = None
-		if Util.isObject(obj):
+		if Util2.isObject(obj):
 			retval = Reflect.field(obj,key)
 		if (retval is None):
 			retval = _hx_def
@@ -2581,15 +2547,15 @@ class Util:
 
 	@staticmethod
 	def gettype(item):
-		if Util.isObject(item):
+		if Util2.isObject(item):
 			return "map"
-		elif Util.isArray(item):
+		elif Util2.isArray(item):
 			return "list"
-		elif Util.isString(item):
+		elif Util2.isString(item):
 			return "string"
-		elif Util.isNumber(item):
+		elif Util2.isNumber(item):
 			return "number"
-		elif Util.isBool(item):
+		elif Util2.isBool(item):
 			return "boolean"
 		elif (item is None):
 			return "null"
@@ -2738,7 +2704,7 @@ class Util:
 
 	@staticmethod
 	def addObject(aBase,aAdd):
-		if (Util.isObject(aBase) and Util.isObject(aAdd)):
+		if (Util2.isObject(aBase) and Util2.isObject(aAdd)):
 			_g = 0
 			_g1 = python_Boot.fields(aAdd)
 			while (_g < len(_g1)):
@@ -2750,7 +2716,7 @@ class Util:
 	@staticmethod
 	def StringToArray(aStrObj):
 		retval = None
-		if Util.isString(aStrObj):
+		if Util2.isString(aStrObj):
 			retval = []
 			liststr = None
 			def _hx_local_0():
@@ -2777,7 +2743,7 @@ class Util:
 	@staticmethod
 	def SequenceToArray(aObj):
 		retval = None
-		if Util.isArray(aObj):
+		if Util2.isArray(aObj):
 			def _hx_local_0():
 				_hx_local_0 = aObj
 				if Std._hx_is(_hx_local_0,list):
@@ -2786,7 +2752,7 @@ class Util:
 					raise _HxException("Class cast error")
 				return _hx_local_0
 			retval = _hx_local_0()
-		elif Util.isString(aObj):
+		elif Util2.isString(aObj):
 			retval = Util.StringToArray(aObj)
 		return retval
 
@@ -2797,7 +2763,7 @@ class Util:
 		while (_g < len(lst)):
 			elem = (lst[_g] if _g >= 0 and _g < len(lst) else None)
 			_g = (_g + 1)
-			if Util.isArray(elem):
+			if Util2.isArray(elem):
 				a = elem
 				retval = (retval + a)
 			else:
@@ -2813,6 +2779,46 @@ class Util:
 	def isPrefix(str1,str2):
 		return (str2.find(str1) == 0)
 Util._hx_class = Util
+
+
+class Util2:
+	_hx_class_name = "Util2"
+	_hx_statics = ["isObject", "isArray", "isString", "isSequence", "isInt", "isNumber", "isBool"]
+
+	@staticmethod
+	def isObject(obj):
+		retval = (Type.typeof(obj) == ValueType.TObject)
+		return retval
+
+	@staticmethod
+	def isArray(obj):
+		retval = Std._hx_is(obj,list)
+		return retval
+
+	@staticmethod
+	def isString(obj):
+		retval = (Type.getClass(obj) == str)
+		return retval
+
+	@staticmethod
+	def isSequence(obj):
+		return (Util2.isArray(obj) or Util2.isString(obj))
+
+	@staticmethod
+	def isInt(obj):
+		ltype = Type.typeof(obj)
+		return (ltype == ValueType.TInt)
+
+	@staticmethod
+	def isNumber(obj):
+		ltype = Type.typeof(obj)
+		return ((ltype == ValueType.TInt) or ((ltype == ValueType.TFloat)))
+
+	@staticmethod
+	def isBool(obj):
+		ltype = Type.typeof(obj)
+		return (ltype == ValueType.TBool)
+Util2._hx_class = Util2
 
 class haxe_StackItem(Enum):
 	_hx_class_name = "haxe.StackItem"
