@@ -1254,7 +1254,7 @@ haxe_unit_TestCase._hx_class = haxe_unit_TestCase
 class Tests_Builtins(haxe_unit_TestCase):
 	_hx_class_name = "Tests_Builtins"
 	_hx_fields = []
-	_hx_methods = ["callbuiltin", "callbuiltin2", "callbuiltin3", "test_if", "test_if2"]
+	_hx_methods = ["callbuiltin", "callbuiltin2", "callbuiltin3", "test_plus", "test_plus2", "test_minus", "test_mult", "test_div", "test_equal", "test_notequal", "test_notequal2", "test_ge", "test_le", "test_gt", "test_lt", "test_and", "test_or", "test_not", "test_if", "test_if2", "test_keys", "test_values", "test_len", "test_len2", "test_type", "test_makemap", "test_reduce", "test_reduce2", "test_pathsrc", "test_pathscope", "test_pathlib", "test_pathraw", "test_head", "test_tail", "test_split", "test_split2", "test_trim", "test_pos"]
 	_hx_statics = []
 	_hx_interfaces = []
 	_hx_super = haxe_unit_TestCase
@@ -1290,6 +1290,58 @@ class Tests_Builtins(haxe_unit_TestCase):
 		result = f(parentscope,scope,l,src,tt,None,None)
 		self.assertTrue(Util.deepEqual(expected,result),_hx_AnonObject({'fileName': "Tests_Builtins.hx", 'lineNumber': 49, 'className': "Tests_Builtins", 'methodName': "callbuiltin3"}))
 
+	def test_plus(self):
+		self.callbuiltin("+",4.2,6,10.2)
+
+	def test_plus2(self):
+		self.callbuiltin("+","first","second","firstsecond")
+
+	def test_minus(self):
+		self.callbuiltin("-",3,2,1)
+
+	def test_mult(self):
+		self.callbuiltin("x",3,2,6)
+
+	def test_div(self):
+		self.callbuiltin("/",3,2,1.5)
+
+	def test_equal(self):
+		self.callbuiltin("=","freddo","freddo",True)
+
+	def test_notequal(self):
+		self.callbuiltin("!=","freddo","Freddo",True)
+
+	def test_notequal2(self):
+		self.callbuiltin("!=",False,0,True)
+
+	def test_ge(self):
+		self.callbuiltin(">=",14,5,True)
+
+	def test_le(self):
+		self.callbuiltin("<=",14,5,False)
+
+	def test_gt(self):
+		self.callbuiltin(">",14,5,True)
+
+	def test_lt(self):
+		self.callbuiltin("<",14,14,False)
+
+	def test_and(self):
+		self.callbuiltin("&&",True,True,True)
+		self.callbuiltin("&&",True,False,False)
+		self.callbuiltin("&&",False,True,False)
+		self.callbuiltin("&&",False,False,False)
+
+	def test_or(self):
+		self.callbuiltin("||",True,0,True)
+		self.callbuiltin("||",1,False,True)
+		self.callbuiltin("||",False,"x",True)
+		self.callbuiltin("||",None,False,False)
+
+	def test_not(self):
+		self.callbuiltin("!",None,True,False)
+		self.callbuiltin("!",None,False,True)
+
 	def test_if(self):
 		scope = _hx_AnonObject({'cond': True, 'true': "expected"})
 		self.callbuiltin2("if",scope,"expected")
@@ -1297,6 +1349,84 @@ class Tests_Builtins(haxe_unit_TestCase):
 	def test_if2(self):
 		scope = _hx_AnonObject({'false': "expected"})
 		self.callbuiltin2("if",scope,"expected")
+
+	def test_keys(self):
+		scope = _hx_AnonObject({'map': _hx_AnonObject({'x': 1, 'y': 2, 'z': 3})})
+		self.callbuiltin2("keys",scope,["x", "y", "z"])
+
+	def test_values(self):
+		scope = _hx_AnonObject({'map': _hx_AnonObject({'x': 1, 'y': 2, 'z': 3})})
+		self.callbuiltin2("values",scope,[1, 2, 3])
+
+	def test_len(self):
+		scope = _hx_AnonObject({'list': [1, 2, 3, 4, 5]})
+		self.callbuiltin2("len",scope,5)
+
+	def test_len2(self):
+		scope = _hx_AnonObject({'value': "xyz"})
+		self.callbuiltin2("len",scope,3)
+
+	def test_type(self):
+		scope = _hx_AnonObject({'value': "xyz"})
+		self.callbuiltin2("type",scope,"string")
+
+	def test_makemap(self):
+		entry1 = ["a", 1]
+		entry2 = ["b", "two"]
+		entry3 = ["c", 3]
+		scope = _hx_AnonObject({'value': [entry1, entry2, entry3]})
+		self.callbuiltin2("makemap",scope,_hx_AnonObject({'a': 1, 'b': "two", 'c': 3}))
+
+	def test_reduce(self):
+		scope = _hx_AnonObject({'list': [1, 2, 3], 't': "transform"})
+		self.callbuiltin2("reduce",scope,"transform")
+
+	def test_reduce2(self):
+		scope = _hx_AnonObject({'list': "hello", 't': "transform"})
+		self.callbuiltin2("reduce",scope,"transform")
+
+	def test_pathsrc(self):
+		scope = _hx_AnonObject({'a': "x", 'b': "y"})
+		src = _hx_AnonObject({'x': _hx_AnonObject({'y': 1})})
+		self.callbuiltin3("$",scope,None,None,src,None,[1])
+
+	def test_pathscope(self):
+		scope = _hx_AnonObject({'a': "x", 'b': "y"})
+		parentscope = _hx_AnonObject({'x': _hx_AnonObject({'y': 1})})
+		self.callbuiltin3("@",scope,parentscope,None,None,None,[1])
+
+	def test_pathlib(self):
+		scope = _hx_AnonObject({'a': "x", 'b': "y"})
+		lib = _hx_AnonObject({'x': _hx_AnonObject({'y': 1})})
+		self.callbuiltin3("*",scope,None,lib,None,None,[1])
+
+	def test_pathraw(self):
+		scope = _hx_AnonObject({'a': _hx_AnonObject({'x': _hx_AnonObject({'y': 1})}), 'b': "x"})
+		self.callbuiltin2("%",scope,[_hx_AnonObject({'y': 1})])
+
+	def test_head(self):
+		scope = _hx_AnonObject({'b': [1, 2, 3]})
+		self.callbuiltin2("head",scope,1)
+
+	def test_tail(self):
+		scope = _hx_AnonObject({'b': [1, 2, 3]})
+		self.callbuiltin2("tail",scope,[2, 3])
+
+	def test_split(self):
+		scope = _hx_AnonObject({'value': "three,distinct,items"})
+		self.callbuiltin2("split",scope,["three", "distinct", "items"])
+
+	def test_split2(self):
+		scope = _hx_AnonObject({'value': "three-distinct-items", 'sep': "-", 'max': 2})
+		self.callbuiltin2("split",scope,["three", "distinct-items"])
+
+	def test_trim(self):
+		scope = _hx_AnonObject({'value': "  \t  fne rgle      \n    "})
+		self.callbuiltin2("trim",scope,"fne rgle")
+
+	def test_pos(self):
+		scope = _hx_AnonObject({'value': "the quick brown fox", 'sub': "quick"})
+		self.callbuiltin2("pos",scope,4)
 
 Tests_Builtins._hx_class = Tests_Builtins
 

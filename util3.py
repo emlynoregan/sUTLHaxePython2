@@ -1,5 +1,7 @@
 from util2 import Util2
 
+_keywords = set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])
+
 class Util3:
     _hx_class_name = "Util3"
     _hx_statics = ["isBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
@@ -57,15 +59,13 @@ class Util3:
     def isPrefix(str1,str2):
         return (str2.find(str1) == 0)
 
+
     @staticmethod
     def get(obj,key, adef = None):
         retval = None
         
-        print obj
-        print key
-        
         if Util2.isObject(obj):
-            if key == "if":
+            if key in _keywords:
                 key1 = "_hx_%s" % key
             else:
                 key1 = key
