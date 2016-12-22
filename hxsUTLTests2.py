@@ -3749,7 +3749,7 @@ class python_Boot:
 
 	@staticmethod
 	def unhandleKeywords(name):
-		name = unicode(name)
+		return unicode(name)
 		if (HxString.substr(name,0,python_Boot.prefixLength) == "_hx_"):
 			real = HxString.substr(name,python_Boot.prefixLength,None)
 			if real in python_Boot.keywords:
