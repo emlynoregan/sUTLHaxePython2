@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from __future__ import division
 from util2 import Util2
+from util3 import Util3
 str = unicode
 import math as python_lib_Math
 import math as Math
@@ -2769,7 +2770,7 @@ class SlowUtil2:
 
 
 
-class Util3:
+class SlowUtil3:
 	_hx_class_name = "Util3"
 	_hx_statics = ["isBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "isTruthy", "isPrefix"]
 
@@ -2825,7 +2826,7 @@ class Util3:
 	@staticmethod
 	def isPrefix(str1,str2):
 		return (str2.find(str1) == 0)
-Util3._hx_class = Util3
+
 
 class haxe_StackItem(Enum):
 	_hx_class_name = "haxe.StackItem"
