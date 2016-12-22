@@ -1181,6 +1181,8 @@ class SutlTests:
 	@staticmethod
 	def RunTests():
 		r = haxe_unit_TestRunner()
+		r.add(TestsHelloWorld())
+		r.add(TestsGet())
 		r.add(Tests_isType())
 		r.run()
 		if (not r.result.success):
@@ -1248,6 +1250,81 @@ class haxe_unit_TestCase:
 			raise _HxException(self.currentTest)
 
 haxe_unit_TestCase._hx_class = haxe_unit_TestCase
+
+
+class TestsGet(haxe_unit_TestCase):
+	_hx_class_name = "TestsGet"
+	_hx_fields = []
+	_hx_methods = ["testGet1", "testGetDefault", "testGetArray", "testGetSimple", "testGetNull", "testGetNoDefault"]
+	_hx_statics = []
+	_hx_interfaces = []
+	_hx_super = haxe_unit_TestCase
+
+
+	def __init__(self):
+		haxe_unit_TestCase.__init__(self)
+
+	def testGet1(self):
+		s = Sutl()
+		obj = haxe_ds_StringMap()
+		obj = python_lib_Json.loads("{\"fred\": 2}",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
+		result = Util.get(obj,"fred","zzz")
+		self.assertEquals(2,result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 11, 'className': "TestsGet", 'methodName': "testGet1"}))
+
+	def testGetDefault(self):
+		s = Sutl()
+		obj = haxe_ds_StringMap()
+		obj = python_lib_Json.loads("{\"george\": 2}",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
+		result = Util.get(obj,"fred","zzz")
+		self.assertEquals("zzz",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 23, 'className': "TestsGet", 'methodName': "testGetDefault"}))
+
+	def testGetArray(self):
+		s = Sutl()
+		obj = haxe_ds_StringMap()
+		obj = python_lib_Json.loads("[{\"fred\": 2}]",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
+		result = Util.get(obj,"fred","isarray")
+		self.assertEquals("isarray",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 35, 'className': "TestsGet", 'methodName': "testGetArray"}))
+
+	def testGetSimple(self):
+		s = Sutl()
+		obj = haxe_ds_StringMap()
+		obj = python_lib_Json.loads("1",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
+		result = Util.get(obj,"fred","isnumber")
+		self.assertEquals("isnumber",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 46, 'className': "TestsGet", 'methodName': "testGetSimple"}))
+
+	def testGetNull(self):
+		s = Sutl()
+		obj = haxe_ds_StringMap()
+		obj = python_lib_Json.loads("null",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
+		result = Util.get(obj,"fred","isnull")
+		self.assertEquals("isnull",result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 57, 'className': "TestsGet", 'methodName': "testGetNull"}))
+
+	def testGetNoDefault(self):
+		s = Sutl()
+		obj = haxe_ds_StringMap()
+		obj = python_lib_Json.loads("{\"george\": 3}",**python__KwArgs_KwArgs_Impl_.fromT(_hx_AnonObject({'object_hook': python_Lib.dictToAnon})))
+		result = Util.get(obj,"fred")
+		self.assertEquals(None,result,_hx_AnonObject({'fileName': "TestsGet.hx", 'lineNumber': 68, 'className': "TestsGet", 'methodName': "testGetNoDefault"}))
+
+TestsGet._hx_class = TestsGet
+
+
+class TestsHelloWorld(haxe_unit_TestCase):
+	_hx_class_name = "TestsHelloWorld"
+	_hx_fields = []
+	_hx_methods = ["testHelloWorld"]
+	_hx_statics = []
+	_hx_interfaces = []
+	_hx_super = haxe_unit_TestCase
+
+
+	def __init__(self):
+		haxe_unit_TestCase.__init__(self)
+
+	def testHelloWorld(self):
+		self.assertTrue(True,_hx_AnonObject({'fileName': "TestsHelloWorld.hx", 'lineNumber': 5, 'className': "TestsHelloWorld", 'methodName': "testHelloWorld"}))
+
+TestsHelloWorld._hx_class = TestsHelloWorld
 
 
 class Tests_isType(haxe_unit_TestCase):
@@ -2039,6 +2116,10 @@ class haxe_ds_StringMap:
 	_hx_fields = ["h"]
 	_hx_methods = ["keys"]
 	_hx_interfaces = [haxe_IMap]
+
+	def __init__(self):
+		self.h = None
+		self.h = dict()
 
 	def keys(self):
 		this1 = None
