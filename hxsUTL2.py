@@ -601,19 +601,19 @@ class Sutl:
 			accum = Util.get(scope19,"accum")
 			if Util.isSequence(listobj):
 				_hx_list = Util.SequenceToArray(listobj)
+				s2 = _hx_AnonObject({})
+				if Util.isObject(parentscope19):
+					s2 = Util.shallowCopy(parentscope19)
+				Util.addObject(s2,scope19)
 				_g12 = 0
 				_g2 = len(_hx_list)
 				while (_g12 < _g2):
 					ix = _g12
 					_g12 = (_g12 + 1)
 					item2 = (_hx_list[ix] if ix >= 0 and ix < len(_hx_list) else None)
-					s2 = _hx_AnonObject({})
-					if Util.isObject(parentscope19):
-						s2 = Util.shallowCopy(parentscope19)
-					Util.addObject(s2,scope19)
 					setattr(s2,(("_hx_" + "item") if ("item" in python_Boot.keywords) else (("_hx_" + "item") if (((((len("item") > 2) and ((ord("item"[0]) == 95))) and ((ord("item"[1]) == 95))) and ((ord("item"[(len("item") - 1)]) != 95)))) else "item")),item2)
 					setattr(s2,(("_hx_" + "accum") if ("accum" in python_Boot.keywords) else (("_hx_" + "accum") if (((((len("accum") > 2) and ((ord("accum"[0]) == 95))) and ((ord("accum"[1]) == 95))) and ((ord("accum"[(len("accum") - 1)]) != 95)))) else "accum")),accum)
-					setattr(s2,(("_hx_" + "ix") if ("ix" in python_Boot.keywords) else (("_hx_" + "ix") if (((((len("ix") > 2) and ((ord("ix"[0]) == 95))) and ((ord("ix"[1]) == 95))) and ((ord("ix"[(len("ix") - 1)]) != 95)))) else "ix")),item2)
+					setattr(s2,(("_hx_" + "ix") if ("ix" in python_Boot.keywords) else (("_hx_" + "ix") if (((((len("ix") > 2) and ((ord("ix"[0]) == 95))) and ((ord("ix"[1]) == 95))) and ((ord("ix"[(len("ix") - 1)]) != 95)))) else "ix")),ix)
 					accum = _g._evaluate(s2,t,l19,src19,tt19,b23,h19)
 			return accum
 		def _hx_local_25(parentscope20,scope20,l20,src20,tt20,b24,h20):
