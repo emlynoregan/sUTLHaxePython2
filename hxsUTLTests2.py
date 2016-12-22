@@ -1213,7 +1213,7 @@ Sutlcore._hx_class = Sutlcore
 class haxe_unit_TestCase:
 	_hx_class_name = "haxe.unit.TestCase"
 	_hx_fields = ["currentTest"]
-	_hx_methods = ["setup", "tearDown", "xprint", "assertTrue", "assertFalse", "assertEquals"]
+	_hx_methods = ["setup", "tearDown", "print", "assertTrue", "assertFalse", "assertEquals"]
 
 	def __init__(self):
 		self.currentTest = None
@@ -2908,7 +2908,7 @@ class haxe_Log:
 				_hx_str = (("null" if _hx_str is None else _hx_str) + HxOverrides.stringOrNull((("," + HxOverrides.stringOrNull(",".join([python_Boot.toString1(x1,'') for x1 in Reflect.field(infos,"customParams")]))))))
 		else:
 			_hx_str = v
-		python_Lib.xprintln(_hx_str)
+		python_Lib.println(_hx_str)
 haxe_Log._hx_class = haxe_Log
 
 
@@ -2935,7 +2935,7 @@ class haxe_format_JsonPrinter:
 	_hx_class_name = "haxe.format.JsonPrinter"
 	_hx_fields = ["buf", "replacer", "indent", "pretty", "nind"]
 	_hx_methods = ["write", "fieldsString", "quote"]
-	_hx_statics = ["xprint"]
+	_hx_statics = ["print"]
 
 	def __init__(self,replacer,space):
 		self.buf = None
@@ -3128,9 +3128,9 @@ class haxe_format_JsonPrinter:
 
 	@staticmethod
 	def xprint(o,replacer = None,space = None):
-		xprinter = haxe_format_JsonPrinter(replacer, space)
-		xprinter.write("",o)
-		return xprinter.buf.b.getvalue()
+		printer = haxe_format_JsonPrinter(replacer, space)
+		printer.write("",o)
+		return printer.buf.b.getvalue()
 
 haxe_format_JsonPrinter._hx_class = haxe_format_JsonPrinter
 
@@ -3208,7 +3208,7 @@ class haxe_unit_TestRunner:
 	_hx_class_name = "haxe.unit.TestRunner"
 	_hx_fields = ["result", "cases"]
 	_hx_methods = ["add", "run", "runCase"]
-	_hx_statics = ["xprint", "customTrace"]
+	_hx_statics = ["print", "customTrace"]
 
 	def __init__(self):
 		self.result = None
@@ -3804,7 +3804,7 @@ python__KwArgs_KwArgs_Impl_._hx_class = python__KwArgs_KwArgs_Impl_
 
 class python_Lib:
 	_hx_class_name = "python.Lib"
-	_hx_statics = ["xprint", "xprintln", "dictToAnon", "anonToDict", "anonAsDict", "dictAsAnon"]
+	_hx_statics = ["print", "println", "dictToAnon", "anonToDict", "anonAsDict", "dictAsAnon"]
 
 	@staticmethod
 	def xprint(v):
@@ -3813,7 +3813,7 @@ class python_Lib:
 		python_lib_Sys.stdout.flush()
 
 	@staticmethod
-	def xprintln(v):
+	def println(v):
 		_hx_str = Std.string(v)
 		python_lib_Sys.stdout.write((("" + ("null" if _hx_str is None else _hx_str)) + "\n").encode("utf-8", "strict"))
 		python_lib_Sys.stdout.flush()

@@ -489,7 +489,7 @@ class Sutl:
 					except Exception as _hx_e:
 						_hx_e1 = _hx_e.val if isinstance(_hx_e, _HxException) else _hx_e
 						ex = _hx_e1
-						xprint(str(ex))
+						print(str(ex))
 			else:
 				retval = a
 		return retval
@@ -728,14 +728,14 @@ class Sutl:
 
 	def logenter(self,msg,s,t,h):
 		if (h > 0):
-			xprint(str(((("(" + Std.string(h)) + "): ") + ("null" if msg is None else msg))))
-			xprint(str((" - s: " + HxOverrides.stringOrNull(haxe_format_JsonPrinter.xprint(s,None,"  ")))))
-			xprint(str((" - t: " + HxOverrides.stringOrNull(haxe_format_JsonPrinter.xprint(t,None,"  ")))))
+			print(str(((("(" + Std.string(h)) + "): ") + ("null" if msg is None else msg))))
+			print(str((" - s: " + HxOverrides.stringOrNull(haxe_format_JsonPrinter.xprint(s,None,"  ")))))
+			print(str((" - t: " + HxOverrides.stringOrNull(haxe_format_JsonPrinter.xprint(t,None,"  ")))))
 
 	def logexit(self,msg,r,h):
 		if (h > 0):
-			xprint(str(((("(" + Std.string(h)) + "): ") + ("null" if msg is None else msg))))
-			xprint(str((" - r: " + HxOverrides.stringOrNull(haxe_format_JsonPrinter.xprint(r,None,"  ")))))
+			print(str(((("(" + Std.string(h)) + "): ") + ("null" if msg is None else msg))))
+			print(str((" - r: " + HxOverrides.stringOrNull(haxe_format_JsonPrinter.xprint(r,None,"  ")))))
 
 	def evaluate(self,src,tt,l,h = 0):
 		if (h is None):
@@ -1599,7 +1599,7 @@ class haxe_format_JsonPrinter:
 	_hx_class_name = "haxe.format.JsonPrinter"
 	_hx_fields = ["buf", "replacer", "indent", "pretty", "nind"]
 	_hx_methods = ["write", "fieldsString", "quote"]
-	_hx_statics = ["xprint"]
+	_hx_statics = ["print"]
 
 	def __init__(self,replacer,space):
 		self.buf = None
@@ -1792,9 +1792,9 @@ class haxe_format_JsonPrinter:
 
 	@staticmethod
 	def xprint(o,replacer = None,space = None):
-		xprinter = haxe_format_JsonPrinter(replacer, space)
-		xprinter.write("",o)
-		return xprinter.buf.b.getvalue()
+		printer = haxe_format_JsonPrinter(replacer, space)
+		printer.write("",o)
+		return printer.buf.b.getvalue()
 
 haxe_format_JsonPrinter._hx_class = haxe_format_JsonPrinter
 
