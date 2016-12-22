@@ -643,7 +643,7 @@ class Sutl:
 						field = HxOverrides.arrayGet(entry, 0)
 						setattr(retval2,(("_hx_" + field) if (field in python_Boot.keywords) else (("_hx_" + field) if (((((len(field) > 2) and ((ord(field[0]) == 95))) and ((ord(field[1]) == 95))) and ((ord(field[(len(field) - 1)]) != 95)))) else field)),HxOverrides.arrayGet(entry, 1))
 			return retval2
-		def _hx_local_25(parentscope19,scope19,l19,src19,tt19,b23,h19):
+		def _hx_local_24(parentscope19,scope19,l19,src19,tt19,b23,h19):
 			retval3 = _hx_AnonObject({})
 			listobj = Util.get(scope19,"list")
 			t = Util.get(scope19,"t")
@@ -654,23 +654,26 @@ class Sutl:
 				if Util.isObject(parentscope19):
 					s2 = Util.shallowCopy(parentscope19)
 				Util.addObject(s2,scope19)
-				_g2 = 0
-				while (_g2 < len(_hx_list)):
-					item2 = (_hx_list[_g2] if _g2 >= 0 and _g2 < len(_hx_list) else None)
-					_g2 = (_g2 + 1)
+				_g12 = 0
+				_g2 = len(_hx_list)
+				while (_g12 < _g2):
+					ix = _g12
+					_g12 = (_g12 + 1)
+					item2 = (_hx_list[ix] if ix >= 0 and ix < len(_hx_list) else None)
 					setattr(s2,(("_hx_" + "item") if ("item" in python_Boot.keywords) else (("_hx_" + "item") if (((((len("item") > 2) and ((ord("item"[0]) == 95))) and ((ord("item"[1]) == 95))) and ((ord("item"[(len("item") - 1)]) != 95)))) else "item")),item2)
 					setattr(s2,(("_hx_" + "accum") if ("accum" in python_Boot.keywords) else (("_hx_" + "accum") if (((((len("accum") > 2) and ((ord("accum"[0]) == 95))) and ((ord("accum"[1]) == 95))) and ((ord("accum"[(len("accum") - 1)]) != 95)))) else "accum")),accum)
+					setattr(s2,(("_hx_" + "ix") if ("ix" in python_Boot.keywords) else (("_hx_" + "ix") if (((((len("ix") > 2) and ((ord("ix"[0]) == 95))) and ((ord("ix"[1]) == 95))) and ((ord("ix"[(len("ix") - 1)]) != 95)))) else "ix")),ix)
 					accum = _g._evaluate(s2,t,l19,src19,tt19,b23,h19)
 			return accum
-		def _hx_local_26(parentscope20,scope20,l20,src20,tt20,b24,h20):
+		def _hx_local_25(parentscope20,scope20,l20,src20,tt20,b24,h20):
 			return _g._processPath(src20,parentscope20,scope20,l20,src20,tt20,b24,h20)
-		def _hx_local_27(parentscope21,scope21,l21,src21,tt21,b25,h21):
+		def _hx_local_26(parentscope21,scope21,l21,src21,tt21,b25,h21):
 			return _g._processPath(parentscope21,parentscope21,scope21,l21,src21,tt21,b25,h21)
-		def _hx_local_28(parentscope22,scope22,l22,src22,tt22,b26,h22):
+		def _hx_local_27(parentscope22,scope22,l22,src22,tt22,b26,h22):
 			return _g._processPath(l22,parentscope22,scope22,l22,src22,tt22,b26,h22)
-		def _hx_local_29(parentscope23,scope23,l23,src23,tt23,b27,h23):
+		def _hx_local_28(parentscope23,scope23,l23,src23,tt23,b27,h23):
 			return _g._processPath(tt23,parentscope23,scope23,l23,src23,tt23,b27,h23)
-		def _hx_local_30(parentscope24,scope24,l24,src24,tt24,b28,h24):
+		def _hx_local_29(parentscope24,scope24,l24,src24,tt24,b28,h24):
 			la = Util.get(scope24,"a")
 			lb = Util.get(scope24,"b")
 			lnotfirst = Util.get(scope24,"notfirst")
@@ -680,7 +683,7 @@ class Sutl:
 				return _g._doPath([lb],None)
 			else:
 				return _g._doPath([la],lb)
-		def _hx_local_31(parentscope25,scope25,l25,src25,tt25,b29,h25):
+		def _hx_local_30(parentscope25,scope25,l25,src25,tt25,b29,h25):
 			lb1 = Util.get(scope25,"b")
 			if Util.isSequence(lb1):
 				arr2 = Util.SequenceToArray(lb1)
@@ -690,7 +693,7 @@ class Sutl:
 					return None
 			else:
 				return None
-		def _hx_local_32(parentscope26,scope26,l26,src26,tt26,b30,h26):
+		def _hx_local_31(parentscope26,scope26,l26,src26,tt26,b30,h26):
 			lb2 = Util.get(scope26,"b")
 			if Util.isSequence(lb2):
 				arr3 = Util.SequenceToArray(lb2)
@@ -700,7 +703,7 @@ class Sutl:
 					return []
 			else:
 				return None
-		def _hx_local_34(parentscope27,scope27,l27,src27,tt27,b31,h27):
+		def _hx_local_33(parentscope27,scope27,l27,src27,tt27,b31,h27):
 			lvalue = Util.get(scope27,"value")
 			lsep = Util.get(scope27,"sep",",")
 			lmax = Util.get(scope27,"max")
@@ -714,12 +717,12 @@ class Sutl:
 			else:
 				lstr = None
 				def _hx_local_0():
-					_hx_local_33 = lvalue
-					if Std._hx_is(_hx_local_33,str):
-						_hx_local_33
+					_hx_local_32 = lvalue
+					if Std._hx_is(_hx_local_32,str):
+						_hx_local_32
 					else:
 						raise _HxException("Class cast error")
-					return _hx_local_33
+					return _hx_local_32
 				lstr = _hx_local_0()
 				retval4 = lvalue.split(lsep)
 				if (((lmax is not None) and ((lmax >= 0))) and ((lmax < len(lstr)))):
@@ -728,7 +731,7 @@ class Sutl:
 					python_internal_ArrayImpl._set(lresult1, (lmax - 1), lsep.join([python_Boot.toString1(x1,'') for x1 in lresult2]))
 					retval4 = lresult1
 			return retval4
-		def _hx_local_35(parentscope28,scope28,l28,src28,tt28,b32,h28):
+		def _hx_local_34(parentscope28,scope28,l28,src28,tt28,b32,h28):
 			lvalue1 = Util.get(scope28,"value")
 			retval5 = None
 			if (not Util.isString(lvalue1)):
@@ -736,7 +739,7 @@ class Sutl:
 			else:
 				retval5 = StringTools.trim(lvalue1)
 			return retval5
-		def _hx_local_37(parentscope29,scope29,l29,src29,tt29,b33,h29):
+		def _hx_local_36(parentscope29,scope29,l29,src29,tt29,b33,h29):
 			lvalue2 = Util.get(scope29,"value")
 			lsub = Util.get(scope29,"sub")
 			retval6 = None
@@ -747,25 +750,25 @@ class Sutl:
 			else:
 				_this = None
 				def _hx_local_0():
-					_hx_local_36 = lvalue2
-					if Std._hx_is(_hx_local_36,str):
-						_hx_local_36
+					_hx_local_35 = lvalue2
+					if Std._hx_is(_hx_local_35,str):
+						_hx_local_35
 					else:
 						raise _HxException("Class cast error")
-					return _hx_local_36
+					return _hx_local_35
 				_this = _hx_local_0()
 				retval6 = _this.find(lsub)
 			return retval6
-		functions = _hx_AnonObject({'+': _hx_local_0, '-': _hx_local_1, 'x': _hx_local_2, '/': _hx_local_3, '=': _hx_local_4, '!=': _hx_local_5, '>=': _hx_local_6, '<=': _hx_local_7, '>': _hx_local_8, '<': _hx_local_9, '&&': _hx_local_10, '||': _hx_local_11, '!': _hx_local_12, '_hx_if': _hx_local_13, 'keys': _hx_local_15, 'values': _hx_local_18, 'len': _hx_local_19, 'type': _hx_local_20, 'makemap': _hx_local_23, 'reduce': _hx_local_25, '$': _hx_local_26, '@': _hx_local_27, '*': _hx_local_28, '~': _hx_local_29, '%': _hx_local_30, 'head': _hx_local_31, 'tail': _hx_local_32, 'split': _hx_local_34, 'trim': _hx_local_35, 'pos': _hx_local_37})
+		functions = _hx_AnonObject({'+': _hx_local_0, '-': _hx_local_1, 'x': _hx_local_2, '/': _hx_local_3, '=': _hx_local_4, '!=': _hx_local_5, '>=': _hx_local_6, '<=': _hx_local_7, '>': _hx_local_8, '<': _hx_local_9, '&&': _hx_local_10, '||': _hx_local_11, '!': _hx_local_12, '_hx_if': _hx_local_13, 'keys': _hx_local_15, 'values': _hx_local_18, 'len': _hx_local_19, 'type': _hx_local_20, 'makemap': _hx_local_23, 'reduce': _hx_local_24, '$': _hx_local_25, '@': _hx_local_26, '*': _hx_local_27, '~': _hx_local_28, '%': _hx_local_29, 'head': _hx_local_30, 'tail': _hx_local_31, 'split': _hx_local_33, 'trim': _hx_local_34, 'pos': _hx_local_36})
 		_g3 = 0
-		_g12 = python_Boot.fields(functions)
-		while (_g3 < len(_g12)):
-			fieldname = (_g12[_g3] if _g3 >= 0 and _g3 < len(_g12) else None)
+		_g13 = python_Boot.fields(functions)
+		while (_g3 < len(_g13)):
+			fieldname = (_g13[_g3] if _g3 >= 0 and _g3 < len(_g13) else None)
 			_g3 = (_g3 + 1)
 			field1 = ("has" + ("null" if fieldname is None else fieldname))
-			def _hx_local_39(parentscope30,scope30,l30,src30,tt30,b34,h30):
+			def _hx_local_38(parentscope30,scope30,l30,src30,tt30,b34,h30):
 				return True
-			setattr(functions,(("_hx_" + field1) if (field1 in python_Boot.keywords) else (("_hx_" + field1) if (((((len(field1) > 2) and ((ord(field1[0]) == 95))) and ((ord(field1[1]) == 95))) and ((ord(field1[(len(field1) - 1)]) != 95)))) else field1)),_hx_local_39)
+			setattr(functions,(("_hx_" + field1) if (field1 in python_Boot.keywords) else (("_hx_" + field1) if (((((len(field1) > 2) and ((ord(field1[0]) == 95))) and ((ord(field1[1]) == 95))) and ((ord(field1[(len(field1) - 1)]) != 95)))) else field1)),_hx_local_38)
 		return functions
 
 	def logenter(self,msg,s,t,h):
@@ -1035,8 +1038,8 @@ class Sutl:
 				value = self._quoteEvaluate(s,Util.get(t,key),l,src,tt,b,h)
 				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),value)
 			else:
-				value1 = self._evaluate(s,Util.get(t,key),l,src,tt,b,h)
-				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),value1)
+				lnewt = self._evaluate(s,Util.get(t,key),l,src,tt,b,h)
+				setattr(retval,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),lnewt)
 		return retval
 
 	def _evaluateList(self,s,t,l,src,tt,b,h):
