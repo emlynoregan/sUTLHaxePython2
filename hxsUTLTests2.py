@@ -806,7 +806,10 @@ class Sutl:
 		return (x - 1)
 
 	def _evaluate(self,s,t,l,src,tt,b,h):
+		if (not Util3.isTruthy(h)):
+			h = 0
 		r = None
+		self.logenter("_evaluate",s,t,h)
 		if Util3.isEval(t):
 			r = self._evaluateEval(s,t,l,src,tt,b,self.dec(h))
 		elif Util3.isEval2(t):
@@ -831,6 +834,7 @@ class Sutl:
 			r = self._evaluateStringBuiltin(s,t,l,src,tt,b,self.dec(h))
 		else:
 			r = t
+		self.logexit("_evaluate",r,h)
 		return r
 
 	def _quoteEvaluate(self,s,t,l,src,tt,b,h):
@@ -972,13 +976,14 @@ class Sutl:
 			Reflect.deleteField(t2,"&")
 			retval = self._evaluateEval(s,t2,l,src,tt,b,self.dec(h))
 		elif (builtinf is not None):
-			s2 = Util.shallowCopy(s)
 			sX = None
 			if needseval:
 				sX = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
 			else:
 				sX = t
-			if Util2.isObject(s2):
+			s2 = None
+			if Util2.isObject(s):
+				s2 = Util.shallowCopy(s)
 				Util.addObject(s2,sX)
 			else:
 				s2 = sX
