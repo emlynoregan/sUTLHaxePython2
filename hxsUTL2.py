@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from __future__ import division
+from util2 import Util2
 str = unicode
 import math as python_lib_Math
 import math as Math
@@ -1565,7 +1566,7 @@ class Util:
 Util._hx_class = Util
 
 
-class Util2:
+class SlowUtil2:
 	_hx_class_name = "Util2"
 	_hx_statics = ["isObject", "isArray", "isString", "isSequence", "isInt", "isNumber", "isBool"]
 
@@ -1602,7 +1603,7 @@ class Util2:
 	def isBool(obj):
 		ltype = Type.typeof(obj)
 		return (ltype == ValueType.TBool)
-Util2._hx_class = Util2
+
 
 
 class haxe_IMap:
