@@ -1987,7 +1987,144 @@ class python_Boot:
 		if (field is None):
 			return None
 		_hx_local_0 = len(field)
-		if (_hx_local_0 == 6):
+		if (_hx_local_0 == 10):
+			if (field == "charCodeAt"):
+				if isinstance(o,str):
+					s4 = o
+					def _hx_local_1(a11):
+						return HxString.charCodeAt(s4,a11)
+					return _hx_local_1
+		elif (_hx_local_0 == 11):
+			if (field == "toLowerCase"):
+				if isinstance(o,str):
+					s1 = o
+					def _hx_local_2():
+						return HxString.toLowerCase(s1)
+					return _hx_local_2
+			elif (field == "toUpperCase"):
+				if isinstance(o,str):
+					s2 = o
+					def _hx_local_3():
+						return HxString.toUpperCase(s2)
+					return _hx_local_3
+			elif (field == "lastIndexOf"):
+				if isinstance(o,str):
+					s6 = o
+					def _hx_local_4(a13):
+						return HxString.lastIndexOf(s6,a13)
+					return _hx_local_4
+				elif isinstance(o,list):
+					a2 = o
+					def _hx_local_5(x2):
+						return python_internal_ArrayImpl.lastIndexOf(a2,x2)
+					return _hx_local_5
+		elif (_hx_local_0 == 9):
+			if (field == "substring"):
+				if isinstance(o,str):
+					s9 = o
+					def _hx_local_6(a15):
+						return HxString.substring(s9,a15)
+					return _hx_local_6
+		elif (_hx_local_0 == 5):
+			if (field == "split"):
+				if isinstance(o,str):
+					s7 = o
+					def _hx_local_7(d):
+						return HxString.split(s7,d)
+					return _hx_local_7
+			elif (field == "shift"):
+				if isinstance(o,list):
+					x14 = o
+					def _hx_local_8():
+						return python_internal_ArrayImpl.shift(x14)
+					return _hx_local_8
+			elif (field == "slice"):
+				if isinstance(o,list):
+					x15 = o
+					def _hx_local_9(a18):
+						return python_internal_ArrayImpl.slice(x15,a18)
+					return _hx_local_9
+		elif (_hx_local_0 == 4):
+			if (field == "copy"):
+				if isinstance(o,list):
+					def _hx_local_10():
+						x6 = o
+						return list(x6)
+					return _hx_local_10
+			elif (field == "join"):
+				if isinstance(o,list):
+					def _hx_local_11(sep):
+						x9 = o
+						return sep.join([python_Boot.toString1(x1,'') for x1 in x9])
+					return _hx_local_11
+			elif (field == "push"):
+				if isinstance(o,list):
+					x11 = o
+					def _hx_local_12(e):
+						return python_internal_ArrayImpl.push(x11,e)
+					return _hx_local_12
+			elif (field == "sort"):
+				if isinstance(o,list):
+					x16 = o
+					def _hx_local_13(f2):
+						python_internal_ArrayImpl.sort(x16,f2)
+					return _hx_local_13
+		elif (_hx_local_0 == 7):
+			if (field == "indexOf"):
+				if isinstance(o,str):
+					s5 = o
+					def _hx_local_14(a12):
+						return HxString.indexOf(s5,a12)
+					return _hx_local_14
+				elif isinstance(o,list):
+					a = o
+					def _hx_local_15(x1):
+						return python_internal_ArrayImpl.indexOf(a,x1)
+					return _hx_local_15
+			elif (field == "unshift"):
+				if isinstance(o,list):
+					x12 = o
+					def _hx_local_16(e1):
+						python_internal_ArrayImpl.unshift(x12,e1)
+					return _hx_local_16
+			elif (field == "reverse"):
+				if isinstance(o,list):
+					a4 = o
+					def _hx_local_17():
+						python_internal_ArrayImpl.reverse(a4)
+					return _hx_local_17
+		elif (_hx_local_0 == 3):
+			if (field == "map"):
+				if isinstance(o,list):
+					x4 = o
+					def _hx_local_18(f):
+						return python_internal_ArrayImpl.map(x4,f)
+					return _hx_local_18
+			elif (field == "pop"):
+				if isinstance(o,list):
+					x10 = o
+					def _hx_local_19():
+						return python_internal_ArrayImpl.pop(x10)
+					return _hx_local_19
+		elif (_hx_local_0 == 8):
+			if (field == "toString"):
+				if isinstance(o,str):
+					s10 = o
+					def _hx_local_20():
+						return HxString.toString(s10)
+					return _hx_local_20
+				elif isinstance(o,list):
+					x3 = o
+					def _hx_local_21():
+						return python_internal_ArrayImpl.toString(x3)
+					return _hx_local_21
+			elif (field == "iterator"):
+				if isinstance(o,list):
+					x7 = o
+					def _hx_local_22():
+						return python_internal_ArrayImpl.iterator(x7)
+					return _hx_local_22
+		elif (_hx_local_0 == 6):
 			if (field == "length"):
 				if isinstance(o,str):
 					s = o
@@ -1998,181 +2135,44 @@ class python_Boot:
 			elif (field == "charAt"):
 				if isinstance(o,str):
 					s3 = o
-					def _hx_local_1(a1):
+					def _hx_local_23(a1):
 						return HxString.charAt(s3,a1)
-					return _hx_local_1
+					return _hx_local_23
 			elif (field == "substr"):
 				if isinstance(o,str):
 					s8 = o
-					def _hx_local_2(a14):
+					def _hx_local_24(a14):
 						return HxString.substr(s8,a14)
-					return _hx_local_2
+					return _hx_local_24
 			elif (field == "filter"):
 				if isinstance(o,list):
 					x5 = o
-					def _hx_local_3(f1):
+					def _hx_local_25(f1):
 						return python_internal_ArrayImpl.filter(x5,f1)
-					return _hx_local_3
+					return _hx_local_25
 			elif (field == "concat"):
 				if isinstance(o,list):
 					a16 = o
-					def _hx_local_4(a21):
+					def _hx_local_26(a21):
 						return python_internal_ArrayImpl.concat(a16,a21)
-					return _hx_local_4
+					return _hx_local_26
 			elif (field == "insert"):
 				if isinstance(o,list):
 					a3 = o
-					def _hx_local_5(a17,x8):
+					def _hx_local_27(a17,x8):
 						python_internal_ArrayImpl.insert(a3,a17,x8)
-					return _hx_local_5
+					return _hx_local_27
 			elif (field == "remove"):
 				if isinstance(o,list):
 					x13 = o
-					def _hx_local_6(e2):
+					def _hx_local_28(e2):
 						return python_internal_ArrayImpl.remove(x13,e2)
-					return _hx_local_6
+					return _hx_local_28
 			elif (field == "splice"):
 				if isinstance(o,list):
 					x17 = o
-					def _hx_local_7(a19,a22):
+					def _hx_local_29(a19,a22):
 						return python_internal_ArrayImpl.splice(x17,a19,a22)
-					return _hx_local_7
-		elif (_hx_local_0 == 5):
-			if (field == "split"):
-				if isinstance(o,str):
-					s7 = o
-					def _hx_local_8(d):
-						return HxString.split(s7,d)
-					return _hx_local_8
-			elif (field == "shift"):
-				if isinstance(o,list):
-					x14 = o
-					def _hx_local_9():
-						return python_internal_ArrayImpl.shift(x14)
-					return _hx_local_9
-			elif (field == "slice"):
-				if isinstance(o,list):
-					x15 = o
-					def _hx_local_10(a18):
-						return python_internal_ArrayImpl.slice(x15,a18)
-					return _hx_local_10
-		elif (_hx_local_0 == 11):
-			if (field == "toLowerCase"):
-				if isinstance(o,str):
-					s1 = o
-					def _hx_local_11():
-						return HxString.toLowerCase(s1)
-					return _hx_local_11
-			elif (field == "toUpperCase"):
-				if isinstance(o,str):
-					s2 = o
-					def _hx_local_12():
-						return HxString.toUpperCase(s2)
-					return _hx_local_12
-			elif (field == "lastIndexOf"):
-				if isinstance(o,str):
-					s6 = o
-					def _hx_local_13(a13):
-						return HxString.lastIndexOf(s6,a13)
-					return _hx_local_13
-				elif isinstance(o,list):
-					a2 = o
-					def _hx_local_14(x2):
-						return python_internal_ArrayImpl.lastIndexOf(a2,x2)
-					return _hx_local_14
-		elif (_hx_local_0 == 4):
-			if (field == "copy"):
-				if isinstance(o,list):
-					def _hx_local_15():
-						x6 = o
-						return list(x6)
-					return _hx_local_15
-			elif (field == "join"):
-				if isinstance(o,list):
-					def _hx_local_16(sep):
-						x9 = o
-						return sep.join([python_Boot.toString1(x1,'') for x1 in x9])
-					return _hx_local_16
-			elif (field == "push"):
-				if isinstance(o,list):
-					x11 = o
-					def _hx_local_17(e):
-						return python_internal_ArrayImpl.push(x11,e)
-					return _hx_local_17
-			elif (field == "sort"):
-				if isinstance(o,list):
-					x16 = o
-					def _hx_local_18(f2):
-						python_internal_ArrayImpl.sort(x16,f2)
-					return _hx_local_18
-		elif (_hx_local_0 == 10):
-			if (field == "charCodeAt"):
-				if isinstance(o,str):
-					s4 = o
-					def _hx_local_19(a11):
-						return HxString.charCodeAt(s4,a11)
-					return _hx_local_19
-		elif (_hx_local_0 == 3):
-			if (field == "map"):
-				if isinstance(o,list):
-					x4 = o
-					def _hx_local_20(f):
-						return python_internal_ArrayImpl.map(x4,f)
-					return _hx_local_20
-			elif (field == "pop"):
-				if isinstance(o,list):
-					x10 = o
-					def _hx_local_21():
-						return python_internal_ArrayImpl.pop(x10)
-					return _hx_local_21
-		elif (_hx_local_0 == 9):
-			if (field == "substring"):
-				if isinstance(o,str):
-					s9 = o
-					def _hx_local_22(a15):
-						return HxString.substring(s9,a15)
-					return _hx_local_22
-		elif (_hx_local_0 == 8):
-			if (field == "toString"):
-				if isinstance(o,str):
-					s10 = o
-					def _hx_local_23():
-						return HxString.toString(s10)
-					return _hx_local_23
-				elif isinstance(o,list):
-					x3 = o
-					def _hx_local_24():
-						return python_internal_ArrayImpl.toString(x3)
-					return _hx_local_24
-			elif (field == "iterator"):
-				if isinstance(o,list):
-					x7 = o
-					def _hx_local_25():
-						return python_internal_ArrayImpl.iterator(x7)
-					return _hx_local_25
-		elif (_hx_local_0 == 7):
-			if (field == "indexOf"):
-				if isinstance(o,str):
-					s5 = o
-					def _hx_local_26(a12):
-						return HxString.indexOf(s5,a12)
-					return _hx_local_26
-				elif isinstance(o,list):
-					a = o
-					def _hx_local_27(x1):
-						return python_internal_ArrayImpl.indexOf(a,x1)
-					return _hx_local_27
-			elif (field == "unshift"):
-				if isinstance(o,list):
-					x12 = o
-					def _hx_local_28(e1):
-						python_internal_ArrayImpl.unshift(x12,e1)
-					return _hx_local_28
-			elif (field == "reverse"):
-				if isinstance(o,list):
-					a4 = o
-					def _hx_local_29():
-						python_internal_ArrayImpl.reverse(a4)
 					return _hx_local_29
 		else:
 			pass
