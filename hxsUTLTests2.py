@@ -862,6 +862,7 @@ class Sutl:
 			except Exception as _hx_e:
 				_hx_e1 = _hx_e.val if isinstance(_hx_e, _HxException) else _hx_e
 				err = _hx_e1
+				haxe_Log.trace("!!!!!!!!!!!!!",_hx_AnonObject({'fileName': "Sutl.hx", 'lineNumber': 680, 'className': "Sutl", 'methodName': "_evaluateStringBuiltin"}))
 				larr2.append(litem)
 		return self._evaluateArrayBuiltin(s,larr2,l,src,tt,b,h)
 
@@ -2418,7 +2419,7 @@ Type._hx_class = Type
 
 class Util:
 	_hx_class_name = "Util"
-	_hx_statics = ["isObject", "isArray", "isString", "isSequence", "isNumber", "isBool", "isTruthy", "isBuiltinEval", "isArrayBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist", "isPrefix"]
+	_hx_statics = ["isObject", "isArray", "isString", "isSequence", "isInt", "isNumber", "isBool", "isTruthy", "isBuiltinEval", "isArrayBuiltinEval", "isStringBuiltinEval", "isEval", "isEval2", "isQuoteEval", "isDoubleQuoteEval", "isColonEval", "isDictTransform", "isListTransform", "getArrayBuiltinName", "get", "gettype", "MakeExcept", "deepEqual", "deepEqual2", "deepCopy", "shallowCopy", "addObject", "StringToArray", "SequenceToArray", "flatten", "loadcoredist", "isPrefix"]
 
 	@staticmethod
 	def isObject(obj):
@@ -2438,6 +2439,11 @@ class Util:
 	@staticmethod
 	def isSequence(obj):
 		return (Util.isArray(obj) or Util.isString(obj))
+
+	@staticmethod
+	def isInt(obj):
+		ltype = Type.typeof(obj)
+		return (ltype == ValueType.TInt)
 
 	@staticmethod
 	def isNumber(obj):
