@@ -2818,7 +2818,7 @@ class SlowUtil3:
 
 
 
-class UtilReflect:
+class SlowUtilReflect:
 	_hx_class_name = "UtilReflect"
 	_hx_statics = ["fields", "hasField", "field", "setField", "deleteField"]
 
@@ -2842,7 +2842,7 @@ class UtilReflect:
 	@staticmethod
 	def deleteField(obj,fieldname):
 		return Reflect.deleteField(obj,fieldname)
-UtilReflect._hx_class = UtilReflect
+
 
 class haxe_StackItem(Enum):
 	_hx_class_name = "haxe.StackItem"
@@ -4211,12 +4211,12 @@ Math.PI = python_lib_Math.pi
 python_Boot.keywords = set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])
 python_Boot.prefixLength = len("_hx_")
 
-Main.main()
+
 
 
 #from util2 import Util2
 
-_keywords = set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])
+# _keywords = set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])
 
 class UtilReflect:
     _hx_class_name = "UtilReflect"
@@ -4224,19 +4224,19 @@ class UtilReflect:
 
     @staticmethod
     def calckey(key):
-        return "_hx_%s" % key if key in _keywords else key
+        return "_hx_%s" % key if key in python_Boot.keywords else key
     
     @staticmethod
-#     def fields(obj):
-#         return python_Boot.fields(obj)
-    @staticmethod
     def fields(obj):
-        retval = None
-         
-        if Util2.isObject(obj):
-            retval = [UtilReflect.calckey(key) for key in obj.__dict__]
- 
-        return retval
+        return python_Boot.fields(obj)
+#     @staticmethod
+#     def fields(obj):
+#         retval = None
+#          
+#         if Util2.isObject(obj):
+#             retval = [UtilReflect.calckey(key) for key in obj.__dict__]
+#  
+#         return retval
 
     @staticmethod
     def hasField(obj,fieldname):
@@ -4274,3 +4274,4 @@ class UtilReflect:
 
 UtilReflect._hx_class = UtilReflect
 
+Main.main()

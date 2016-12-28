@@ -3,7 +3,7 @@
 
 #from util2 import Util2
 
-_keywords = set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])
+# _keywords = set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])
 
 class UtilReflect:
     _hx_class_name = "UtilReflect"
@@ -11,19 +11,19 @@ class UtilReflect:
 
     @staticmethod
     def calckey(key):
-        return "_hx_%s" % key if key in _keywords else key
+        return "_hx_%s" % key if key in python_Boot.keywords else key
     
     @staticmethod
-#     def fields(obj):
-#         return python_Boot.fields(obj)
-    @staticmethod
     def fields(obj):
-        retval = None
-         
-        if Util2.isObject(obj):
-            retval = [UtilReflect.calckey(key) for key in obj.__dict__]
- 
-        return retval
+        return python_Boot.fields(obj)
+#     @staticmethod
+#     def fields(obj):
+#         retval = None
+#          
+#         if Util2.isObject(obj):
+#             retval = [UtilReflect.calckey(key) for key in obj.__dict__]
+#  
+#         return retval
 
     @staticmethod
     def hasField(obj,fieldname):
