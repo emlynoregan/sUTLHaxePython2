@@ -52,8 +52,11 @@ class sUTL():
         r = self._fromHx(rhx)
         return r 
 
-    def evaluatehx(self, shx, thx, lhx, hhx):
-        rhx = self.sutl().evaluate(shx, thx, lhx, hhx)
+    def builtinshx(self):
+        return self._toHx(self.sutl().builtins())
+    
+    def evaluatehx(self, shx, thx, lhx, bhx, hhx):
+        rhx = self.sutl()._evaluate(shx, thx, lhx, shx, thx, bhx, hhx)
         return rhx
 
     def _evaluate(self, s, t, l, src, tt, b, h):
