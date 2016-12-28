@@ -802,8 +802,6 @@ class Sutl:
 		return (x - 1)
 
 	def _evaluate(self,s,t,l,src,tt,b,h):
-		if (not Util3.isTruthy(h)):
-			h = 0
 		r = None
 		self.logenter("_evaluate",s,t,h)
 		if Util3.isEval(t):
