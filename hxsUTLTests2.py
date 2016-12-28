@@ -998,10 +998,8 @@ class Sutl:
 		retval = None
 		teval = None
 		if needseval:
-			haxe_Log.trace("????????????????????",_hx_AnonObject({'fileName': "Sutl.hx", 'lineNumber': 878, 'className': "Sutl", 'methodName': "_evaluateEval"}))
 			teval = self._evaluateDict(s,t,l,src,tt,b,h)
 		else:
-			haxe_Log.trace("!!!!!!!!!!!!!!!!!!!!!!!",_hx_AnonObject({'fileName': "Sutl.hx", 'lineNumber': 883, 'className': "Sutl", 'methodName': "_evaluateEval"}))
 			teval = t
 		t2 = Util3.get(teval,"!")
 		s2 = _hx_AnonObject({})
