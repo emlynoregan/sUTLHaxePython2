@@ -2470,7 +2470,7 @@ class Util:
 					else:
 						lopSignifier1 = lopStr[0]
 					lopBuiltinName = Util.getArrayBuiltinName(lopStr)
-					retval = ((((lopSignifier1 == "&") or ((lopSignifier1 == "^")))) and hasattr(b,(("_hx_" + lopBuiltinName) if (lopBuiltinName in python_Boot.keywords) else (("_hx_" + lopBuiltinName) if (((((len(lopBuiltinName) > 2) and ((ord(lopBuiltinName[0]) == 95))) and ((ord(lopBuiltinName[1]) == 95))) and ((ord(lopBuiltinName[(len(lopBuiltinName) - 1)]) != 95)))) else lopBuiltinName))))
+					retval = ((((lopSignifier1 == "&") or ((lopSignifier1 == "^")))) and UtilReflect.hasField(b,lopBuiltinName))
 		return retval
 
 	@staticmethod
@@ -2526,8 +2526,8 @@ class Util:
 				raise _HxException(Util.MakeExcept(((((((("Different types: type(" + Std.string(aObj1)) + ")=") + ("null" if obj1Type is None else obj1Type)) + ", type(") + Std.string(aObj2)) + ")=") + ("null" if obj2Type is None else obj2Type)),path))
 			if retval:
 				if (obj1Type == "map"):
-					obj1Fields = python_Boot.fields(aObj1)
-					obj2Fields = python_Boot.fields(aObj2)
+					obj1Fields = UtilReflect.fields(aObj1)
+					obj2Fields = UtilReflect.fields(aObj2)
 					retval = (len(obj1Fields) == len(obj2Fields))
 					if (not retval):
 						raise _HxException(Util.MakeExcept(((((((("Keys don't match: fields(" + Std.string(aObj1)) + ")=") + Std.string(obj1Fields)) + ", fields(") + Std.string(aObj2)) + ")=") + Std.string(obj2Fields)),path))
@@ -2536,8 +2536,9 @@ class Util:
 						while (_g < len(obj1Fields)):
 							obj1Field = (obj1Fields[_g] if _g >= 0 and _g < len(obj1Fields) else None)
 							_g = (_g + 1)
-							path.append(obj1Field)
-							retval = (hasattr(aObj2,(("_hx_" + obj1Field) if (obj1Field in python_Boot.keywords) else (("_hx_" + obj1Field) if (((((len(obj1Field) > 2) and ((ord(obj1Field[0]) == 95))) and ((ord(obj1Field[1]) == 95))) and ((ord(obj1Field[(len(obj1Field) - 1)]) != 95)))) else obj1Field))) and Util.deepEqual2(Reflect.field(aObj1,obj1Field),Reflect.field(aObj2,obj1Field),path,(maxdepth - 1)))
+							x = obj1Field
+							path.append(x)
+							retval = (UtilReflect.hasField(aObj2,obj1Field) and Util.deepEqual2(UtilReflect.field(aObj1,obj1Field),UtilReflect.field(aObj2,obj1Field),path,(maxdepth - 1)))
 							if (len(path) == 0):
 								None
 							else:
@@ -2583,13 +2584,12 @@ class Util:
 		objType = Util.gettype(aObj)
 		if (objType == "map"):
 			retval = _hx_AnonObject({})
-			objFields = python_Boot.fields(aObj)
+			objFields = UtilReflect.fields(aObj)
 			_g = 0
 			while (_g < len(objFields)):
 				objField = (objFields[_g] if _g >= 0 and _g < len(objFields) else None)
 				_g = (_g + 1)
-				value = Util.deepCopy(Reflect.field(aObj,objField))
-				setattr(retval,(("_hx_" + objField) if (objField in python_Boot.keywords) else (("_hx_" + objField) if (((((len(objField) > 2) and ((ord(objField[0]) == 95))) and ((ord(objField[1]) == 95))) and ((ord(objField[(len(objField) - 1)]) != 95)))) else objField)),value)
+				UtilReflect.setField(retval,objField,Util.deepCopy(UtilReflect.field(aObj,objField)))
 		elif (objType == "list"):
 			retval = []
 			_g1 = 0
@@ -2614,12 +2614,11 @@ class Util:
 	def addObject(aBase,aAdd):
 		if (Util2.isObject(aBase) and Util2.isObject(aAdd)):
 			_g = 0
-			_g1 = python_Boot.fields(aAdd)
+			_g1 = UtilReflect.fields(aAdd)
 			while (_g < len(_g1)):
 				key = (_g1[_g] if _g >= 0 and _g < len(_g1) else None)
 				_g = (_g + 1)
-				value = Reflect.field(aAdd,key)
-				setattr(aBase,(("_hx_" + key) if (key in python_Boot.keywords) else (("_hx_" + key) if (((((len(key) > 2) and ((ord(key[0]) == 95))) and ((ord(key[1]) == 95))) and ((ord(key[(len(key) - 1)]) != 95)))) else key)),value)
+				UtilReflect.setField(aBase,key,UtilReflect.field(aAdd,key))
 
 	@staticmethod
 	def StringToArray(aStrObj):
@@ -2757,27 +2756,27 @@ class SlowUtil3:
 
 	@staticmethod
 	def isBuiltinEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "&") if ("&" in python_Boot.keywords) else (("_hx_" + "&") if (((((len("&") > 2) and ((ord("&"[0]) == 95))) and ((ord("&"[1]) == 95))) and ((ord("&"[(len("&") - 1)]) != 95)))) else "&"))))
+		return (Util2.isObject(obj) and UtilReflect.hasField(obj,"&"))
 
 	@staticmethod
 	def isEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!") if ("!" in python_Boot.keywords) else (("_hx_" + "!") if (((((len("!") > 2) and ((ord("!"[0]) == 95))) and ((ord("!"[1]) == 95))) and ((ord("!"[(len("!") - 1)]) != 95)))) else "!"))))
+		return (Util2.isObject(obj) and UtilReflect.hasField(obj,"!"))
 
 	@staticmethod
 	def isEval2(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "!!") if ("!!" in python_Boot.keywords) else (("_hx_" + "!!") if (((((len("!!") > 2) and ((ord("!!"[0]) == 95))) and ((ord("!!"[1]) == 95))) and ((ord("!!"[(len("!!") - 1)]) != 95)))) else "!!"))))
+		return (Util2.isObject(obj) and UtilReflect.hasField(obj,"!!"))
 
 	@staticmethod
 	def isQuoteEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "'") if ("'" in python_Boot.keywords) else (("_hx_" + "'") if (((((len("'") > 2) and ((ord("'"[0]) == 95))) and ((ord("'"[1]) == 95))) and ((ord("'"[(len("'") - 1)]) != 95)))) else "'"))))
+		return (Util2.isObject(obj) and UtilReflect.hasField(obj,"'"))
 
 	@staticmethod
 	def isDoubleQuoteEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + "''") if ("''" in python_Boot.keywords) else (("_hx_" + "''") if (((((len("''") > 2) and ((ord("''"[0]) == 95))) and ((ord("''"[1]) == 95))) and ((ord("''"[(len("''") - 1)]) != 95)))) else "''"))))
+		return (Util2.isObject(obj) and UtilReflect.hasField(obj,"''"))
 
 	@staticmethod
 	def isColonEval(obj):
-		return (Util2.isObject(obj) and hasattr(obj,(("_hx_" + ":") if (":" in python_Boot.keywords) else (("_hx_" + ":") if (((((len(":") > 2) and ((ord(":"[0]) == 95))) and ((ord(":"[1]) == 95))) and ((ord(":"[(len(":") - 1)]) != 95)))) else ":"))))
+		return (Util2.isObject(obj) and UtilReflect.hasField(obj,":"))
 
 	@staticmethod
 	def isDictTransform(obj):
@@ -2799,7 +2798,7 @@ class SlowUtil3:
 		elif Util2.isBool(aObj):
 			retval = aObj
 		elif Util2.isObject(aObj):
-			retval = (len(python_Boot.fields(aObj)) > 0)
+			retval = (len(UtilReflect.fields(aObj)) > 0)
 		else:
 			retval = (aObj is not None)
 		return retval
@@ -2812,7 +2811,7 @@ class SlowUtil3:
 	def get(obj,key,_hx_def = None):
 		retval = None
 		if Util2.isObject(obj):
-			retval = Reflect.field(obj,key)
+			retval = UtilReflect.field(obj,key)
 		if (retval is None):
 			retval = _hx_def
 		return retval
