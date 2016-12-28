@@ -794,6 +794,7 @@ class Sutl:
 	def evaluate(self,src,tt,l,h = 0):
 		if (h is None):
 			h = 0
+		haxe_Log.trace("ddfsfsdfsdf",_hx_AnonObject({'fileName': "Sutl.hx", 'lineNumber': 566, 'className': "Sutl", 'methodName': "evaluate"}))
 		retval = self._evaluate(src,tt,l,src,tt,self.builtins(),h)
 		return retval
 
