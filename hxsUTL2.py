@@ -2766,4 +2766,3 @@ class UtilReflect:
 
 UtilReflect._hx_class = UtilReflect
 
-Main.main()
