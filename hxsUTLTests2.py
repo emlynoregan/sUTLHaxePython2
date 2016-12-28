@@ -4227,16 +4227,16 @@ class UtilReflect:
         return "_hx_%s" % key if key in _keywords else key
     
     @staticmethod
-    def fields(obj):
-        return python_Boot.fields(obj)
-#     @staticmethod
 #     def fields(obj):
-#         retval = None
-#         
-#         if Util2.isObject(obj):
-#             retval = [UtilReflect.calckey(key) for key in obj.__dict__]
-# 
-#         return retval
+#         return python_Boot.fields(obj)
+    @staticmethod
+    def fields(obj):
+        retval = None
+         
+        if Util2.isObject(obj):
+            retval = [UtilReflect.calckey(key) for key in obj.__dict__]
+ 
+        return retval
 
     @staticmethod
     def hasField(obj,fieldname):
