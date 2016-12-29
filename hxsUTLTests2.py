@@ -794,7 +794,6 @@ class Sutl:
 	def evaluate(self,src,tt,l,h = 0):
 		if (h is None):
 			h = 0
-		haxe_Log.trace("ddfsfsdfsdf",_hx_AnonObject({'fileName': "Sutl.hx", 'lineNumber': 566, 'className': "Sutl", 'methodName': "evaluate"}))
 		retval = self._evaluate(src,tt,l,src,tt,self.builtins(),h)
 		return retval
 
@@ -804,26 +803,28 @@ class Sutl:
 	def _evaluate(self,s,t,l,src,tt,b,h):
 		r = None
 		self.logenter("_evaluate",s,t,h)
-		if Util3.isEval(t):
-			r = self._evaluateEval(True,s,t,l,src,tt,b,self.dec(h))
-		elif Util3.isEval2(t):
-			r = self._evaluateEval2(s,t,l,src,tt,b,self.dec(h))
-		elif Util3.isBuiltinEval(t):
-			r = self._evaluateBuiltin(s,t,l,src,tt,b,self.dec(h))
-		elif Util3.isQuoteEval(t):
-			r = self._quoteEvaluate(s,Util3.get(t,"'"),l,src,tt,b,self.dec(h))
-		elif Util3.isColonEval(t):
-			r = Util3.get(t,":")
-		elif Util3.isDictTransform(t):
-			r = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
-		elif Util.isArrayBuiltinEval(t,b):
-			r = self._evaluateArrayBuiltin(s,t,l,src,tt,b,self.dec(h))
-		elif Util3.isListTransform(t):
-			tlist = Util.SequenceToArray(t)
-			if ((len(tlist) > 0) and (((tlist[0] if 0 < len(tlist) else None) == "&&"))):
-				r = Util.flatten(self._evaluateList(s,tlist[1:None],l,src,tt,b,self.dec(h)))
-			else:
-				r = self._evaluateList(s,t,l,src,tt,b,self.dec(h))
+		if Util2.isObject(t):
+			if Util3.isEval(t):
+				r = self._evaluateEval(True,s,t,l,src,tt,b,self.dec(h))
+			elif Util3.isEval2(t):
+				r = self._evaluateEval2(s,t,l,src,tt,b,self.dec(h))
+			elif Util3.isBuiltinEval(t):
+				r = self._evaluateBuiltin(s,t,l,src,tt,b,self.dec(h))
+			elif Util3.isQuoteEval(t):
+				r = self._quoteEvaluate(s,Util3.get(t,"'"),l,src,tt,b,self.dec(h))
+			elif Util3.isColonEval(t):
+				r = Util3.get(t,":")
+			elif Util3.isDictTransform(t):
+				r = self._evaluateDict(s,t,l,src,tt,b,self.dec(h),False)
+		elif Util2.isArray(t):
+			if Util.isArrayBuiltinEval(t,b):
+				r = self._evaluateArrayBuiltin(s,t,l,src,tt,b,self.dec(h))
+			elif Util3.isListTransform(t):
+				tlist = Util.SequenceToArray(t)
+				if ((len(tlist) > 0) and (((tlist[0] if 0 < len(tlist) else None) == "&&"))):
+					r = Util.flatten(self._evaluateList(s,tlist[1:None],l,src,tt,b,self.dec(h)))
+				else:
+					r = self._evaluateList(s,t,l,src,tt,b,self.dec(h))
 		elif Util.isStringBuiltinEval(t,b):
 			r = self._evaluateStringBuiltin(s,t,l,src,tt,b,self.dec(h))
 		else:
@@ -971,7 +972,7 @@ class Sutl:
 		elif (builtinf is not None):
 			sX = None
 			if needseval:
-				sX = self._evaluateDict(s,t,l,src,tt,b,self.dec(h))
+				sX = self._evaluateDict(s,t,l,src,tt,b,self.dec(h),True)
 			else:
 				sX = t
 			s2 = None
@@ -982,7 +983,7 @@ class Sutl:
 				s2 = sX
 			l2 = l
 			if UtilReflect.hasField(t,"*"):
-				l2 = self._evaluateDict(s,Util3.get(t,"*"),l,src,tt,b,self.dec(h))
+				l2 = self._evaluateDict(s,Util3.get(t,"*"),l,src,tt,b,self.dec(h),False)
 			retval = builtinf(s,s2,l2,src,tt,b,self.dec(h))
 		return retval
 
@@ -991,7 +992,7 @@ class Sutl:
 		retval = None
 		teval = None
 		if needseval:
-			teval = self._evaluateDict(s,t,l,src,tt,b,h)
+			teval = self._evaluateDict(s,t,l,src,tt,b,h,False)
 		else:
 			teval = t
 		t2 = Util3.get(teval,"!")
@@ -1027,19 +1028,19 @@ class Sutl:
 		self.logexit("_evaluateEval",r,h)
 		return r
 
-	def _evaluateDict(self,s,t,l,src,tt,b,h):
+	def _evaluateDict(self,s,t,l,src,tt,b,h,skipAmp):
 		self.logenter("_evaluateDict",s,t,h)
-		retval = self._doevaluateDict(False,s,t,l,src,tt,b,self.dec(h))
+		retval = self._doevaluateDict(False,s,t,l,src,tt,b,self.dec(h),skipAmp)
 		self.logexit("_evaluateDict",retval,h)
 		return retval
 
 	def _quoteEvaluateDict(self,s,t,l,src,tt,b,h):
 		self.logenter("_quoteEvaluateDict",s,t,h)
-		retval = self._doevaluateDict(True,s,t,l,src,tt,b,self.dec(h))
+		retval = self._doevaluateDict(True,s,t,l,src,tt,b,self.dec(h),False)
 		self.logexit("_quoteEvaluateDict",retval,h)
 		return retval
 
-	def _doevaluateDict(self,usequoteform,s,t,l,src,tt,b,h):
+	def _doevaluateDict(self,usequoteform,s,t,l,src,tt,b,h,skipAmp):
 		retval = _hx_AnonObject({})
 		_g = 0
 		_g1 = UtilReflect.fields(t)
@@ -1048,7 +1049,7 @@ class Sutl:
 			_g = (_g + 1)
 			if usequoteform:
 				UtilReflect.setField(retval,key,self._quoteEvaluate(s,Util3.get(t,key),l,src,tt,b,h))
-			else:
+			elif (key != "&"):
 				lnewt = self._evaluate(s,Util3.get(t,key),l,src,tt,b,h)
 				UtilReflect.setField(retval,key,lnewt)
 		return retval
